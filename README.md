@@ -1,1 +1,1 @@
-# GasLigh
+# GasLight
