@@ -22,7 +22,7 @@ const App = () => (
     <Switch>
       {/* <Route path="/campaigns" component={CampaignContainer} />
       <Route path="/campaigns/:campaignId" component={UserCampainContainer} /> */}
-      <Route path="/users/:userId/profile" component={UserProfileContainer} />
+      {/* <Route path="/users/:userId/profile" component={UserProfileContainer} /> */}
       <Route path="/" component={GreetingContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
