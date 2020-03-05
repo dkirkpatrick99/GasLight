@@ -1,0 +1,5 @@
+class Reward < ApplicationRecord
+
+    
+
+end
