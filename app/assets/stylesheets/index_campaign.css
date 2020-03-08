@@ -1,0 +1,80 @@
+
+.header-image {
+    background-size: cover;
+    background-position: 50% center;
+    background-repeat: no-repeat;
+    /* position: absolute; */
+    width: 100%;
+    height: 400px;
+    background-image: url(https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/f_auto/v1580949362/onanvy5ta2wewv2r8ijr.png);
+}
+
+
+.items-container {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.list-of-items {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.camp-item {
+    width: 300px;
+    height: 550px;
+    border: 1px solid darkgray;
+    margin: 20px;
+    background-color: snow;
+}
+
+.heart-bar {
+    padding: 17px;
+    border-bottom: 1px solid lightgray;
+}
+
+.heart-bar span {
+    color: #088366;
+    font-weight: 550;
+    font-size: 14px;
+
+}
+
+.camp-content {
+    padding: 17px;
+}
+
+.camp-content h1 {
+    font-size: 18px;
+    color: black;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.camp-content p {
+    color: gray;
+    font-size: 15px;
+}
+
+.campaign-item {
+    list-style-type: none;
+    transition: transform .2s; 
+}
+
+.campaign-item:hover {
+    transform: scale(1.07);
+    /* box-shadow: 5px; */
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+    color: #222222 !important;
+    font-family: slick;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}

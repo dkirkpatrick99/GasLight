@@ -21,7 +21,6 @@
  .header a {
      display: block;
      padding: 10px 20px;
-     font-family: Helvetica;
  }
 
  .header-nav {
@@ -46,7 +45,9 @@
  .logo {
      color: #e51075;
      font-size: 31px;
-     font-weight: 900;
+     font-weight: 1000;
+     /* ￼-webkit-font-smoothing: antialiased; */
+     /* -webkit-font-smoo */
  }
 
  .nav-button {
@@ -58,7 +59,7 @@
  }
 
  .header-logo .nav-button {
-     margin-bottom: 7px;
+     margin-bottom: 8px;
  }
 
  .right-header-items li {
@@ -137,6 +138,16 @@
      margin-top: 20px;
  }
 
+ /* .featured-carousel {
+     height: 655px;
+     width: 100%;
+ } */
+
+.home-slide {
+    height: 655px;
+    width: 100%;
+}
+
  .featured-product {
     position: relative;
     display: inline-block;
@@ -153,20 +164,13 @@
      background-repeat: no-repeat;
      position: absolute;
      width: 100%;
-     height: 600px;
+     height: 655px;
      /* top: 0; */
      transition: ease-in-out;
      /* box-sizing: border-box; */
      background-image: url(https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/f_auto/v1580949362/onanvy5ta2wewv2r8ijr.png);
  }
 
- .popular-projects {
-     /* display: flex; */
-     position: relative;
-     bottom: -616px;
-     margin-left: 200px;
-     font-size: 30px;
- }
 
  /* @media only screen and (max-width: 1700px) and (min-height: 100px) { */
 .image-blocks {
@@ -174,9 +178,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 100%;
+    max-width: 1500px;
+    /* max-width: 100%; */
     max-height: 70%;
-    bottom: -800px;
+    bottom: -40px;
     /* background-color: blue; */
 }
 
@@ -196,40 +201,137 @@
 .all-images {
     display: flex;
     justify-content: center;
+    height: 100%;
+    width: 100%;
 }
 
 .image-blocks a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 20px;
 }
 
  .image1 {
      background-size: cover;
      background-repeat: no-repeat;
-     width: 620px;
-     height: 420px;
+    
      background-image: url(https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/f_auto/v1582594054/ded5gumwfuw5waidbgyj.jpg);
  }
 
  .image2 {
     background-size: cover;
     background-repeat: no-repeat;
-    width: 620px;
-    height: 420px;
+ 
     background-image: url(https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/f_auto/v1582593421/brzaet0dzhaptrwl8fo0.jpg);
  }
 
  .image3 {
     background-size: cover;
     background-repeat: no-repeat;
-    width: 620px;
-    height: 420px;
+
     background-image: url(https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/f_auto/v1582075857/aqertp13ykotkbuphali.png);
  }
 
  .image4 {
     background-size: cover;
     background-repeat: no-repeat;
-    width: 620px;
-    height: 420px;
+    
     background-image: url(https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/f_auto/v1545951428/ssy8asu7e9f8di3wbo52.jpg);
  }
+
+ .squre {
+    width: 680px;
+    height: 420px;
+ }
+
+ .image-text {
+     font-weight: 600;
+     color: white;
+     font-size: 43px;
+     position: absolute;
+ }
+ 
+ .content-carousel {
+     display: flex;
+     justify-content: center;
+ }
+
+ .popular-projects {
+     position: relative;
+     bottom: -50px;
+     font-size: 30px;
+     height: 800px;
+     width: 1450px;
+     margin: auto;
+     /* background-color: teal; */
+ }
+
+ .popular-projects h3 {
+     margin-left: 20px;
+ }
+
+.slick-prev:before,
+.slick-next:before
+{
+    color: #222222 !important;
+    font-family: slick;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.search-icons {
+    position: relative;
+    bottom: -33px;
+    display: flex;
+    justify-content: center;
+}
+
+.icon-container {
+    text-align: center;
+    width: 100%;
+}
+
+.search-icons h1 {
+    font-size: 40px;
+}
+
+.search-icons h3 {
+    font-weight: 100;
+}
+
+.icons {
+    width: 90%;
+    height: 200px;
+    margin: auto;
+}
+
+.icons p {
+    width: 68px;
+}
+
+.icons i {
+    font-size: 65px;
+    color: #e51075;
+    /* margin-left: 95px;
+    margin-right: 95px;
+    margin-top: 20px;
+    margin-bottom: 10px; */
+}
+
+.inner-icon {
+    display: inline-grid;
+    margin-left: 95px;
+    margin-right: 95px;
+    margin-top: 27px;
+    transition: transform .2s; 
+    /* margin-bottom: 30px; */
+}
+
+.inner-icon:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.inner-icon a {
+    margin-bottom: 15px;
+}
