@@ -63,6 +63,7 @@ class Greeting extends React.Component {
 
         <div className="search-icons">
           <div className="icon-container">
+            <div className="create-image"></div>
             <h1>Which categories interest you?</h1>
             <h3>Discover projects just for you and get great recommendations when you select your interests.</h3>
             <div className="icons">

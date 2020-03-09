@@ -1,0 +1,20 @@
+.create-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-content input {
+    border: 1px solid gray;
+}
+
+.create-content textarea {
+    border: 1px solid gray;
+}
+
+form > h1 {
+    font-size: 100px;
+}
+
+label {
+    font-size: x-large;
+}

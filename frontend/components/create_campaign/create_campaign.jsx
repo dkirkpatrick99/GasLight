@@ -17,7 +17,8 @@ class CreateCampaign extends React.Component{
     render() {
         return(
             <form onSubmit={this.handleSubmit}>
-                <div>
+                <h1>{this.props.formType}</h1>
+                <div className="create-content">
                     <label>Title:
                         <input type="text" onChange={this.update('title')}/>
                     </label>
@@ -39,6 +40,8 @@ class CreateCampaign extends React.Component{
                     <label>Goal Status:
                         <input type="text" onChange={this.update('goal_status')}/>
                     </label>
+
+                    <input type="submit" value={this.props.formType}/>
                 </div>
             </form>
         )
