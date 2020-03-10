@@ -4,6 +4,7 @@ class Api::CampaignsController < ApplicationController
     end
 
     def create
+        debugger
         @campaign = current_user.campaigns.new(campaign_params)
         if @campaign.save
             render :show

@@ -1,3 +1,4 @@
+
 export const fetchCampaigns = () => (
     $.ajax({
       url: `api/campaigns/`
@@ -13,7 +14,7 @@ export const fetchCampaigns = () => (
   export const createCampaign = campaign => (
     $.ajax({
       url: `api/campaigns/`,
-      method: 'campaign',
+      method: 'POST',
       data: { campaign }
     })
   );
@@ -21,7 +22,7 @@ export const fetchCampaigns = () => (
   export const updateCampaign = campaign => (
     $.ajax({
       url: `/api/campaigns/${campaign.id}`,
-      method: 'patch',
+      method: 'Patch',
       data: { campaign }
     })
   );

@@ -8,7 +8,7 @@ export const CAMPAIGN_ERROR = 'CAMPAIGN_ERROR';
 
 const receiveAllCampaigns = campaigns => ({
   type: RECEIVE_ALL_CAMPAIGNS,
-  campaigns
+  campaigns 
 });
 
 const receiveCampaign = campaign => ({
@@ -26,21 +26,21 @@ export const campaignError = error => ({
     error
   })
 
-export const fetchCampaigns = () => dispatch => (
-  CampaignApiUtil.fetchCampaigns()
+export const fetchCampaigns = () => dispatch => {
+  return CampaignApiUtil.fetchCampaigns()
     .then(campaigns => dispatch(receiveAllCampaigns(campaigns)))
-);
+  
+};
 
 export const fetchCampaign = campaignId => dispatch => (
   CampaignApiUtil.fetchCampaign(campaignId)
     .then(campaign => dispatch(receiveCampaign(campaign)))
 );
 
-export const createCampaign = campaign => dispatch => (
-  CampaignApiUtil.createCampaign(campaign)
-    .then(campaign => { dispatch(receiveCampaign(campaign)); dispatch(clearErrors())}, 
-    err => dispatch(receiveErrors(err.responseJSON)))
-);
+export const createCampaign = campaign => dispatch => {
+  return CampaignApiUtil.createCampaign(campaign)
+    .then(campaign => dispatch(receiveCampaign(campaign)))
+};
 
 // export const createCampaign = campaign => dispatch => (
 //       CampaignApiUtil.createCampaign(campaign)

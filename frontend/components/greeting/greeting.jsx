@@ -9,23 +9,11 @@ class Greeting extends React.Component {
     super(props)
   }
 
-  // imageCycle() {
-  //   cont imagesToRotate = [https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/f_auto/v1580949362/onanvy5ta2wewv2r8ijr.png, https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/f_auto/v1580497862/iczgtxf4a3sysnebcvgp.png]
-  // }
-
-  signupModal(e) {
-    document.querySelector('.signup-pop').style.display = 'flex';
-  }
-
-  closeButton(e){
-    document.querySelector('.signup-pop').style.display = 'none';
-  }
-
 
   render() {
 
     const featured = {
-      dots: true,
+      dots: false,
       infinite: true,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -42,19 +30,19 @@ class Greeting extends React.Component {
         <Slider {...featured}>
           <div className="home-slide">
             <a href="#" className="featured-product">
-              <div className="featured-image">
+              <div className="featured-image featured-image1">
               </div>
             </a>
           </div>
           <div className="home-slide">
             <a href="#" className="featured-product">
-              <div className="featured-image">
+              <div className="featured-image featured-image2">
               </div>
             </a>
           </div>
           <div className="home-slide">
             <a href="#" className="featured-product">
-              <div className="featured-image">
+              <div className="featured-image featured-image3">
               </div>
             </a>
           </div>

@@ -59,7 +59,7 @@ class GreetingCarousel extends React.Component {
       // prevArrow: <SamplePrevArrow />
     };
     return (
-      <Slider {...settings}>
+          <Slider {...settings}>
         {images}
       </Slider>
     );

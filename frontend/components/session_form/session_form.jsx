@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -36,44 +37,73 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    if (this.props.formType === 'signup'){
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to MoneyWise!
-          <br/>
-          Please {this.props.formType} or {this.props.navLink}
-          {this.renderErrors()}
-          <div className="login-form">
-            <br/>
-            <label>Username:
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-            <label>Email:
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-            <label>Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-            <input className="session-submit" type="submit" value={this.props.formType} />
-          </div>
-        </form>
+
+      <div className="signup-pop">
+      <div className="signup-content">
+      <div className="top-modal">
+          <div className="close" onClick={this.props.closeModal}>+</div>
+          <h1>Welcome!</h1>
+          <p>Sign Up to join MoneyWise</p>
       </div>
-    );
+      <form onSubmit={this.handleSubmit}>
+
+          <label>Username 
+              <input type="text" placeholder="Bill_Gates01" onChange={this.update('username')}/>
+          </label>
+
+          <label>Email
+              <input type="text" placeholder="Billy_G$@gmail.com" onChange={this.update('email')}/>
+          </label>
+
+          <label>Password
+              <input type="password" placeholder="DOMContentLoaded" onChange={this.update('password')}/>
+          </label>
+
+          <input className="signup-submit" type="submit" value="Create Account"/>
+
+      </form>
+
+      <div className="form-switch">
+          <p>Already have an account? <a href="#">Log In</a></p>
+      </div>
+      </div>
+  </div>
+    )} else {
+      return (
+      <div className="signup-pop">
+      <div className="signup-content">
+      <div className="top-modal">
+          <div className="close" onClick={this.props.closeModal}>+</div>
+          <h1>Welcome Back!</h1>
+          <p>Sign In To Get Started</p>
+      </div>
+      <form onSubmit={this.handleSubmit}>
+
+          <label>Username 
+              <input type="text" placeholder="Bill_Gates01" onChange={this.update('username')}/>
+          </label>
+
+          <label>Email
+              <input type="text" placeholder="Billy_G$@gmail.com" onChange={this.update('email')}/>
+          </label>
+
+          <label>Password
+              <input type="password" placeholder="DOMContentLoaded" onChange={this.update('password')}/>
+          </label>
+
+          <input className="signup-submit" type="submit" value="Sign In"/>
+
+      </form>
+
+      <div className="form-switch">
+          <p>Already have an account? <a href="#">Log In</a></p>
+      </div>
+      </div>
+  </div>
+      )}
+
   }
 }
 

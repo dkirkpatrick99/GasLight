@@ -1,13 +1,26 @@
 import React from 'react'
 
-class CreateCampaign extends React.Component{
+class CampaignForm extends React.Component{
     constructor(props) {
         super(props)
-        this.state = this.props.campaign
+        this.state = {
+            title: "",
+            location: "",
+            short_description: "",
+            long_description: "",
+            goal_amont: 0,
+            end_date: "",
+            goal_status: false
+            
+        },
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleSubmit(e) {
-        this.props.CreateCampaign(this.state)
+        e.preventDefault()
+        const campaign = Object.assign({}, this.state);
+        debugger
+        this.props.createCampaign(campaign)
     }
 
     update(field) {
@@ -15,12 +28,13 @@ class CreateCampaign extends React.Component{
     }
 
     render() {
+
         return(
             <form onSubmit={this.handleSubmit}>
                 <h1>{this.props.formType}</h1>
                 <div className="create-content">
                     <label>Title:
-                        <input type="text" onChange={this.update('title')}/>
+                        <input type="text"  onChange={this.update('title')}/>
                     </label>
                     <label>Location:
                         <input type="text" onChange={this.update('location')}/>
@@ -48,4 +62,4 @@ class CreateCampaign extends React.Component{
     }
 }
 
-export default CreateCampaign;
+export default CampaignForm;
