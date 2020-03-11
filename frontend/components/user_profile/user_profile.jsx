@@ -1,3 +1,5 @@
+import React from 'react'
+import CustomArrows from '../home-slider/home-slider'
 
 class UserProfile extends React.Component {
     constructor(props){
@@ -10,6 +12,9 @@ class UserProfile extends React.Component {
 
     render() {
         return(
+  
+
+
             <div>
                 <header className="header">
           <nav className="header-nav">

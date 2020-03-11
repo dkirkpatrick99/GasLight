@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import CustomArrows from '../home-slider/home-slider'
+
 
 class ShowCampaign extends React.Component{
     constructor(props){
@@ -16,9 +18,13 @@ class ShowCampaign extends React.Component{
         if (!this.props.campaign) return null
         return(
             <div>
+            <CustomArrows />
+
+            <div>
                 {
                   this.props.campaign.title
                 }
+            </div>
             </div>
         )
     }

@@ -1,0 +1,76 @@
+.campaign-content{
+    /* display: flex;
+    justify-content: center;  */
+    display: table-caption;
+    width: 700px;
+    align-items: center;
+}
+.create-content {
+    display: flex;
+    flex-direction: column;
+    /* margin-left: 500px; */
+    /* justify-content: center; */
+}
+
+.create-content input {
+    border: 1px solid gray;
+    margin-top: 10px;
+    font-size: 20px;
+    height: 50px;
+}
+
+.create-content textarea {
+    border: 1px solid gray;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+form {
+    display: grid;
+    justify-content: center;
+}
+
+form > h1 {
+    font-size: 100px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.create-content > label {
+    display: inline-grid;
+    margin-bottom: 35px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.create-content label .inner-campaign-text{
+    color: gray;
+    font-size: 20px;
+}
+
+.campaignform-image {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.campaignform-image > img {
+    height: 500px;
+    width: 700px;
+}
+
+.campaign-text {
+    font-size: 50px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.instructions {
+    font-size: 30px;
+    font-weight: 500;
+    width: 1200px;
+    margin-bottom: 80px;
+    margin-top: 30px;
+}

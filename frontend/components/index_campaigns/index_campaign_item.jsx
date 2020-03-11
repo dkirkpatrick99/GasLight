@@ -1,9 +1,10 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 const IndexCampaignItem = (props) => {
     return (
     <li className="campaign-item">
-        <a href="">
+        <NavLink to={`/campaigns/${props.campaign.id}`}>
             <div className="camp-item">
                 <img src="https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/c_fill,f_auto,h_273,w_273/vdkcrhwsyoi3yhlwhwjq.jpg" alt=""/>
                 <div className="lower-item">
@@ -17,7 +18,7 @@ const IndexCampaignItem = (props) => {
                     </div>
                 </div>
             </div>
-        </a>
+        </NavLink>
     </li>
     )
 }

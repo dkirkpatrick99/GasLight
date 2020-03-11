@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import GreetingCarouselContainer from './greeting_carousel_container'
 import Slider from "react-slick";
 
@@ -25,26 +25,41 @@ class Greeting extends React.Component {
 
     return(
       <div>
-
-        <div className="featured-carousel">
+      {/* <div className="gray-out"></div> */}
+      <div className="featured-carousel">
         <Slider {...featured}>
           <div className="home-slide">
-            <a href="#" className="featured-product">
-              <div className="featured-image featured-image1">
-              </div>
-            </a>
+            <NavLink to={'/campaigns/1'} className="featured-product">
+              <div className="featured-image featured-image1"></div>
+                <div className="slide-content">
+                  <div className="move-content">
+                    <div className="slide-title">Drop x THX Panda Headphones</div>
+                    <div className="slide-desc">The World’s highest fidelity wireless headphones.</div>
+                  </div>
+                </div>
+            </NavLink>
           </div>
           <div className="home-slide">
-            <a href="#" className="featured-product">
-              <div className="featured-image featured-image2">
-              </div>
-            </a>
+            <NavLink to={'/campaigns/2'} className="featured-product">
+              <div className="featured-image featured-image2"></div>
+                <div className="slide-content">
+                  <div className="move-content">
+                    <div className="slide-title">CIGA Design Z-Series Mechanical Titanium Watch</div>
+                    <div className="slide-desc">Designed to highlight real men’s love of complexity with outstanding design and superb performance</div>
+                  </div>
+                </div>
+            </NavLink>
           </div>
           <div className="home-slide">
-            <a href="#" className="featured-product">
-              <div className="featured-image featured-image3">
-              </div>
-            </a>
+            <NavLink to={'/campaigns/3'} className="featured-product">
+              <div className="featured-image featured-image3"></div>
+                <div className="slide-content">
+                  <div className="move-content">
+                    <div className="slide-title">V-Tex: 12 Feature Nanotech Shoe for all Seasons</div>
+                    <div className="slide-desc">A mix of a slipper & a boot in one 12 feature all-weather waterproof breathable nanotech knit shoe</div>
+                  </div>
+                </div>
+            </NavLink>
           </div>
         </Slider>
       </div>
@@ -56,39 +71,39 @@ class Greeting extends React.Component {
             <h3>Discover projects just for you and get great recommendations when you select your interests.</h3>
             <div className="icons">
                 <div className="inner-icon">
-              <a href="/campaigns">
+              <NavLink to={"/campaigns"}>
                   <i class="fas fa-home"></i>
-              </a>
+              </NavLink>
                   <j>HOME</j>
                 </div>
                 <div className="inner-icon">
-              <a href="/campaigns">
+              <NavLink to={"/campaigns"}>
                   <i class="fas fa-mobile-alt"></i>
-              </a>
+              </NavLink>
                   <j>ACCESSORIES</j>
                 </div>
                 <div className="inner-icon">
-              <a href="/campaigns">
+              <NavLink to={"/campaigns"}>
                   <i class="fas fa-hiking"></i>
-              </a>
+              </NavLink>
                   <j>TRAVEL</j>
                 </div>
                 <div className="inner-icon">
-              <a href="/campaigns">
+              <NavLink to={"/campaigns"}>
                   <i class="fas fa-heartbeat"></i>
-              </a>
+              </NavLink>
                   <j>FITNESS</j>
                 </div>
                 <div className="inner-icon">
-              <a href="/campaigns">
+              <NavLink to={"/campaigns"}>
                   <i class="fas fa-headphones"></i>
-              </a>
+              </NavLink>
                   <j>AUDIO</j>
                 </div>
                 <div className="inner-icon">
-              <a href="/campaigns">
+              <NavLink to={"/campaigns"}>
                   <i class="fas fa-video"></i>
-              </a>
+              </NavLink>
                   <j>FILM</j>
                 </div>
             </div>
@@ -106,25 +121,25 @@ class Greeting extends React.Component {
 
         <div className="all-images">
           <div className="image-blocks">
-              <a href="#">
+              <NavLink to={"/campaigns"}>
                 <div className="image1 squre"></div>
                 <div className="image-text">10 Cool & Clever Finds</div>
-              </a>
+              </NavLink>
 
-              <a href="#">
+              <NavLink to={"/campaigns"}>
                 <div className="image2 squre" ></div>
                 <div className="image-text">Team Favorites</div>
-              </a>
+              </NavLink>
 
-              <a href="#">
+              <NavLink to={"/campaigns"}>
                 <div className="image3 squre"></div>
                 <div className="image-text">InDemand Superstars</div>
-              </a>
+              </NavLink>
               
-              <a href="#">
+              <NavLink to={"/campaigns"}>
                 <div className="image4 squre"></div>
                 <div className="image-text">Production Ready</div>
-              </a>
+              </NavLink>
           </div>
         </div>
 

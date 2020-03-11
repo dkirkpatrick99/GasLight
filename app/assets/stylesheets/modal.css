@@ -69,3 +69,12 @@
     margin-bottom: 40px;
     margin-top: 20px;
 }
+
+.form-switch {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 155px;
+    align-items: flex-end;
+}
+

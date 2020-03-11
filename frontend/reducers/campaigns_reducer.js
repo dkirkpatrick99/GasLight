@@ -16,7 +16,6 @@ import {
               return nextState;
           case RECEIVE_CAMPAIGN:
               nextState = Object.assign({}, state, action.campaign)
-              debugger
               return nextState;
           case REMOVE_CAMPAIGN:
               delete nextState[action.campaignId]

@@ -1,5 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 
 class NavBar extends React.Component{
@@ -36,25 +37,25 @@ class NavBar extends React.Component{
                 <h1 className="header-logo">
                 <ul className="left-header-items">
                     <li className="logo">
-                <a href="#">MONEYWISE</a>
+                <NavLink to={'/'}>MONEYWISE</NavLink>
                     </li>
                 <li className="nav-button">
-                    <a href="#">Explore</a>
+                    <a>Explore</a>
                     <ul className="drop-down">
                     </ul>
                 </li>
                     <li className="nav-button">
-                <a href="#">What We Do</a>
+                <NavLink to={'/'}>What We Do</NavLink>
                     </li>
                 </ul>
                 </h1>
                 <div className="nav-right">
                 <ul className="right-header-items">
                     <li className="nav-button">
-                    <a href="#">For Entrepreneurs</a>
+                    <NavLink to={'/'}>For Entrepreneurs</NavLink>
                     </li>
                     <li className="nav-button">
-                    <a href="#">Start a Campaign</a>
+                    <a onClick={() => this.props.openModal('signup')}>Start a Campaign</a>
                     </li>
                     <li className="nav-button">
                     <a onClick={() => this.props.openModal('login')}>Log In</a>
@@ -77,34 +78,33 @@ class NavBar extends React.Component{
                             <h1 className="header-logo">
                                 <ul className="left-header-items">
                                     <li className="logo">
-                                        <a href="#">MoneyWise</a>
+                                        <NavLink to={'/'}>MoneyWise</NavLink>
                                     </li>
                                     <li className="nav-button">
-                                        <a href="#">Explore</a>
+                                        <NavLink to={'/'}>Explore</NavLink>
                                     <ul className="drop-down">
                                     </ul>
                                 </li>
                                     <li className="nav-button">
-                                        <a href="#">What We Do</a>
+                                        <NavLink to={'/'} href="#">What We Do</NavLink>
                                     </li>
                                 </ul>
                             </h1>
                             <div className="nav-right">
                                 <ul className="right-header-items">
                                     <li className="nav-button">
-                                        <a href="#">For Entrepreneurs</a>
+                                        <NavLink to={'/'}>For Entrepreneurs</NavLink>
                                     </li>
                                     <li className="nav-button">
-                                        <a href="#">Start a Campaign</a>
+                                        <NavLink to={"/campaigns/new"} href="#">Start a Campaign</NavLink>
                                     </li>
                                     <li className="nav-button">
                                         <a onClick={this.props.logout}>Sign Out</a>
                                     </li>
                                     <li className="nav-button">
-                                        <a href="#">{this.props.currentUser.username}
+                                        <a>{this.props.currentUser.username}
                                         <i class="fas fa-user-cog"></i>
-                                        </a>
-                                        
+                                        </a>                                 
                                     </li>
                                 </ul>
                         </div>
