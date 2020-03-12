@@ -6,7 +6,7 @@ const IndexCampaignItem = (props) => {
     <li className="campaign-item">
         <NavLink to={`/campaigns/${props.campaign.id}`}>
             <div className="camp-item">
-                <img src="https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/c_fill,f_auto,h_273,w_273/vdkcrhwsyoi3yhlwhwjq.jpg" alt=""/>
+                <img src={props.campaign.photoUrl} alt=""/>
                 <div className="lower-item">
                     <div className="heart-bar">
                         <span>FUNDING</span>

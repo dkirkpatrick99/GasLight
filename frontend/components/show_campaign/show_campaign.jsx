@@ -1,7 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import CustomArrows from '../home-slider/home-slider'
-
 
 class ShowCampaign extends React.Component{
     constructor(props){
@@ -18,13 +16,42 @@ class ShowCampaign extends React.Component{
         if (!this.props.campaign) return null
         return(
             <div>
-            <CustomArrows />
+                <div className="short-container">
+                    <div className="short-campaign-content">
+                        <div className="campaign-video">
+                            <div className="over-lay">
+                                <img src={this.props.campaign.photoUrl} alt=""/>
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <iframe className="camp-video" width="800" height="555" 
+                                src="https://www.youtube.com/embed/Rm7gVae7vUY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                            </iframe>
+                        </div>    
+                        <div className="short-content">
+                            <div className="campaign-stage">INDEMAND</div>
+                            <div className="campaign-showtitle">{this.props.campaign.title}</div>
+                            <div className="campaign-showshort">{this.props.campaign.short_description}</div>
+                            <div className="lower-short">
+                                <div className="campaign-showimage">
+                                    <img src={this.props.campaign.photoUrl}/>
+                                </div>
+                                <div>
+                                    {/* <div>{this.props.owner.company_name}</div> */}
+                                    <div className="campaign-showlocation">{this.props.campaign.location}</div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
 
-            <div>
-                {
-                  this.props.campaign.title
-                }
-            </div>
+                <div className="long-content">
+                    <div className="long-campaign-content">
+                    <h1>Story</h1>
+                        {
+                            this.props.campaign.long_description
+                        }
+                    </div>
+                </div>
             </div>
         )
     }

@@ -24,8 +24,8 @@ class Greeting extends React.Component {
     };
 
     return(
-      <div>
-      {/* <div className="gray-out"></div> */}
+      <div className="home-page">
+    
       <div className="featured-carousel">
         <Slider {...featured}>
           <div className="home-slide">
@@ -35,6 +35,7 @@ class Greeting extends React.Component {
                   <div className="move-content">
                     <div className="slide-title">Drop x THX Panda Headphones</div>
                     <div className="slide-desc">The World’s highest fidelity wireless headphones.</div>
+                    <div className="click-to-see">SEE CAMPAIGN <i class="fas fa-angle-right"></i></div>
                   </div>
                 </div>
             </NavLink>
@@ -46,6 +47,7 @@ class Greeting extends React.Component {
                   <div className="move-content">
                     <div className="slide-title">CIGA Design Z-Series Mechanical Titanium Watch</div>
                     <div className="slide-desc">Designed to highlight real men’s love of complexity with outstanding design and superb performance</div>
+                    <div className="click-to-see">SEE CAMPAIGN <i class="fas fa-angle-right"></i></div>
                   </div>
                 </div>
             </NavLink>
@@ -57,6 +59,7 @@ class Greeting extends React.Component {
                   <div className="move-content">
                     <div className="slide-title">V-Tex: 12 Feature Nanotech Shoe for all Seasons</div>
                     <div className="slide-desc">A mix of a slipper & a boot in one 12 feature all-weather waterproof breathable nanotech knit shoe</div>
+                    <div className="click-to-see">SEE CAMPAIGN <i class="fas fa-angle-right"></i></div>
                   </div>
                 </div>
             </NavLink>
@@ -121,25 +124,45 @@ class Greeting extends React.Component {
 
         <div className="all-images">
           <div className="image-blocks">
+                <div className="block-to-flex">
               <NavLink to={"/campaigns"}>
-                <div className="image1 squre"></div>
-                <div className="image-text">10 Cool & Clever Finds</div>
+                <div className="image-flex">
+                  <div className="image1 squre"></div>
+                  <div className="image-text">10 Cool & Clever Finds</div>
+                </div>
+                <div className="see-collection">SEE THE COLLECTION <i class="fas fa-angle-right"></i></div>
               </NavLink>
-
-              <NavLink to={"/campaigns"}>
-                <div className="image2 squre" ></div>
-                <div className="image-text">Team Favorites</div>
-              </NavLink>
-
-              <NavLink to={"/campaigns"}>
-                <div className="image3 squre"></div>
-                <div className="image-text">InDemand Superstars</div>
-              </NavLink>
+                </div>
               
-              <NavLink to={"/campaigns"}>
-                <div className="image4 squre"></div>
-                <div className="image-text">Production Ready</div>
-              </NavLink>
+              <div className="block-to-flex">
+                <NavLink to={"/campaigns"}>
+                  <div className="image-flex">
+                    <div className="image2 squre" ></div>
+                    <div className="image-text">Team Favorites</div>
+                  </div>
+                  <div className="see-collection">SEE THE COLLECTION <i class="fas fa-angle-right"></i></div>
+                </NavLink>
+              </div>
+
+              <div className="block-to-flex">
+                <NavLink to={"/campaigns"}>
+                  <div className="image-flex">
+                    <div className="image3 squre"></div>
+                    <div className="image-text">InDemand Superstars</div>
+                  </div>
+                  <div className="see-collection">SEE THE COLLECTION <i class="fas fa-angle-right"></i></div>
+                </NavLink>
+              </div>
+
+              <div className="block-to-flex">
+                <NavLink to={"/campaigns"}>
+                  <div className="image-flex">
+                    <div className="image4 squre"></div>
+                    <div className="image-text">Production Ready</div>
+                  </div>
+                  <div className="see-collection">SEE THE COLLECTION <i class="fas fa-angle-right"></i></div>
+                </NavLink>
+              </div>
           </div>
         </div>
 

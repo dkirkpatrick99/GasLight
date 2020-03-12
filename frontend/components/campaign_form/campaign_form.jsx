@@ -8,7 +8,7 @@ class CampaignForm extends React.Component{
             location: "",
             short_description: "",
             long_description: "",
-            goal_amont: "",
+            goal_amount: "",
             end_date: "",
             goal_status: false
             
@@ -52,15 +52,15 @@ class CampaignForm extends React.Component{
                             </label>
                             <label>Short Description
                                 <div className="inner-campaign-text"> Give a breif description of your product</div>
-                                <textarea name="" id="" cols="30" rows="5" value={this.state.short_description} onChange={this.update('short_description')}></textarea>
+                                <textarea name="" id="" cols="30" rows="5" value={this.state.short_description} onChange={this.update('short_description')} placeholder="Your Short Campaign Description Goes Here"></textarea>
                             </label>
                             <label>Long Description
                                 <div className="inner-campaign-text">Provide a detailed description of your product</div>
-                                <textarea name="" id="" cols="30" rows="10" value={this.state.long_description} onChange={this.update('long_description')}></textarea>
+                                <textarea name="" id="" cols="30" rows="10" value={this.state.long_description} onChange={this.update('long_description')} placeholder="Your Detailed Campaign Description Goes Here"></textarea>
                             </label>
                             <label>Goal Amount
-                                <div className="inner-campaign-text">Fundsto be raised for this campaign?</div>
-                                <input type="text" value={this.state.goal_amont} onChange={this.update('goal_amount')} placeholder="100,000"/>
+                                <div className="inner-campaign-text">Fundsto be raised for this campaign? (Please do not use ",")</div>
+                                <input type="text" value={this.state.goal_amount} onChange={this.update('goal_amount')} placeholder="100000"/>
                             </label>
                             <label>End Date
                                 <div className="inner-campaign-text">How much time will you allow for this campaign?</div>
@@ -70,8 +70,9 @@ class CampaignForm extends React.Component{
                                 <div className="inner-campaign-text">Has your goal been met?</div>
                                 <input type="text" value={this.state.goal_status} onChange={this.update('goal_status')}/>
                             </label>
-
-                            <input type="submit" value={this.props.formType}/>
+                            <div className="submit-contain">
+                                <input className="campaign-submit" type="submit" value={this.props.formType}/>
+                            </div>
                         </div>
                     </div>
                 </form>

@@ -6,42 +6,53 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
+
 Campaign.delete_all
 User.delete_all
 
 u1 = User.create!(
     username: "alex",
     email: "alex@gmail.com",
+    company_name: "MAD Gaze",
     password: "abcdef1"
 )
 u2 = User.create!(
     username: "gracie",
     email: "gracie@gmail.com",
+    company_name: "PrinCube",
     password: "abcdef2"
 
 )
 u3 = User.create!(
     username: "jasmine",
     email: "jasmine@gmail.com",
+    company_name: "Graff Golf",
     password: "abcdef3"
 )
 u4 = User.create!(
     username: "johnny",
     email: "johnny@gmail.com",
+    company_name: "Flash",
     password: "abcdef4"
 )
 u5 = User.create!(
     username: "alberto",
     email: "alberto@gmail.com",
+    company_name: 'Pecaminosa',
     password: "abcdef5"
 )
 u6 =User.create!(
     username: "lyn",
     email: "lyn@gmail.com",
+    company_name: "V-Tex",
     password: "abcdef6"
 )
 
-camp1 = Campaign.create!(
+
+
+camp = Hash.new()
+camp[1] = Campaign.create!(
     title: "MAD Gaze: Smartest watch with gesture controls",
     location: "Hong Kong, Hong Kong",
     short_description: "Create Your Own Shortcuts, Access a Futuristic Life Using Wrist, Hand & Finger Gestures",
@@ -54,7 +65,7 @@ camp1 = Campaign.create!(
     goal_status: false,
     owner_id: 1
 )
-camp2 = Campaign.create!(
+camp[2] = Campaign.create!(
     title: "PrinCube: The World's Smallest Mobile Color Printer",
     location: "New York, United States",
     short_description: "Palm-size and lightweight, enables color printing anywhere & anytime and on any surface by 3 steps.",
@@ -67,7 +78,7 @@ camp2 = Campaign.create!(
     goal_status: false,
     owner_id: 2
 )
-camp3 = Campaign.create!(
+camp[3] = Campaign.create!(
     title: "Graff Golf: The World’s First Smart Golf Ball",
     location: "Baltimore, United States",
     short_description: "A smart golf ball + analytics platform that tracks your ball and analyzes your unique shot data.",
@@ -79,7 +90,7 @@ camp3 = Campaign.create!(
     goal_status: false,
     owner_id: 3
 )
-camp4 = Campaign.create!(
+camp[4] = Campaign.create!(
     title: "Flash: World's Most Powerful 170W USB-C Powerbank",
     location: "Seattle, United States",
     short_description: "World's Fastest Charging Powerbank with 100W PD & Wireless Powered by Tesla™ graphene batteries",
@@ -92,7 +103,7 @@ camp4 = Campaign.create!(
     goal_status: false,
     owner_id: 4
 )
-camp5 = Campaign.create!(
+camp[5] = Campaign.create!(
     title: "Pecaminosa: A Pixel Noir Game",
     location: "São Miguel, Azores, Portugal",
     short_description: "As a former detective explore Pecaminosa, a failed Las Vegas blended with a gritty Chicago.",
@@ -104,7 +115,7 @@ camp5 = Campaign.create!(
     goal_status: false,
     owner_id: 5
 )
-camp6 = Campaign.create!(
+camp[6] = Campaign.create!(
     title: "V-Tex: 12 Feature Nanotech Shoe for all Seasons",
     location: "Frankfurt, Germany",
     short_description: "A mix of a slipper & a boot in one 12 feature all-weather waterproof breathable nanotech knit shoe",
@@ -117,7 +128,7 @@ camp6 = Campaign.create!(
     goal_status: false,
     owner_id: 6
 )
-camp7 = Campaign.create!(
+camp[7] = Campaign.create!(
     title: "Drop x THX Panda Headphones",
     location: "San Francisco, United States",
     short_description: "The World’s highest fidelity wireless headphones.",
@@ -130,7 +141,7 @@ camp7 = Campaign.create!(
     goal_status: false,
     owner_id: 2
 )
-camp8 = Campaign.create!(
+camp[8] = Campaign.create!(
     title: "CIGA Design Z-Series Mechanical Titanium Watch",
     location: "Alhambra, United States",
     short_description: "Designed to highlight real men’s love of complexity with outstanding design and superb performance",
@@ -143,7 +154,7 @@ camp8 = Campaign.create!(
     goal_status: false,
     owner_id: 4
 )
-camp9 = Campaign.create!(
+camp[9] = Campaign.create!(
     title: "Forsaken: A Short Film",
     location: "York, United Kingdom",
     short_description: "Two sides. One Memory.",
@@ -158,6 +169,11 @@ camp9 = Campaign.create!(
     goal_status: false,
     owner_id: 5
 )
+
+camp.keys.each do |num|
+    file = open("https://moneywise-dev.s3-us-west-1.amazonaws.com/#{num}.jpg")
+    camp[num].photo.attach(io: file, filename: "#{num}.jpg")
+end
 # camp10 = Campaign.create!(
 #     title: "",
 #     location: "",

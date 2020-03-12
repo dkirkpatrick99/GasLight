@@ -40,7 +40,7 @@ class NavBar extends React.Component{
                 <NavLink to={'/'}>MONEYWISE</NavLink>
                     </li>
                 <li className="nav-button">
-                    <a>Explore</a>
+                    <a>Explore <i class="fas fa-chevron-down"></i></a>
                     <ul className="drop-down">
                     </ul>
                 </li>
@@ -81,7 +81,7 @@ class NavBar extends React.Component{
                                         <NavLink to={'/'}>MoneyWise</NavLink>
                                     </li>
                                     <li className="nav-button">
-                                        <NavLink to={'/'}>Explore</NavLink>
+                                        <NavLink to={'/'}>Explore <i class="fas fa-chevron-down"></i></NavLink>
                                     <ul className="drop-down">
                                     </ul>
                                 </li>
@@ -101,9 +101,8 @@ class NavBar extends React.Component{
                                     <li className="nav-button">
                                         <a onClick={this.props.logout}>Sign Out</a>
                                     </li>
-                                    <li className="nav-button">
-                                        <a>{this.props.currentUser.username}
-                                        <i class="fas fa-user-cog"></i>
+                                    <li className="nav-button current-user">
+                                        <a><i class="fas fa-robot"></i> {this.props.currentUser.username}
                                         </a>                                 
                                     </li>
                                 </ul>

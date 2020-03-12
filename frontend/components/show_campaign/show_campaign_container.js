@@ -5,6 +5,7 @@ import { fetchCampaign, deleteCampaign } from '../../actions/campaign_action';
 const mSTP = (state, ownProps) => {
     return {
         campaign: state.entities.campaigns[ownProps.match.params.campaignId]
+        // owner: state.entities.users[state.entities.campaigns[ownProps.match.params.campaignId].owner_id]
     }
 }
 

@@ -14,69 +14,6 @@
  *= require_self
  */
 
- .header {
-    border-bottom: 1px solid #ccc;
- }
-
- .header-nav {
-     display: flex;
-     justify-content: space-between;
-     padding: 5px;
- }
-
-.left-header-items .nav-button {
-    margin-top: 10px;
-}
-
- .right-nav {
-     display: flex;
- }
-
- .left-header-items {
-     display: flex;
-     flex-direction: row;
-     align-items: flex-end;
- }
-
- .right-header-items {
-     display: flex;
- }
-
- .logo {
-     margin-bottom: 3px;
-     margin-left: 5px;
-     margin-right: 10px;
-     color: #e51075;
-     font-size: 45px;
-     font-weight: 500;
-     font-family: 'Passion One', cursive;
-     /* ￼-webkit-font-smoothing: antialiased; */
-     /* -webkit-font-smoo */
- }
-
-
- .nav-button {
-     font-weight: 900;
-     cursor: pointer;
-     font-size: 17px;
-     display: block;
-     padding: 10px 20px;
-     font-family: 'Lato', sans-serif;
-
- }
-
- .nav-button:hover {
-    color: #e51075;
- }
- 
- .header-logo .nav-button {
-    margin-bottom: 8px;
-}
-
-.right-header-items li {
-    margin-top: 10px;
-}
-
 .home-slide {
     z-index: -1;
     height: 630px;
@@ -150,8 +87,31 @@
     margin-right: 200px;
     /* margin-top: 50px; */
     /* top: 100px; */
-    height: 350px;
+    height: 390px;
     width: 400px;
+ }
+
+ .slide-title {
+     font-size: 30px;
+     font-weight: bolder;
+     margin-bottom: 10px;
+     font-family: 'Source Sans Pro', sans-serif;
+ }
+
+ .slide-desc {
+     font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
+ }
+
+ .click-to-see {
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: 800;
+    font-family: 'Source Sans Pro', sans-serif;
+ }
+
+ .click-to-see:hover {
+    color: #e51075;
  }
 
  .featured-carousel .slick-prev {
@@ -208,9 +168,6 @@
 }
 
 .image-blocks a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 20px;
 }
 
@@ -242,6 +199,25 @@
     background-image: url(https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/f_auto/v1545951428/ssy8asu7e9f8di3wbo52.jpg);
  }
 
+ .image-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .block-to-flex {
+     display: flex;
+ }
+
+.see-collection {
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+ .see-collection:hover {
+     color: #e51075;
+ }
+
  .squre {
     width: 680px;
     height: 420px;
@@ -250,7 +226,7 @@
  .image-text {
      font-weight: 600;
      color: white;
-     font-size: 43px;
+     font-size: 46px;
      position: absolute;
  }
  
@@ -259,9 +235,17 @@
      justify-content: center;
  }
 
+ .content-carousel .slick-prev:before, .content-carousel .slick-next:before {
+    font-size: 35px !important;
+ }
+
+ .content-carousel .slick-prev {
+     left: -55px !important;
+ }
+
  .popular-projects {
      position: relative;
-     bottom: -50px;
+     bottom: -20px;
      font-size: 30px;
      height: 800px;
      width: 1450px;
@@ -271,6 +255,7 @@
 
  .popular-projects h3 {
      margin-left: 20px;
+     font-weight: 500;
  }
 
 .slick-prev:before, .slick-next:before {

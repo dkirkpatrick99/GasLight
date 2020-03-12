@@ -23,6 +23,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+    this.props.closeModal();
   }
 
   renderErrors() {
@@ -64,11 +65,11 @@ class SessionForm extends React.Component {
               </label>
 
               <input className="signup-submit" type="submit" value="Create Account"/>
-
+              <button className="signup-submit" onClick={() => this.props.demoLogin().then(this.props.closeModal())}>DEMO USER SIGN IN</button>
           </form>
 
           <div className="form-switch">
-              <p>Already have an account? <a href=''>Log In</a></p>
+            {this.props.otherForm}
           </div>
         </div>  
       </div>
@@ -96,6 +97,7 @@ class SessionForm extends React.Component {
           </label>
 
           <input className="signup-submit" type="submit" value="Sign In"/>
+          <button className="signup-submit" onClick={() => this.props.demoLogin().then(this.props.closeModal())}>DEMO USER SIGN IN</button>
 
       </form>
 
