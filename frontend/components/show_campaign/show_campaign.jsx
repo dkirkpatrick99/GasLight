@@ -11,6 +11,10 @@ class ShowCampaign extends React.Component{
     }
 
 
+    toggleOverlay(e) {
+        document.querySelector('.over-lay').style.display = "none"
+    }
+
 
     render() {
         if (!this.props.campaign) return null
@@ -19,11 +23,11 @@ class ShowCampaign extends React.Component{
                 <div className="short-container">
                     <div className="short-campaign-content">
                         <div className="campaign-video">
-                            <div className="over-lay">
+                            <div className="over-lay" onClick={this.toggleOverlay}>
                                 <img src={this.props.campaign.photoUrl} alt=""/>
                                 <i class="fas fa-play-circle"></i>
                             </div>
-                            <iframe className="camp-video" width="800" height="555" 
+                            <iframe className="camp-video" width="800" height="550" 
                                 src="https://www.youtube.com/embed/Rm7gVae7vUY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                             </iframe>
                         </div>    

@@ -1831,6 +1831,11 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
       this.props.fetchCampaign(this.props.match.params.campaignId);
     }
   }, {
+    key: "toggleOverlay",
+    value: function toggleOverlay(e) {
+      document.querySelector('.over-lay').style.display = "none";
+    }
+  }, {
     key: "render",
     value: function render() {
       if (!this.props.campaign) return null;
@@ -1841,7 +1846,8 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "campaign-video"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "over-lay"
+        className: "over-lay",
+        onClick: this.toggleOverlay
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.props.campaign.photoUrl,
         alt: ""
@@ -1850,7 +1856,7 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
         className: "camp-video",
         width: "800",
-        height: "555",
+        height: "550",
         src: "https://www.youtube.com/embed/Rm7gVae7vUY",
         frameborder: "0",
         allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",

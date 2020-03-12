@@ -30,11 +30,25 @@
     z-index: -1;
 }
 
+.over-lay {
+    height: 0;
+}
+
 .over-lay > img {
+    display: flex;
     position: absolute;
     width: 800px;
-    height: 560px;
+    height: 550px;
     /* z-index: -1; */
+}
+
+.fa-play-circle{
+    font-size: 100px;
+    position: relative;
+    color: white;
+    bottom: -230px;
+    right: -355px;
+    cursor: pointer;
 }
 
 .campaign-stage {
@@ -74,4 +88,5 @@
     font-size: 30px;
     display: block;
 }
+
 

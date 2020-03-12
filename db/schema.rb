@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_223131) do
+ActiveRecord::Schema.define(version: 2020_03_12_160412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_223131) do
     t.integer "owner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "current_sum", default: 0.0
     t.index ["end_date"], name: "index_campaigns_on_end_date"
     t.index ["title"], name: "index_campaigns_on_title"
   end

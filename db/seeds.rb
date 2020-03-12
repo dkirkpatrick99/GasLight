@@ -63,7 +63,8 @@ camp[1] = Campaign.create!(
     goal_amount: 10000,
     end_date: 45,
     goal_status: false,
-    owner_id: 1
+    owner_id: 1,
+    current_sum: 96592
 )
 camp[2] = Campaign.create!(
     title: "PrinCube: The World's Smallest Mobile Color Printer",
@@ -76,7 +77,8 @@ camp[2] = Campaign.create!(
     goal_amount: 500000,
     end_date: 90,
     goal_status: false,
-    owner_id: 2
+    owner_id: 2,
+    current_sum: 945032
 )
 camp[3] = Campaign.create!(
     title: "Graff Golf: The World’s First Smart Golf Ball",
@@ -88,7 +90,8 @@ camp[3] = Campaign.create!(
     goal_amount: 20000,
     end_date: 7,
     goal_status: false,
-    owner_id: 3
+    owner_id: 3,
+    current_sum: 5731
 )
 camp[4] = Campaign.create!(
     title: "Flash: World's Most Powerful 170W USB-C Powerbank",
@@ -98,10 +101,11 @@ camp[4] = Campaign.create!(
     Flash delivers the most powerful USB-C 100W Power Delivery 3.0 charge in a single battery pack while most of the competition struggles to even reach 60W. 
     We've also thrown in a powerful 18W USB-A Qualcomm Quick Charge 3.0 port and a specially designed USB-A port that's compatible with Huawei, Oppo, OnePlus and Vivo's proprietary fast charge technology. 
     To top this of Flash features a powerful 10W wireless fast charge pad and it even supports 2.5W Apple Watch charge meaning 1 powerbank can charge all your devices including all smart phones with wireless and even Apple Airpods/Airpods Pro.",
-    goal_amount: 50000,
+    goal_amount: 55000,
     end_date: 23,
     goal_status: false,
-    owner_id: 4
+    owner_id: 4,
+    current_sum: 33775
 )
 camp[5] = Campaign.create!(
     title: "Pecaminosa: A Pixel Noir Game",
@@ -113,7 +117,8 @@ camp[5] = Campaign.create!(
     goal_amount: 11000,
     end_date: 105,
     goal_status: false,
-    owner_id: 5
+    owner_id: 5,
+    current_sum: 2900
 )
 camp[6] = Campaign.create!(
     title: "V-Tex: 12 Feature Nanotech Shoe for all Seasons",
@@ -126,7 +131,8 @@ camp[6] = Campaign.create!(
     goal_amount: 300000,
     end_date: 2,
     goal_status: false,
-    owner_id: 6
+    owner_id: 6,
+    current_sum: 205100
 )
 camp[7] = Campaign.create!(
     title: "Drop x THX Panda Headphones",
@@ -136,10 +142,11 @@ camp[7] = Campaign.create!(
     Thanks to its planar-ribbon drivers (powered by THX AAA™ amplifier technology) with audio delivered from your phone via Sony’s LDAC Bluetooth, Panda puts you closer to your music than ever before—wherever life takes you. 
     A collaboration between Drop and THX, Panda lets you discover new details in your favorite songs. Equipped with a THX AAA™ amplifier, planar-ribbon drivers, and a high-bandwidth Bluetooth audio codec (a proprietary never-before-seen combination known as the 3P Signal Path), Panda is the world’s first headphone to deliver an audiophile listening experience—wirelessly. 
     It sets a new standard when listening to music, watching movies, or playing games. ",
-    goal_amount: 50000,
+    goal_amount: 70000,
     end_date: 39,
     goal_status: false,
-    owner_id: 2
+    owner_id: 2,
+    current_sum: 200550
 )
 camp[8] = Campaign.create!(
     title: "CIGA Design Z-Series Mechanical Titanium Watch",
@@ -152,7 +159,8 @@ camp[8] = Campaign.create!(
     goal_amount: 100000,
     end_date: 12,
     goal_status: false,
-    owner_id: 4
+    owner_id: 4,
+    current_sum: 1455700
 )
 camp[9] = Campaign.create!(
     title: "Forsaken: A Short Film",
@@ -167,7 +175,8 @@ camp[9] = Campaign.create!(
     goal_amount: 5000,
     end_date: 1,
     goal_status: false,
-    owner_id: 5
+    owner_id: 5,
+    current_sum: 2700
 )
 
 camp.keys.each do |num|
