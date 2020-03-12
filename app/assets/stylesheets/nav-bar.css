@@ -5,11 +5,11 @@
  .header-nav {
      display: flex;
      justify-content: space-between;
-     padding: 5px;
+     padding: 4px;
  }
 
 .left-header-items .nav-button {
-    margin-top: 10px;
+    margin-top: 9px;
 }
 
  .right-nav {
@@ -29,9 +29,9 @@
  .logo {
      margin-bottom: 3px;
      margin-left: 5px;
-     margin-right: 10px;
+     margin-right: 9px;
      color: #e51075;
-     font-size: 45px;
+     font-size: 40px;
      font-weight: 500;
      font-family: 'Passion One', cursive;
      /* ￼-webkit-font-smoothing: antialiased; */
@@ -42,9 +42,9 @@
  .nav-button {
      font-weight: 900;
      cursor: pointer;
-     font-size: 17px;
+     font-size: 15px;
      display: block;
-     padding: 10px 20px;
+     padding: 9px 18px;
      font-family: 'Lato', sans-serif;
 
  }
@@ -54,9 +54,9 @@
  }
  
  .header-logo .nav-button {
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
 .right-header-items li {
-    margin-top: 10px;
+    margin-top: 9px;
 }

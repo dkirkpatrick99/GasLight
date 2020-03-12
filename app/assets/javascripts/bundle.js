@@ -1855,8 +1855,8 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
         "class": "fas fa-play-circle"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
         className: "camp-video",
-        width: "800",
-        height: "550",
+        width: "720",
+        height: "495",
         src: "https://www.youtube.com/embed/Rm7gVae7vUY",
         frameborder: "0",
         allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",

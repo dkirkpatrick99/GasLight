@@ -72,8 +72,12 @@ camp[2] = Campaign.create!(
     short_description: "Palm-size and lightweight, enables color printing anywhere & anytime and on any surface by 3 steps.",
     long_description: "PrinCube is the ultimate handheld, portable printer. It’s ultra-lightweight, fits in the palm of your hand and lets you create fast, vivid, color printing anywhere. 
     It works over Wi-Fi with your phone to easily upload any text, image, or design and instantly print onto virtually any object or surface at the touch of a button. 
+    
     Printing has never been more mobile and more convenient. This incredible lightweight, the color printer is portable enough to take the power of inkjet printing on-the-go anywhere you want. 
-    It's color inkjet personalizes ordinary objects, makes messages that stand out and is the perfect tool for arts and crafts. It’s perfect for business travel, events, art, and fun.",
+    It's color inkjet personalizes ordinary objects, makes messages that stand out and is the perfect tool for arts and crafts. It’s perfect for business travel, events, art, and fun.
+    
+    The biggest limitation of traditional printers is that they can only print on paper. Until now, expensive laser engravers and screen-printing were required for putting logos and lettering on everyday objects. 
+    Now, with the PrinCube handheld portable printer, virtually any object can be printed upon. It makes precise prints on virtually any materials including paper, metal, textiles, plastics, wood, leather and other building and artistic materials.",
     goal_amount: 500000,
     end_date: 90,
     goal_status: false,

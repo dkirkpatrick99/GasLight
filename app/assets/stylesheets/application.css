@@ -16,7 +16,7 @@
 
 .home-slide {
     z-index: -1;
-    height: 630px;
+    height: 567px;
     width: 100%;
 }
 
@@ -40,7 +40,7 @@
     background-repeat: no-repeat;
     position: absolute;
     width: 100%;
-    height: 655px;
+    height: 590px;
     /* top: 0; */
     transition: ease-in-out;
     /* box-sizing: border-box; */
@@ -77,24 +77,24 @@
      /* margin-right: 150px; */
      /* margin-top: 200px; */
      color: white;
-     font-size: 25px;
+     font-size: 22px;
      width: 100%;
-     height: 630px;
+     height: 567px;
      filter: brightness(100%);
  }
 
  .move-content {
-    margin-right: 200px;
+    margin-right: 250px;
     /* margin-top: 50px; */
     /* top: 100px; */
-    height: 390px;
-    width: 400px;
+    height: 351px;
+    width: 360px;
  }
 
  .slide-title {
-     font-size: 30px;
+     font-size: 27px;
      font-weight: bolder;
-     margin-bottom: 10px;
+     margin-bottom: 9px;
      font-family: 'Source Sans Pro', sans-serif;
  }
 
@@ -104,8 +104,8 @@
  }
 
  .click-to-see {
-    font-size: 20px;
-    margin-top: 20px;
+    font-size: 18px;
+    margin-top: 18px;
     font-weight: 800;
     font-family: 'Source Sans Pro', sans-serif;
  }
@@ -115,8 +115,8 @@
  }
 
  .featured-carousel .slick-prev {
-     left: 1530px !important;
-     bottom: -100px !important;
+     left: 1300px !important;
+     bottom: -90px !important;
      margin: auto;
      z-index: 5;
  }
@@ -124,11 +124,11 @@
  .featured-carousel .slick-next {
      right: 420px !important;
      margin: auto !important;
-     bottom: -100px !important;
+     bottom: -90px !important;
  }
 
 .featured-carousel .slick-prev:before, .featured-carousel .slick-next:before {
-    font-size: 60px !important;
+    font-size: 54px !important;
     z-index: 5 !important;
     color: white !important;
  }
@@ -140,10 +140,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 1500px;
+    max-width: 1350px;
     /* max-width: 100%; */
     max-height: 70%;
-    bottom: -40px;
+    bottom: -36px;
     /* background-color: blue; */
 }
 
@@ -168,7 +168,7 @@
 }
 
 .image-blocks a {
-    margin: 20px;
+    margin: 18px;
 }
 
  .image1 {
@@ -210,7 +210,7 @@
  }
 
 .see-collection {
-    margin-top: 5px;
+    margin-top: 4px;
     font-weight: 600;
 }
 
@@ -219,14 +219,14 @@
  }
 
  .squre {
-    width: 680px;
-    height: 420px;
+    width: 612px;
+    height: 378px;
  }
 
  .image-text {
      font-weight: 600;
      color: white;
-     font-size: 46px;
+     font-size: 41px;
      position: absolute;
  }
  
@@ -236,25 +236,25 @@
  }
 
  .content-carousel .slick-prev:before, .content-carousel .slick-next:before {
-    font-size: 35px !important;
+    font-size: 31px !important;
  }
 
  .content-carousel .slick-prev {
-     left: -55px !important;
+     left: -49px !important;
  }
 
  .popular-projects {
      position: relative;
-     bottom: -20px;
-     font-size: 30px;
-     height: 800px;
-     width: 1450px;
+     bottom: -18px;
+     font-size: 27px;
+     height: 720px;
+     width: 1305px;
      margin: auto;
      /* background-color: teal; */
  }
 
  .popular-projects h3 {
-     margin-left: 20px;
+     margin-left: 18px;
      font-weight: 500;
  }
 
@@ -268,7 +268,7 @@
 
 .search-icons {
     position: relative;
-    bottom: -25px;
+    bottom: -22px;
     display: flex;
     justify-content: center;
 }
@@ -279,26 +279,26 @@
 }
 
 .search-icons h1 {
-    font-size: 40px;
+    font-size: 36px;
 }
 
 .search-icons h3 {
     font-weight: 100;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .icons {
     width: 90%;
-    height: 200px;
+    height: 180px;
     margin: auto;
 }
 
 .icons p {
-    width: 68px;
+    width: 61px;
 }
 
 .icons i {
-    font-size: 65px;
+    font-size: 58px;
     color: #e51075;
     /* margin-left: 95px;
     margin-right: 95px;
@@ -308,9 +308,9 @@
 
 .inner-icon {
     display: inline-grid;
-    margin-left: 95px;
-    margin-right: 95px;
-    margin-top: 27px;
+    margin-left: 85px;
+    margin-right: 85px;
+    margin-top: 24px;
     transition: transform .2s; 
     /* margin-bottom: 30px; */
 }
@@ -320,5 +320,5 @@
 }
 
 .inner-icon a {
-    margin-bottom: 15px;
+    margin-bottom: 13px;
 }

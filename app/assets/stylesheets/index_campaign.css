@@ -5,7 +5,7 @@
     background-repeat: no-repeat;
     /* position: absolute; */
     width: 100%;
-    height: 400px;
+    height: 360px;
     background-image: url(https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/f_auto/v1580949362/onanvy5ta2wewv2r8ijr.png);
 }
 
@@ -15,7 +15,7 @@
     width: 80%;
     height: 100%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 45px;
 }
 
 .list-of-items {
@@ -25,39 +25,39 @@
 }
 
 .camp-item {
-    width: 300px;
-    height: 550px;
+    width: 270px;
+    height: 495px;
     border: 1px solid darkgray;
-    margin: 20px;
+    margin: 18px;
     background-color: snow;
 }
 
 .heart-bar {
-    padding: 17px;
+    padding: 15px;
     border-bottom: 1px solid lightgray;
 }
 
 .heart-bar span {
     color: #088366;
     font-weight: 550;
-    font-size: 14px;
+    font-size: 13px;
 
 }
 
 .camp-content {
-    padding: 17px;
+    padding: 15px;
 }
 
 .camp-content h1 {
-    font-size: 18px;
+    font-size: 16px;
     color: black;
-    margin-bottom: 10px;
+    margin-bottom: 9px;
     font-weight: 600;
 }
 
 .camp-content p {
     color: gray;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .campaign-item {

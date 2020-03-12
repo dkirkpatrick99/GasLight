@@ -1,7 +1,7 @@
 .campaign-content{
-    margin-top: 30px;
+    margin-top: 27px;
     display: table-caption;
-    width: 900px;
+    width: 810px;
     align-items: center;
 }
 .create-content {
@@ -13,17 +13,17 @@
 
 .create-content input {
     border: 1px solid gray;
-    margin-top: 10px;
-    font-size: 20px;
-    height: 50px;
-    padding-left: 10px;
+    margin-top: 9px;
+    font-size: 18px;
+    height: 45px;
+    padding-left: 9px;
 }
 
 .create-content textarea {
     border: 1px solid gray;
-    margin-top: 10px;
-    font-size: 20px;
-    padding: 10px;
+    margin-top: 9px;
+    font-size: 18px;
+    padding: 9px;
 }
 
 form {
@@ -32,21 +32,21 @@ form {
 }
 
 form > h1 {
-    font-size: 80px;
+    font-size: 72px;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 .create-content > label {
     display: inline-grid;
-    margin-bottom: 35px;
-    font-size: 30px;
+    margin-bottom: 31px;
+    font-size: 27px;
     font-weight: 600;
 }
 
 .create-content label .inner-campaign-text{
     color: gray;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .campaignform-image {
@@ -58,37 +58,37 @@ form > h1 {
 }
 
 .campaignform-image > img {
-    height: 500px;
-    width: 700px;
+    height: 450px;
+    width: 630px;
 }
 
 .campaign-text {
-    font-size: 38px;
+    font-size: 34px;
     font-weight: 600;
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 .instructions {
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 400;
-    width: 1200px;
-    margin-bottom: 80px;
-    margin-top: 30px;
+    width: 1080px;
+    margin-bottom: 72px;
+    margin-top: 27px;
 }
 
 .campaign-submit {
-    margin-bottom: 80px;
-    width: 250px;
+    margin-bottom: 72px;
+    width: 225px;
     color: white;
     background-color: #e51075;
-    border-radius: 5px;
+    border-radius: 4px;
     text-align: center;
     font-weight: 600;
 }
 
 .submit-contain {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 18px;
     display: flex;
     justify-content: center;
 }
