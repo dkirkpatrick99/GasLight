@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'bcrypt'
 gem 'aws-sdk-s3'
 gem 'jquery-rails'
 gem 'rails_12factor'
@@ -53,7 +54,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
-  gem 'bcrypt'
 end
 
 group :test do
