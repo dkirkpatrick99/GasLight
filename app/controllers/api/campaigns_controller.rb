@@ -4,7 +4,8 @@ class Api::CampaignsController < ApplicationController
     end
 
     def create
-        @campaign = current_user.campaigns.new(campaign_params)
+        @campaign = Campaign.new(campaign_params)
+        @campaign.owner_id = current_user.id
         if @campaign.save
             render :show
         else

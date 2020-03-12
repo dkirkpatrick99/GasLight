@@ -63,7 +63,7 @@ camp[1] = Campaign.create!(
     goal_amount: 10000,
     end_date: 45,
     goal_status: false,
-    owner_id: 1,
+    owner_id: u1.id,
     current_sum: 96592
 )
 camp[2] = Campaign.create!(
@@ -77,7 +77,7 @@ camp[2] = Campaign.create!(
     goal_amount: 500000,
     end_date: 90,
     goal_status: false,
-    owner_id: 2,
+    owner_id: u2.id,
     current_sum: 945032
 )
 camp[3] = Campaign.create!(
@@ -90,7 +90,7 @@ camp[3] = Campaign.create!(
     goal_amount: 20000,
     end_date: 7,
     goal_status: false,
-    owner_id: 3,
+    owner_id: u3.id,
     current_sum: 5731
 )
 camp[4] = Campaign.create!(
@@ -104,7 +104,7 @@ camp[4] = Campaign.create!(
     goal_amount: 55000,
     end_date: 23,
     goal_status: false,
-    owner_id: 4,
+    owner_id: u4.id,
     current_sum: 33775
 )
 camp[5] = Campaign.create!(
@@ -117,7 +117,7 @@ camp[5] = Campaign.create!(
     goal_amount: 11000,
     end_date: 105,
     goal_status: false,
-    owner_id: 5,
+    owner_id: u5.id,
     current_sum: 2900
 )
 camp[6] = Campaign.create!(
@@ -131,7 +131,7 @@ camp[6] = Campaign.create!(
     goal_amount: 300000,
     end_date: 2,
     goal_status: false,
-    owner_id: 6,
+    owner_id: u6.id,
     current_sum: 205100
 )
 camp[7] = Campaign.create!(
@@ -145,7 +145,7 @@ camp[7] = Campaign.create!(
     goal_amount: 70000,
     end_date: 39,
     goal_status: false,
-    owner_id: 2,
+    owner_id: u2.id,
     current_sum: 200550
 )
 camp[8] = Campaign.create!(
@@ -159,7 +159,7 @@ camp[8] = Campaign.create!(
     goal_amount: 100000,
     end_date: 12,
     goal_status: false,
-    owner_id: 4,
+    owner_id: u4.id,
     current_sum: 1455700
 )
 camp[9] = Campaign.create!(
@@ -175,7 +175,7 @@ camp[9] = Campaign.create!(
     goal_amount: 5000,
     end_date: 1,
     goal_status: false,
-    owner_id: 5,
+    owner_id: u5.id,
     current_sum: 2700
 )
 
