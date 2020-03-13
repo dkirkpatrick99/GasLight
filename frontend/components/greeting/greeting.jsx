@@ -166,7 +166,44 @@ class Greeting extends React.Component {
           </div>
         </div>
 
+        <footer className="foot">
 
+          <div className="cat-list">
+            <ul className="cat">EXPLORE
+              <li>What We Do</li>
+              <li>Funding</li>
+              <li>GoFundMe</li>
+            </ul>
+
+            <ul className="cat">ABOUT
+              <li>About Us</li>
+              <li>Blog</li>
+              <li>Trust & Saftey</li>
+              <li>Help & Support</li>
+              <li>Press</li>
+              <li>Careers</li>
+              <li>Contact</li>
+            </ul>
+
+            <ul className="cat">ENTREPRENEURS
+              <li>How it Works</li>
+              <li>MoneyWise Vs KickStarter</li>
+              <li>Education Career</li>
+              <li>Experts Directory</li>
+              <li>Fees</li>
+              <li>Enterprise</li>
+              <li>China</li>
+            </ul>
+          </div>
+
+          <div className="bottom-footer">
+            <div>Terms of Use</div>
+            <div>Pirvacy Policy</div>
+            <div>Cookie Policy</div>
+            <div>Do Not Sell My Personal Information</div>
+            <div>2020 MoneyWise, INC. All Rights Reserved </div>
+          </div>
+        </footer>
         
       </div>
     )

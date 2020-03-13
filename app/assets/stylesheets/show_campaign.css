@@ -21,9 +21,16 @@
     margin-top: 22px;
 }
 
-.campaign-showimage{
+.campaign-showimage {
+    display: flex;
+    margin-bottom: 20px;
+    /* height: 160px; */
+}
+
+.campaign-showimage > img{
     height: 90px;
     width: 90px;
+    margin-right: 10px;
 }
 
 .camp-video {
@@ -42,13 +49,33 @@
     /* z-index: -1; */
 }
 
-.tile-bar{
+.bar-container {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.percent1 {
+    font-size: 25px;
+    font-weight: 900;
+    margin-bottom: 10px;
+
+}
+
+.bar-text {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.tile-bar1{
     height: 10px;
     background-color:#dddddd;
     position: relative;
     border-radius: 10px;
+    /* width: 100px; */
 }
-.tile-bar-done {
+.tile-bar-done1 {
     height: 10px;
     background-color: #35CA97;
     position: absolute;
@@ -73,7 +100,7 @@
 }
 
 .campaign-showtitle {
-    font-weight: 600;
+    font-weight: 900;
     font-size: 36px;
     margin-top: 18px;
     font-family: 'Source Sans Pro', sans-serif;
@@ -104,4 +131,55 @@
     display: block;
 }
 
+.button-container {
+    display: flex;
+}
 
+.campaign-button {
+    margin-top: 24px;
+    text-align: center;
+    height: 45px;
+    width: 115px;
+    border: 1px solid darkgray;
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.back {
+    font-weight: 900;
+    background-color: #e51075;
+    color: white;
+    margin-right: 15px;
+    border-radius: 3px;
+}
+
+.follow-it {
+    color: black;
+    background-color: white;
+    font-weight: 900;
+    border-radius: 3px;
+}
+
+.follow-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-icons {
+    margin-top: 29px;
+    font-size: 21px;
+    color: gray;
+}
+
+.fa-instagram {
+    margin-left: 15px;
+}
+
+.fa-twitter {
+    margin-left: 15px;
+}
+
+.fa-link {
+    margin-left: 15px;
+    margin-right: 5px;
+}

@@ -1,0 +1,34 @@
+.foot {
+    background-color: #f5f5f5;
+    height: 480px;
+    margin-top: 120px;
+}
+
+.cat-list {
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.bottom-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.bottom-footer > div {
+    margin: 15px;
+}
+
+.cat {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.cat > li {
+    font-size: 15px;
+    margin-top: 15px;
+}

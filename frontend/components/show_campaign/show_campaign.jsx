@@ -17,15 +17,16 @@ class ShowCampaign extends React.Component{
 
 
     render() {
-
-        // let funds;
-        // if (this.props.campaign.funding_percent < 100) {
-        //   funds = this.props.campaign.funding_percent;
-        // } else {
-        //   funds = 100;
-        // }
-
+ 
         if (!this.props.campaign) return null
+
+        let funds;
+        if (this.props.campaign.funding_percent < 100) {
+          funds = this.props.campaign.funding_percent;
+        } else {
+          funds = 100;
+        }
+
         return(
             <div>
                 <div className="short-container">
@@ -46,17 +47,33 @@ class ShowCampaign extends React.Component{
                             <div className="lower-short">
                                 <div className="campaign-showimage">
                                     <img src={this.props.campaign.photoUrl}/>
-                                </div>
-                                <div>
-                                    {/* <div>{this.props.owner.company_name}</div> */}
                                     <div className="campaign-showlocation">{this.props.campaign.location}</div>
+                                </div>
+                                <div className="bar-container">
+                                    {/* <div>{this.props.owner.company_name}</div> */}
                                     <div className="funding-details">
-                                        <div className="percent"><span>{`${this.props.campaign.funding_percent}% `}</span>{`of $${this.props.campaign.goal_in_dollars} goal`}</div>
+                                        <div className="percent1">
+                                            {`$${this.props.campaign.current_sum}`}
+                                        </div>
                                     </div>
-                                    <div className="tile-bar">
-                                        <div className="tile-bar-done" style={{width: `${this.props.campaign.funding_percent}%`}}></div>
+                                    <div className="tile-bar1">
+                                        <div className="tile-bar-done1" style={{width: `${funds}%`}}></div>
                                     </div>
-                                    <div><span>{this.props.campaign.end_date}</span> days left</div>
+                                    <div className="bar-text">
+                                        <span>{`${this.props.campaign.funding_percent}% of`}{` $${this.props.campaign.goal_in_dollars} FIXED GOAL`}</span>
+                                        <div className="days-left1"><span><i class="fas fa-clock"></i> &nbsp; {this.props.campaign.end_date}</span> days left</div>
+                                    </div>
+                                </div>
+                                <div className="follow-content">
+                                    <div className="button-container">
+                                        <button className="campaign-button back">BACK IT</button>
+                                        <button className="campaign-button follow-it"><i class="far fa-heart"></i> &nbsp;FOLLOW</button>
+                                    </div>
+                                    <div className="social-icons">
+                                        <i class="fab fa-instagram"></i>
+                                        <i class="fab fa-twitter"></i>
+                                        <i class="fas fa-link"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>    

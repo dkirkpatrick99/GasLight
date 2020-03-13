@@ -92,14 +92,14 @@
  }
 
  .slide-title {
-     font-size: 27px;
+     font-size: 32px;
      font-weight: bolder;
      margin-bottom: 9px;
      font-family: 'Source Sans Pro', sans-serif;
  }
 
  .slide-desc {
-     font-weight: 600;
+    font-weight: 600;
     font-family: 'Source Sans Pro', sans-serif;
  }
 

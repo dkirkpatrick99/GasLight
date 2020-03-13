@@ -409,7 +409,11 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
           className: "nav-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: '/'
-        }, "What We Do")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "What We Do")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "nav-button"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          "class": "fas fa-search"
+        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-right"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "right-header-items"
@@ -462,7 +466,11 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: '/',
           href: "#"
-        }, "What We Do")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "What We Do")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "nav-button"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          "class": "fas fa-search"
+        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-right"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "right-header-items"
@@ -1056,7 +1064,19 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
         className: "see-collection"
       }, "SEE THE COLLECTION ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "fas fa-angle-right"
-      })))))));
+      })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+        className: "foot"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "cat-list"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "cat"
+      }, "EXPLORE", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "What We Do"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Funding"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "GoFundMe")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "cat"
+      }, "ABOUT", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "About Us"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Blog"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Trust & Saftey"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Help & Support"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Press"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Careers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Contact")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "cat"
+      }, "ENTREPRENEURS", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "How it Works"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "MoneyWise Vs KickStarter"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Education Career"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Experts Directory"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Fees"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Enterprise"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "China"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "bottom-footer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Terms of Use"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pirvacy Policy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cookie Policy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Do Not Sell My Personal Information"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "2020 MoneyWise, INC. All Rights Reserved "))));
     }
   }]);
 
@@ -1873,13 +1893,15 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // let funds;
-      // if (this.props.campaign.funding_percent < 100) {
-      //   funds = this.props.campaign.funding_percent;
-      // } else {
-      //   funds = 100;
-      // }
       if (!this.props.campaign) return null;
+      var funds;
+
+      if (this.props.campaign.funding_percent < 100) {
+        funds = this.props.campaign.funding_percent;
+      } else {
+        funds = 100;
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "short-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1916,20 +1938,46 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
         className: "campaign-showimage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.props.campaign.photoUrl
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "campaign-showlocation"
-      }, this.props.campaign.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.campaign.location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "bar-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "funding-details"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "percent"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "".concat(this.props.campaign.funding_percent, "% ")), "of $".concat(this.props.campaign.goal_in_dollars, " goal"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tile-bar"
+        className: "percent1"
+      }, "$".concat(this.props.campaign.current_sum))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tile-bar1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tile-bar-done",
+        className: "tile-bar-done1",
         style: {
-          width: "".concat(this.props.campaign.funding_percent, "%")
+          width: "".concat(funds, "%")
         }
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.campaign.end_date), " days left")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "bar-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "".concat(this.props.campaign.funding_percent, "% of"), " $".concat(this.props.campaign.goal_in_dollars, " FIXED GOAL")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "days-left1"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-clock"
+      }), " \xA0 ", this.props.campaign.end_date), " days left"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "follow-content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "button-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "campaign-button back"
+      }, "BACK IT"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "campaign-button follow-it"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "far fa-heart"
+      }), " \xA0FOLLOW")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "social-icons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fab fa-instagram"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fab fa-twitter"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-link"
+      }))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "long-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "long-campaign-content"
