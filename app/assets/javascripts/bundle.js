@@ -483,7 +483,7 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
           className: "nav-button current-user"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           "class": "fas fa-robot"
-        }), " ", this.props.currentUser.username)))))));
+        }), " \xA0 ", this.props.currentUser.username)))))));
       }
     }
   }]);
@@ -894,7 +894,7 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_slick__WEBPACK_IMPORTED_MODULE_3___default.a, featured, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "home-slide"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        to: '/campaigns/1',
+        to: '/campaigns/7',
         className: "featured-product"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "featured-image featured-image1"
@@ -913,7 +913,7 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "home-slide"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        to: '/campaigns/2',
+        to: '/campaigns/8',
         className: "featured-product"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "featured-image featured-image2"
@@ -932,7 +932,7 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "home-slide"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        to: '/campaigns/3',
+        to: '/campaigns/6',
         className: "featured-product"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "featured-image featured-image3"
@@ -1341,6 +1341,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var IndexCampaignItem = function IndexCampaignItem(props) {
+  var funds;
+
+  if (props.campaign.funding_percent < 100) {
+    funds = props.campaign.funding_percent;
+  } else {
+    funds = 100;
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "campaign-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -1354,11 +1362,38 @@ var IndexCampaignItem = function IndexCampaignItem(props) {
     className: "lower-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "heart-bar"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "FUNDING"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "fund-text"
+  }, "FUNDING"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "heart"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "far fa-heart"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "camp-content"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.campaign.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.campaign.short_description))))));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "space"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.campaign.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.campaign.short_description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "to-bottom"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "deet-holder"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "funding-details"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "percent"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "goal-amt"
+  }, "$".concat(props.campaign.goal_in_dollars, " goal")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "".concat(props.campaign.funding_percent, "% ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "tile-bar"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "tile-bar-done",
+    style: {
+      width: "".concat(funds, "%")
+    }
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "days-left"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fas fa-clock"
+  }), " \xA0 ", props.campaign.end_date), " days left"))))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (IndexCampaignItem);
@@ -1838,6 +1873,12 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      // let funds;
+      // if (this.props.campaign.funding_percent < 100) {
+      //   funds = this.props.campaign.funding_percent;
+      // } else {
+      //   funds = 100;
+      // }
       if (!this.props.campaign) return null;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "short-container"
@@ -1877,7 +1918,18 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
         src: this.props.campaign.photoUrl
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "campaign-showlocation"
-      }, this.props.campaign.location)))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.campaign.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "funding-details"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "percent"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "".concat(this.props.campaign.funding_percent, "% ")), "of $".concat(this.props.campaign.goal_in_dollars, " goal"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tile-bar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tile-bar-done",
+        style: {
+          width: "".concat(this.props.campaign.funding_percent, "%")
+        }
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.campaign.end_date), " days left")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "long-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "long-campaign-content"

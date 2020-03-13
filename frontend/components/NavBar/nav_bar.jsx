@@ -102,7 +102,7 @@ class NavBar extends React.Component{
                                         <a onClick={this.props.logout}>Sign Out</a>
                                     </li>
                                     <li className="nav-button current-user">
-                                        <a><i class="fas fa-robot"></i> {this.props.currentUser.username}
+                                        <a><i class="fas fa-robot"></i> &nbsp; {this.props.currentUser.username}
                                         </a>                                 
                                     </li>
                                 </ul>

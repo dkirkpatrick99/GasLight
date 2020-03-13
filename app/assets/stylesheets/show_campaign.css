@@ -42,6 +42,21 @@
     /* z-index: -1; */
 }
 
+.tile-bar{
+    height: 10px;
+    background-color:#dddddd;
+    position: relative;
+    border-radius: 10px;
+}
+.tile-bar-done {
+    height: 10px;
+    background-color: #35CA97;
+    position: absolute;
+    top: 0px;
+    left: 1px;
+    border-radius: 10px;
+}
+
 .fa-play-circle{
     font-size: 90px;
     position: relative;

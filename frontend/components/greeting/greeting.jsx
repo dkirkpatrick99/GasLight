@@ -29,7 +29,7 @@ class Greeting extends React.Component {
       <div className="featured-carousel">
         <Slider {...featured}>
           <div className="home-slide">
-            <NavLink to={'/campaigns/1'} className="featured-product">
+            <NavLink to={'/campaigns/7'} className="featured-product">
               <div className="featured-image featured-image1"></div>
                 <div className="slide-content">
                   <div className="move-content">
@@ -41,7 +41,7 @@ class Greeting extends React.Component {
             </NavLink>
           </div>
           <div className="home-slide">
-            <NavLink to={'/campaigns/2'} className="featured-product">
+            <NavLink to={'/campaigns/8'} className="featured-product">
               <div className="featured-image featured-image2"></div>
                 <div className="slide-content">
                   <div className="move-content">
@@ -53,7 +53,7 @@ class Greeting extends React.Component {
             </NavLink>
           </div>
           <div className="home-slide">
-            <NavLink to={'/campaigns/3'} className="featured-product">
+            <NavLink to={'/campaigns/6'} className="featured-product">
               <div className="featured-image featured-image3"></div>
                 <div className="slide-content">
                   <div className="move-content">

@@ -1,4 +1,8 @@
 
+.campaign-item {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 .header-image {
     background-size: cover;
     background-position: 50% center;
@@ -26,38 +30,89 @@
 
 .camp-item {
     width: 270px;
-    height: 495px;
+    height: 530px;
     border: 1px solid darkgray;
     margin: 18px;
     background-color: snow;
 }
 
 .heart-bar {
-    padding: 15px;
+    padding: 10px;
+    font-weight: 900;
     border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
 }
 
-.heart-bar span {
+.fund-text {
     color: #088366;
-    font-weight: 550;
+    font-weight: 600;
     font-size: 13px;
-
 }
+
+.heart {
+    color: gray;
+}
+
+.deet-holder {
+    width: 100%;
+}
+
+.percent {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.space {
+    height: 129px;
+}
+
 
 .camp-content {
     padding: 15px;
+    height: 180px;
+    /* margin-bottom: 5px; */
 }
 
 .camp-content h1 {
-    font-size: 16px;
+    font-size: 18px;
     color: black;
     margin-bottom: 9px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .camp-content p {
+    color: black;
+    font-size: 14px;
+}
+
+.tile-bar{
+    height: 10px;
+    background-color:#dddddd;
+    position: relative;
+    border-radius: 10px;
+}
+.tile-bar-done {
+    height: 10px;
+    background-color: #35CA97;
+    position: absolute;
+    top: 0px;
+    left: 1px;
+    border-radius: 10px;
+}
+
+.goal-amt {
+    font-weight: 800;
+}
+
+.days-left{
+    margin-top: 13px;
+    font-size: 15px;
+}
+
+.fa-clock {
     color: gray;
-    font-size: 13px;
 }
 
 .campaign-item {

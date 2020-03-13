@@ -87,7 +87,7 @@
     margin-right: 250px;
     /* margin-top: 50px; */
     /* top: 100px; */
-    height: 351px;
+    height: 370px;
     width: 360px;
  }
 
@@ -115,14 +115,14 @@
  }
 
  .featured-carousel .slick-prev {
-     left: 1300px !important;
+     left: 1290px !important;
      bottom: -90px !important;
      margin: auto;
      z-index: 5;
  }
 
  .featured-carousel .slick-next {
-     right: 420px !important;
+     right: 465px !important;
      margin: auto !important;
      bottom: -90px !important;
  }
@@ -245,17 +245,17 @@
 
  .popular-projects {
      position: relative;
-     bottom: -18px;
-     font-size: 27px;
-     height: 720px;
+     bottom: -10px;
+     height: 755px;
      width: 1305px;
      margin: auto;
      /* background-color: teal; */
- }
-
- .popular-projects h3 {
-     margin-left: 18px;
-     font-weight: 500;
+    }
+    
+.popular-projects h3 {
+    margin-left: 18px;
+    font-weight: 500;
+    font-size: 40px;
  }
 
 .slick-prev:before, .slick-next:before {
@@ -266,9 +266,13 @@
     /* font-size: 100px; */
 }
 
+.popular-projects .slick-list {
+    height: 580px !important;
+}
+
 .search-icons {
     position: relative;
-    bottom: -22px;
+    bottom: -25px;
     display: flex;
     justify-content: center;
 }
@@ -279,7 +283,8 @@
 }
 
 .search-icons h1 {
-    font-size: 36px;
+    font-size: 45px;
+    font-weight: 500;
 }
 
 .search-icons h3 {
@@ -288,9 +293,11 @@
 }
 
 .icons {
+    font-family: 'Source Sans Pro', sans-serif;
     width: 90%;
     height: 180px;
     margin: auto;
+    font-weight: 600;
 }
 
 .icons p {
@@ -310,7 +317,7 @@
     display: inline-grid;
     margin-left: 85px;
     margin-right: 85px;
-    margin-top: 24px;
+    margin-top: 29px;
     transition: transform .2s; 
     /* margin-bottom: 30px; */
 }

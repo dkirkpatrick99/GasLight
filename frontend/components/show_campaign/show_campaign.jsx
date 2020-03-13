@@ -17,6 +17,14 @@ class ShowCampaign extends React.Component{
 
 
     render() {
+
+        // let funds;
+        // if (this.props.campaign.funding_percent < 100) {
+        //   funds = this.props.campaign.funding_percent;
+        // } else {
+        //   funds = 100;
+        // }
+
         if (!this.props.campaign) return null
         return(
             <div>
@@ -42,6 +50,13 @@ class ShowCampaign extends React.Component{
                                 <div>
                                     {/* <div>{this.props.owner.company_name}</div> */}
                                     <div className="campaign-showlocation">{this.props.campaign.location}</div>
+                                    <div className="funding-details">
+                                        <div className="percent"><span>{`${this.props.campaign.funding_percent}% `}</span>{`of $${this.props.campaign.goal_in_dollars} goal`}</div>
+                                    </div>
+                                    <div className="tile-bar">
+                                        <div className="tile-bar-done" style={{width: `${this.props.campaign.funding_percent}%`}}></div>
+                                    </div>
+                                    <div><span>{this.props.campaign.end_date}</span> days left</div>
                                 </div>
                             </div>
                         </div>    
