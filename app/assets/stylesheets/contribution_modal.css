@@ -1,0 +1,99 @@
+.contribution-modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    /* display: none; */
+    font-family: 'Lato', sans-serif;
+
+}
+
+.contribution-content {
+    width: 600px;
+    height: 756px;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    display: block;
+    position: relative;
+}
+
+.centering {
+    display: flex;
+    justify-content: center;
+}
+
+.close-it {
+    position: absolute;
+    top: 0;
+    right: 13px;
+    font-size: 40px;
+    transform: rotate(45deg);
+    cursor: pointer;
+ }
+
+ .close-it:hover {
+    color: #e51075;
+ }
+
+ .contribution-content label {
+    display: block;
+    margin-top: 30px;
+    margin-left: 27px;
+    margin-bottom: 45px;
+    width: 90%;
+    height: 63px;
+    font-size: 18px;
+   }
+
+.contribution-content > p {
+    margin-top: 40px;
+    margin-left: 60px;
+    margin-bottom: 10px;
+    font-size: 20px;
+
+}
+
+.back-it-button {
+    border: 1px solid black;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    font-weight: 600;
+    color: #e51075;
+    margin-left: 10px;
+}
+.contribution-content .amount {
+    border: 1px solid black;
+    height: 50px;
+    width: 300px;
+    padding-left: 10px;
+}
+
+.contribution-content h1 {
+    margin-top: 50px;
+    font-size: 30px;
+    padding-bottom: 18px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.contribution-contain {
+    border: 1px solid black;
+    width: 80%;
+    background-color: #fafafa;
+}
+
+.contribution-contain p {
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+
+.back-it-button:hover{
+    border: 2px solid black;
+}

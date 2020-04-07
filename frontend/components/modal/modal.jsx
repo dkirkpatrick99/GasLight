@@ -4,6 +4,7 @@ import { closeModal } from '../../actions/modal_action';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
+import ContributionModalContainer from '../contribution/contribution_modal_container';
 
 function Modal({modal, closeModal}) {
   if (!modal) {
@@ -16,6 +17,9 @@ function Modal({modal, closeModal}) {
       break;
     case 'signup':
       component = <SignupFormContainer />;
+      break;
+    case 'contribution':
+      component = <ContributionModalContainer />
       break;
     default:
       return null;

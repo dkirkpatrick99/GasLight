@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import ContributionModal from '../contribution/contribution_modal'
 
 class ShowCampaign extends React.Component{
     constructor(props){
@@ -66,7 +67,7 @@ class ShowCampaign extends React.Component{
                                 </div>
                                 <div className="follow-content">
                                     <div className="button-container">
-                                        <button className="campaign-button back">BACK IT</button>
+                                        <button className="campaign-button back" onClick={() => this.props.openModal('contribution')}>BACK IT</button>
                                         <button className="campaign-button follow-it"><i class="far fa-heart"></i> &nbsp;FOLLOW</button>
                                     </div>
                                     <div className="social-icons">

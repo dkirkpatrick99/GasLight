@@ -16,7 +16,7 @@ class UserProfile extends React.Component {
 
 
             <div>
-                <header className="header">
+                {/* <header className="header">
           <nav className="header-nav">
             <h1 className="header-logo">
               <ul className="left-header-items">
@@ -50,7 +50,7 @@ class UserProfile extends React.Component {
               </ul>
             </div>
           </nav>
-        </header>
+        </header> */}
             </div>
         )
     }

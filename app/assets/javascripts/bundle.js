@@ -184,6 +184,57 @@ var deleteCampaign = function deleteCampaign(campaignId) {
 
 /***/ }),
 
+/***/ "./frontend/actions/contribution_actions.js":
+/*!**************************************************!*\
+  !*** ./frontend/actions/contribution_actions.js ***!
+  \**************************************************/
+/*! exports provided: RECEIVE_ALL_CONTRIBUTIONS, RECEIVE_CONTRIBUTION, fetchContributions, createContribution */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_CONTRIBUTIONS", function() { return RECEIVE_ALL_CONTRIBUTIONS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CONTRIBUTION", function() { return RECEIVE_CONTRIBUTION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchContributions", function() { return fetchContributions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createContribution", function() { return createContribution; });
+/* harmony import */ var _util_contribution_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/contribution_api_util */ "./frontend/util/contribution_api_util.js");
+/* harmony import */ var _errors_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./errors_actions */ "./frontend/actions/errors_actions.js");
+
+
+var RECEIVE_ALL_CONTRIBUTIONS = 'RECEIVE_ALL_CONTRIBUTIONS';
+var RECEIVE_CONTRIBUTION = 'RECEIVE_CONTRIBUTION';
+
+var receiveAllContributions = function receiveAllContributions(contributions) {
+  return {
+    type: RECEIVE_ALL_CONTRIBUTIONS,
+    contributions: contributions
+  };
+};
+
+var receiveContribution = function receiveContribution(contribution) {
+  return {
+    type: RECEIVE_CONTRIBUTION,
+    contribution: contribution
+  };
+};
+
+var fetchContributions = function fetchContributions() {
+  return function (dispatch) {
+    return _util_contribution_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchContributions"]().then(function (contributions) {
+      return dispatch(receiveAllContributions(contributions));
+    });
+  };
+};
+var createContribution = function createContribution(contribution) {
+  return function (dispatch) {
+    return _util_contribution_api_util__WEBPACK_IMPORTED_MODULE_0__["createContribution"](contribution).then(function (contribution) {
+      return dispatch(receiveContribution(contribution));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/errors_actions.js":
 /*!********************************************!*\
   !*** ./frontend/actions/errors_actions.js ***!
@@ -835,6 +886,142 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/contribution/contribution_modal.jsx":
+/*!*****************************************************************!*\
+  !*** ./frontend/components/contribution/contribution_modal.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var ContributionModal = /*#__PURE__*/function (_React$Component) {
+  _inherits(ContributionModal, _React$Component);
+
+  function ContributionModal(props) {
+    var _this;
+
+    _classCallCheck(this, ContributionModal);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ContributionModal).call(this, props));
+    _this.state = {
+      amount: 0
+    };
+    return _this;
+  }
+
+  _createClass(ContributionModal, [{
+    key: "update",
+    value: function update(field) {// return e => this.setState({
+      //   [field]: e.currentTarget.value
+      // });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {// e.preventDefault();
+      // const money = Object.assign({}, this.state);
+      // this.props.createContribution(money);
+      // this.props.closeModal();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "contribution-modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "contribution-content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "close-it",
+        onClick: this.props.closeModal
+      }, "+"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Back This Project"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Make a contribution"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "centering"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "contribution-contain"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "amount",
+        type: "text",
+        placeholder: "$100",
+        onChange: this.update('amount')
+      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "back-it-button",
+        type: "submit",
+        value: "Back It"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Contributions are not associated with perks")))))));
+    }
+  }]);
+
+  return ContributionModal;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (ContributionModal);
+
+/***/ }),
+
+/***/ "./frontend/components/contribution/contribution_modal_container.js":
+/*!**************************************************************************!*\
+  !*** ./frontend/components/contribution/contribution_modal_container.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _contribution_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./contribution_modal */ "./frontend/components/contribution/contribution_modal.jsx");
+/* harmony import */ var _actions_contribution_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/contribution_actions */ "./frontend/actions/contribution_actions.js");
+/* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
+
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {
+    formType: 'Back This Project'
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    createContribution: function createContribution(contribution) {
+      return dispatch(Object(_actions_contribution_actions__WEBPACK_IMPORTED_MODULE_2__["createContribution"])(contribution));
+    },
+    closeModal: function closeModal() {
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_3__["closeModal"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_contribution_modal__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/greeting/greeting.jsx":
 /*!***************************************************!*\
   !*** ./frontend/components/greeting/greeting.jsx ***!
@@ -1469,6 +1656,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
 /* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
+/* harmony import */ var _contribution_contribution_modal_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../contribution/contribution_modal_container */ "./frontend/components/contribution/contribution_modal_container.js");
+
 
 
 
@@ -1492,6 +1681,10 @@ function Modal(_ref) {
 
     case 'signup':
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__["default"], null);
+      break;
+
+    case 'contribution':
+      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_contribution_contribution_modal_container__WEBPACK_IMPORTED_MODULE_5__["default"], null);
       break;
 
     default:
@@ -1850,6 +2043,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _contribution_contribution_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contribution/contribution_modal */ "./frontend/components/contribution/contribution_modal.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1867,6 +2061,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1893,6 +2088,8 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       if (!this.props.campaign) return null;
       var funds;
 
@@ -1964,7 +2161,10 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "button-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "campaign-button back"
+        className: "campaign-button back",
+        onClick: function onClick() {
+          return _this.props.openModal('contribution');
+        }
       }, "BACK IT"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "campaign-button follow-it"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -2004,6 +2204,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _show_campaign__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./show_campaign */ "./frontend/components/show_campaign/show_campaign.jsx");
 /* harmony import */ var _actions_campaign_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/campaign_action */ "./frontend/actions/campaign_action.js");
+/* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
+
 
 
 
@@ -2022,6 +2224,9 @@ var mDTP = function mDTP(dispatch) {
     },
     deleteCampaign: function deleteCampaign(campaignId) {
       return dispatch(Object(_actions_campaign_action__WEBPACK_IMPORTED_MODULE_2__["deleteCampaign"])(campaignId));
+    },
+    openModal: function openModal(modal) {
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_3__["openModal"])(modal));
     }
   };
 };
@@ -2124,6 +2329,42 @@ var campaignsReducer = function campaignsReducer() {
 
 /***/ }),
 
+/***/ "./frontend/reducers/contribution_reducer.js":
+/*!***************************************************!*\
+  !*** ./frontend/reducers/contribution_reducer.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_contribution_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/contribution_actions */ "./frontend/actions/contribution_actions.js");
+
+
+var contributionsReducer = function contributionsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var nextState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_contribution_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_CONTRIBUTIONS"]:
+      nextState = Object.assign({}, state, action.contributions);
+      return nextState;
+
+    case _actions_contribution_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CONTRIBUTION"]:
+      nextState = Object.assign({}, state, action.contribution);
+      return nextState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (contributionsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/entities_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/entities_reducer.js ***!
@@ -2136,12 +2377,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _campaigns_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./campaigns_reducer */ "./frontend/reducers/campaigns_reducer.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _contribution_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./contribution_reducer */ "./frontend/reducers/contribution_reducer.js");
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  campaigns: _campaigns_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  campaigns: _campaigns_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  contributions: _contribution_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 }));
 
 /***/ }),
@@ -2422,6 +2666,34 @@ var deleteCampaign = function deleteCampaign(campaignId) {
   return $.ajax({
     url: "/api/campaigns/".concat(campaignId, "/"),
     method: 'DELETE'
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/contribution_api_util.js":
+/*!************************************************!*\
+  !*** ./frontend/util/contribution_api_util.js ***!
+  \************************************************/
+/*! exports provided: fetchContributions, createContribution */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchContributions", function() { return fetchContributions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createContribution", function() { return createContribution; });
+var fetchContributions = function fetchContributions() {
+  return $.ajax({
+    url: "api/contributions/"
+  });
+};
+var createContribution = function createContribution(contribution) {
+  return $.ajax({
+    url: "api/contributions/",
+    method: 'POST',
+    data: {
+      contribution: contribution
+    }
   });
 };
 
