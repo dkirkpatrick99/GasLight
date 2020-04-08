@@ -13,6 +13,11 @@ class Campaign < ApplicationRecord
 
     has_one_attached :photo
 
+    def add_contribution(amount)
+        self.current_sum += amount
+        self.save
+    end
+
     def funding_percent 
         percent = ((self.current_sum/goal_amount)*100).round
         return "0" if percent == 0

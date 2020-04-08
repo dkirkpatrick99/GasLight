@@ -1,6 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import ContributionModal from '../contribution/contribution_modal'
+import Modal from '../modal/modal';
+
 
 class ShowCampaign extends React.Component{
     constructor(props){
@@ -89,6 +91,7 @@ class ShowCampaign extends React.Component{
                         }
                     </div>
                 </div>
+                <Modal campaignId={this.props.campaign.id}/>
             </div>
         )
     }

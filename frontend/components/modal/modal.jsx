@@ -6,7 +6,8 @@ import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import ContributionModalContainer from '../contribution/contribution_modal_container';
 
-function Modal({modal, closeModal}) {
+
+function Modal({modal, closeModal, campaignId}) {
   if (!modal) {
     return null;
   }
@@ -19,7 +20,7 @@ function Modal({modal, closeModal}) {
       component = <SignupFormContainer />;
       break;
     case 'contribution':
-      component = <ContributionModalContainer />
+      component = <ContributionModalContainer campId={campaignId}/>
       break;
     default:
       return null;

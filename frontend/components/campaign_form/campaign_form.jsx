@@ -19,7 +19,6 @@ class CampaignForm extends React.Component{
     handleSubmit(e) {
         e.preventDefault()
         const campaign = Object.assign({}, this.state);
-        debugger
         this.props.createCampaign(campaign)
     }
 

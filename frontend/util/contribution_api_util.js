@@ -5,13 +5,13 @@ export const fetchContributions = () => (
   );
   
   
-  export const createContribution = contribution => (
-    $.ajax({
+  export const createContribution = contribution => {
+    return $.ajax({
       url: `api/contributions/`,
       method: 'POST',
       data: { contribution }
     })
-  );
+  };
   
 
   
