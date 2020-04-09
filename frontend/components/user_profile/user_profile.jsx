@@ -1,56 +1,44 @@
 import React from 'react'
-import CustomArrows from '../home-slider/home-slider'
+import ProfileTabs from './tabs'
 
 class UserProfile extends React.Component {
     constructor(props){
-        super(prop)
+        super(props)
+        this.tabNum = 0;
+        this.panes = [
+          {title: 'Profile', 
+          content:  <div className="profile-move">
+                      <div>
+                        <img className="saver-image" src="profile_saver.png"/>
+                      </div>
+                      <div className="tab-counts">
+                        <div className="small-saver">
+                          <img className="saver-image-inner" src="profile_saver.png"/>
+                          <div>About Me</div>
+                        </div>
+                        <div>10 Campaigns</div>
+                        <div>20 Contributions</div>
+                        <div>55 Comments</div>
+                      </div>
+                    </div>},
+          {title: 'Campaigns', content: 'Second pane here'},
+          {title: 'Contributions', content: 'Third pane here'}
+        ];
+        // this.toggleTab = this.toggleTab.bind(this)
     }
-
 
 
 
 
     render() {
         return(
-  
-
-
-            <div>
-                {/* <header className="header">
-          <nav className="header-nav">
-            <h1 className="header-logo">
-              <ul className="left-header-items">
-                <li className="logo">
-              <a href="#">MoneyWise</a>
-                </li>
-              <li className="nav-button">
-                <a href="#">Explore</a>
-                <ul className="drop-down">
-                </ul>
-              </li>
-                <li className="nav-button">
-              <a href="#">What We Do</a>
-                </li>
-              </ul>
-            </h1>
-            <div className="nav-right">
-              <ul className="right-header-items">
-                <li className="nav-button">
-                  <a href="#">For Entrepreneurs</a>
-                </li>
-                <li className="nav-button">
-                  <a href="#">Start a Campaign</a>
-                </li>
-                <li className="nav-button">
-                  <a href="/login">Log In</a>
-                </li>
-                <li className="nav-button">
-                  <a href="#" onClick={this.signupModal}>Sign Up</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </header> */}
+            <div className="profile-first">
+              <div className="main-contain">
+                <div className="user-name">
+                  <div>{this.props.currentUser.username}</div>
+                </div>
+              <ProfileTabs panes={this.panes}/>
+              </div>
             </div>
         )
     }

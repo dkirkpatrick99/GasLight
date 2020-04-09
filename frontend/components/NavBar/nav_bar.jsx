@@ -40,7 +40,7 @@ class NavBar extends React.Component{
                 <NavLink to={'/'}>MONEYWISE</NavLink>
                     </li>
                 <li className="nav-button">
-                    <a>Explore <i class="fas fa-chevron-down"></i></a>
+                    <a>Explore <i className="fas fa-chevron-down"></i></a>
                     <ul className="drop-down">
                     </ul>
                 </li>
@@ -84,7 +84,7 @@ class NavBar extends React.Component{
                                         <NavLink to={'/'}>MoneyWise</NavLink>
                                     </li>
                                     <li className="nav-button">
-                                        <NavLink to={'/'}>Explore <i class="fas fa-chevron-down"></i></NavLink>
+                                        <NavLink to={'/'}>Explore <i className="fas fa-chevron-down"></i></NavLink>
                                     <ul className="drop-down">
                                     </ul>
                                     </li>
@@ -92,7 +92,7 @@ class NavBar extends React.Component{
                                         <NavLink to={'/'} href="#">What We Do</NavLink>
                                     </li>
                                     <li className="nav-button">
-                                        <i class="fas fa-search"></i>
+                                        <i className="fas fa-search"></i>
                                     </li>
                                 </ul>
                             </h1>
@@ -108,7 +108,7 @@ class NavBar extends React.Component{
                                         <a onClick={this.props.logout}>Sign Out</a>
                                     </li>
                                     <li className="nav-button current-user">
-                                        <a><i class="fas fa-robot"></i> &nbsp; {this.props.currentUser.username}
+                                        <a><i className="fas fa-robot"></i> &nbsp; {this.props.currentUser.username}
                                         </a>                                 
                                     </li>
                                 </ul>

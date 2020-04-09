@@ -1,0 +1,70 @@
+.profile-first {
+    display: flex;
+    justify-content: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 800;
+}
+
+.main-contain {
+    width: 70%;
+    height: 100%;
+}
+
+.user-name{
+    height: 50%;
+    width: 100%;
+    font-size: 50px;
+    padding-top: 50px;
+    padding-bottom: 40px;
+    /* font-weight: 600; */
+}
+
+.tab-container {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid gray;
+}
+.tab-headerr {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.profile-tabss {
+    margin-right: 60px;
+    margin-bottom: 10px;
+    /* font-weight: 800; */
+
+}
+
+.profile-tabss:hover {
+    color: #e51075;
+    cursor: pointer;
+}
+
+.active-tab {
+    color: #e51075;
+}
+
+.saver-image {
+    /* width: 25%;
+    height: 25%; */
+}
+
+.saver-image-inner{
+    width: 80px;
+    height: 65px;
+    border-radius: 100px;
+    margin-right: 10px;
+}
+
+.small-saver {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+}
+
+.profile-move {
+    display: flex;
+    justify-content: space-between;
+}

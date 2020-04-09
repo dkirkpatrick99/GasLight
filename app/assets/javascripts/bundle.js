@@ -453,7 +453,7 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         }, "MONEYWISE")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "Explore ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "fas fa-chevron-down"
+          className: "fas fa-chevron-down"
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "drop-down"
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -509,7 +509,7 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: '/'
         }, "Explore ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "fas fa-chevron-down"
+          className: "fas fa-chevron-down"
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "drop-down"
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -520,7 +520,7 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         }, "What We Do")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "fas fa-search"
+          className: "fas fa-search"
         })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-right"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -541,7 +541,7 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         }, "Sign Out")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-button current-user"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "fas fa-robot"
+          className: "fas fa-robot"
         }), " \xA0 ", this.props.currentUser.username)))))));
       }
     }
@@ -617,6 +617,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modal_modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modal/modal */ "./frontend/components/modal/modal.jsx");
 /* harmony import */ var _session_form_session_form__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./session_form/session_form */ "./frontend/components/session_form/session_form.jsx");
 /* harmony import */ var _campaign_form_edit_campaign_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./campaign_form/edit_campaign_container */ "./frontend/components/campaign_form/edit_campaign_container.js");
+/* harmony import */ var _user_profile_user_profile_container__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./user_profile/user_profile_container */ "./frontend/components/user_profile/user_profile_container.js");
+
 
 
 
@@ -632,8 +634,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NavBar_nav_bar_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_9__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    path: "/users/:userId/profile",
-    component: UserProfileContainer
+    exact: true,
+    path: "/users/:userId/",
+    component: _user_profile_user_profile_container__WEBPACK_IMPORTED_MODULE_12__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/campaigns",
@@ -2273,6 +2276,238 @@ var mDTP = function mDTP(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_show_campaign__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/user_profile/tabs.jsx":
+/*!***************************************************!*\
+  !*** ./frontend/components/user_profile/tabs.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ProfileTabs; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Headers = /*#__PURE__*/function (_React$Component) {
+  _inherits(Headers, _React$Component);
+
+  function Headers() {
+    _classCallCheck(this, Headers);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Headers).apply(this, arguments));
+  }
+
+  _createClass(Headers, [{
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      var selected = this.props.selectedPane;
+      var headers = this.props.panes.map(function (pane, index) {
+        var title = pane.title;
+        var klass = index === selected ? 'active-tab' : '';
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: index,
+          className: "profile-tabss ".concat(klass),
+          onClick: function onClick() {
+            return _this.props.onTabChosen(index);
+          }
+        }, title, ' ');
+      });
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "tab-headerr"
+      }, headers);
+    }
+  }]);
+
+  return Headers;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+var ProfileTabs = /*#__PURE__*/function (_React$Component2) {
+  _inherits(ProfileTabs, _React$Component2);
+
+  function ProfileTabs(props) {
+    var _this2;
+
+    _classCallCheck(this, ProfileTabs);
+
+    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(ProfileTabs).call(this, props));
+    _this2.state = {
+      selectedPane: 0
+    };
+    _this2.selectTab = _this2.selectTab.bind(_assertThisInitialized(_this2));
+    return _this2;
+  }
+
+  _createClass(ProfileTabs, [{
+    key: "selectTab",
+    value: function selectTab(num) {
+      this.setState({
+        selectedPane: num
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var pane = this.props.panes[this.state.selectedPane];
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tabs"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Headers, {
+        selectedPane: this.state.selectedPane,
+        onTabChosen: this.selectTab,
+        panes: this.props.panes
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tab-content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", null, pane.content))));
+    }
+  }]);
+
+  return ProfileTabs;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
+
+/***/ }),
+
+/***/ "./frontend/components/user_profile/user_profile.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/user_profile/user_profile.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tabs */ "./frontend/components/user_profile/tabs.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var UserProfile = /*#__PURE__*/function (_React$Component) {
+  _inherits(UserProfile, _React$Component);
+
+  function UserProfile(props) {
+    var _this;
+
+    _classCallCheck(this, UserProfile);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UserProfile).call(this, props));
+    _this.tabNum = 0;
+    _this.panes = [{
+      title: 'Profile',
+      content: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-move"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "saver-image",
+        src: "profile_saver.png"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tab-counts"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "small-saver"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "saver-image-inner",
+        src: "profile_saver.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "About Me")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "10 Campaigns"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "20 Contributions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "55 Comments")))
+    }, {
+      title: 'Campaigns',
+      content: 'Second pane here'
+    }, {
+      title: 'Contributions',
+      content: 'Third pane here'
+    }]; // this.toggleTab = this.toggleTab.bind(this)
+
+    return _this;
+  }
+
+  _createClass(UserProfile, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-first"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-contain"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-name"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.currentUser.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tabs__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        panes: this.panes
+      })));
+    }
+  }]);
+
+  return UserProfile;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (UserProfile);
+
+/***/ }),
+
+/***/ "./frontend/components/user_profile/user_profile_container.js":
+/*!********************************************************************!*\
+  !*** ./frontend/components/user_profile/user_profile_container.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _user_profile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user_profile */ "./frontend/components/user_profile/user_profile.jsx");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+
+
+var mSTP = function mSTP(state, ownProps) {
+  return {
+    currentUser: state.entities.users[state.session.id]
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {};
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_user_profile__WEBPACK_IMPORTED_MODULE_0__["default"]));
 
 /***/ }),
 
