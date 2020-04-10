@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import IndexCampaign from "./index_campaign"
+import IndexCategory from "./categories"
 import { fetchCampaigns } from '../../actions/campaign_action';
 import { requestCategories } from '../../actions/category_action';
 
@@ -19,4 +19,4 @@ const mDTP = dispatch => ({
     requestCategories: () => dispatch(requestCategories())
 });
 
-export default connect(mSTP, mDTP)(IndexCampaign)
+export default connect(mSTP, mDTP)(IndexCategory)

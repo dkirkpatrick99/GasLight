@@ -9,6 +9,10 @@ class Greeting extends React.Component {
     super(props)
   }
 
+  componentDidMount() {
+    this.props.fetchCampaigns()
+    this.props.requestCategories()
+  }
 
   render() {
 
@@ -80,31 +84,31 @@ class Greeting extends React.Component {
                   <j>HOME</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/campaigns"}>
+              <NavLink to={"/campaigns/3"}>
                   <i class="fas fa-mobile-alt"></i>
               </NavLink>
                   <j>ACCESSORIES</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/campaigns"}>
+              <NavLink to={"/campaigns/1"}>
                   <i class="fas fa-hiking"></i>
               </NavLink>
                   <j>TRAVEL</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/campaigns"}>
+              <NavLink to={"/campaigns/2"}>
                   <i class="fas fa-heartbeat"></i>
               </NavLink>
                   <j>FITNESS</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/campaigns"}>
+              <NavLink to={"/campaigns/4"}>
                   <i class="fas fa-headphones"></i>
               </NavLink>
                   <j>AUDIO</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/campaigns"}>
+              <NavLink to={"/campaigns/5"}>
                   <i class="fas fa-video"></i>
               </NavLink>
                   <j>FILM</j>
@@ -168,7 +172,7 @@ class Greeting extends React.Component {
 
         <footer className="foot">
 
-          <div className="cat-list">
+          {/* <div className="cat-list">
             <ul className="cat">EXPLORE
               <li>What We Do</li>
               <li>Funding</li>
@@ -194,13 +198,13 @@ class Greeting extends React.Component {
               <li>Enterprise</li>
               <li>China</li>
             </ul>
-          </div>
+          </div> */}
 
           <div className="bottom-footer">
-            <div>Terms of Use</div>
+            {/* <div>Terms of Use</div>
             <div>Pirvacy Policy</div>
             <div>Cookie Policy</div>
-            <div>Do Not Sell My Personal Information</div>
+            <div>Do Not Sell My Personal Information</div> */}
             <div>2020 MoneyWise, INC. All Rights Reserved </div>
           </div>
         </footer>

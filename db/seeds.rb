@@ -10,6 +10,8 @@ require 'open-uri'
 
 Campaign.delete_all
 User.delete_all
+Category.destroy_all
+
 
 u1 = User.create!(
     username: "alex",
@@ -47,13 +49,19 @@ u6 =User.create!(
     email: "lyn@gmail.com",
     company_name: "V-Tex",
     password: "abcdef6"
-)
-
-
-
-camp = Hash.new()
-camp[1] = Campaign.create!(
-    title: "MAD Gaze: Smartest watch with gesture controls",
+    )
+    
+    
+    travel = Category.create!(title: 'Travel & Outdoors')
+    fitness = Category.create!(title: "Fitness")
+    accessories = Category.create!(title: "Accessories")
+    audio = Category.create!(title: "Audio")
+    film = Category.create!(title: "Film")
+    games = Category.create!(title: "Games")
+    
+    camp = Hash.new()
+    camp[1] = Campaign.create!(
+        title: "MAD Gaze: Smartest watch with gesture controls",
     location: "Hong Kong, Hong Kong",
     short_description: "Create Your Own Shortcuts, Access a Futuristic Life Using Wrist, Hand & Finger Gestures",
     long_description: "Smartwatches and mobile phones have powerful features that we rely on throughout our day but they can be inconvenient to use while on the go. 
@@ -64,7 +72,8 @@ camp[1] = Campaign.create!(
     end_date: 45,
     goal_status: false,
     owner_id: u1.id,
-    current_sum: 96592
+    current_sum: 96592,
+    category_id: accessories.id
 )
 camp[2] = Campaign.create!(
     title: "PrinCube: The World's Smallest Mobile Color Printer",
@@ -82,7 +91,8 @@ camp[2] = Campaign.create!(
     end_date: 90,
     goal_status: false,
     owner_id: u2.id,
-    current_sum: 945032
+    current_sum: 945032,
+    category_id: accessories.id
 )
 camp[3] = Campaign.create!(
     title: "Graff Golf: The World’s First Smart Golf Ball",
@@ -95,7 +105,8 @@ camp[3] = Campaign.create!(
     end_date: 7,
     goal_status: false,
     owner_id: u3.id,
-    current_sum: 5731
+    current_sum: 5731,
+    category_id: fitness.id
 )
 camp[4] = Campaign.create!(
     title: "Flash: World's Most Powerful 170W USB-C Powerbank",
@@ -109,7 +120,8 @@ camp[4] = Campaign.create!(
     end_date: 23,
     goal_status: false,
     owner_id: u4.id,
-    current_sum: 33775
+    current_sum: 33775,
+    category_id: accessories.id
 )
 camp[5] = Campaign.create!(
     title: "Pecaminosa: A Pixel Noir Game",
@@ -122,7 +134,8 @@ camp[5] = Campaign.create!(
     end_date: 105,
     goal_status: false,
     owner_id: u5.id,
-    current_sum: 2900
+    current_sum: 2900,
+    category_id: games.id
 )
 camp[6] = Campaign.create!(
     title: "V-Tex: 12 Feature Nanotech Shoe for all Seasons",
@@ -136,7 +149,8 @@ camp[6] = Campaign.create!(
     end_date: 2,
     goal_status: false,
     owner_id: u6.id,
-    current_sum: 205100
+    current_sum: 205100,
+    category_id: fitness.id
 )
 camp[7] = Campaign.create!(
     title: "Drop x THX Panda Headphones",
@@ -150,7 +164,8 @@ camp[7] = Campaign.create!(
     end_date: 39,
     goal_status: false,
     owner_id: u2.id,
-    current_sum: 200550
+    current_sum: 200550,
+    category_id: audio.id
 )
 camp[8] = Campaign.create!(
     title: "CIGA Design Z-Series Mechanical Titanium Watch",
@@ -164,7 +179,8 @@ camp[8] = Campaign.create!(
     end_date: 12,
     goal_status: false,
     owner_id: u4.id,
-    current_sum: 1455700
+    current_sum: 1455700,
+    category_id: accessories.id
 )
 camp[9] = Campaign.create!(
     title: "Forsaken: A Short Film",
@@ -180,7 +196,8 @@ camp[9] = Campaign.create!(
     end_date: 1,
     goal_status: false,
     owner_id: u5.id,
-    current_sum: 2700
+    current_sum: 2700,
+    category_id: film.id
 )
 
 camp.keys.each do |num|
@@ -205,3 +222,5 @@ end
 #     end_date: 26,
 #     owner_id: 1
 # )
+
+# transportation = Category.create!(title: 'Transportation')

@@ -3,6 +3,10 @@ class Campaign < ApplicationRecord
     validates :title, :location, :short_description, :long_description, presence: true 
     validates :goal_amount, :end_date, :current_sum, presence: true
 
+    belongs_to :category,
+        foreign_key: :category_id,
+        class_name: :Category
+
     belongs_to :owner,
         foreign_key: :owner_id,
         class_name: :User

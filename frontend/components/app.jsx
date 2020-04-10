@@ -18,6 +18,7 @@ import ModalContainer from './modal/modal'
 import SessionForm from "./session_form/session_form";
 import EditCampaignContainer from './campaign_form/edit_campaign_container'
 import UserProfileContainer from './user_profile/user_profile_container'
+import CategoryContainer from './index_campaigns/categories_container'
 
 
 const App = () => (
@@ -31,6 +32,7 @@ const App = () => (
       <Route path="/campaigns/:campaignId" component={UserCampainContainer} /> */}
       <Route exact path="/users/:userId" component={UserProfileContainer} />
       <Route exact path="/campaigns" component={IndexCampaignContainer} />
+      <Route exact path="/campaigns/:categoryId" component={CategoryContainer} />
       <Route exact path="/campaigns/edit" component={EditCampaignContainer} />
       <Route exact path="/campaigns/new" component={CreateCampaignContainer} />
       <Route exact path="/campaigns/:campaignId" component={ShowCampaignContainer} />
