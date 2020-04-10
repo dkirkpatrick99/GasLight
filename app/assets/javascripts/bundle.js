@@ -411,12 +411,21 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
       email: '',
       password: ''
     };
+    _this.myInput = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "nav-dropdown"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "hello"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "sup"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "buenos tardes"));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.toggleDrop = _this.toggleDrop.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(NavBar, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.toggleDrop();
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -505,14 +514,13 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: '/'
         }, "MoneyWise")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "nav-button"
+          className: "nav-button drop-button",
+          onClick: this.toggleDrop()
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: '/'
         }, "Explore ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-chevron-down"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-          className: "drop-down"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: '/',
@@ -540,17 +548,46 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
           onClick: this.props.logout
         }, "Sign Out")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-button current-user"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+          to: "/users/".concat(this.props.currentUser.id)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-robot"
-        }), " \xA0 ", this.props.currentUser.username)))))));
+        }), " \xA0 ", this.props.currentUser.username)))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "nav-dropdown"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "hello"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "sup"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "buenos tardes")));
       }
+    }
+  }, {
+    key: "toggleDrop",
+    value: function toggleDrop() {
+      // this.myInput.setAttribute("class", "nav-dropdown");
+      var y = document.querySelector(".nav-dropdown");
+      var x = document.getElementsByClassName("nav-dropdown"); // debugger
+      // if (x === null) {
+      //     x = this.myInput
+      //     debugger
+      // }
+
+      console.log("bummer"); // if(x === document.getElementsByClassName("nav-dropdown")) return null
+      // // document.querySelector('.nav-dropdown').style.display = "block"
+      // debugger
+      // if (x[0].style.display === "none") {
+      //       x[0].style.display = "block";
+      //       debugger
+      // } else {
+      //     x[0].style.display = "none";
+      // }
     }
   }]);
 
   return NavBar;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (NavBar);
+/* harmony default export */ __webpack_exports__["default"] = (NavBar); // ref={input => {this.myInput = input;}}
+
+react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  "class": "nav-dropdown"
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "hello"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "sup"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "buenos tardes"));
 
 /***/ }),
 
@@ -635,7 +672,7 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NavBar_nav_bar_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_9__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
-    path: "/users/:userId/",
+    path: "/users/:userId",
     component: _user_profile_user_profile_container__WEBPACK_IMPORTED_MODULE_12__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
@@ -2372,6 +2409,7 @@ var ProfileTabs = /*#__PURE__*/function (_React$Component2) {
   }, {
     key: "render",
     value: function render() {
+      if (this.props.panes === undefined) return nil;
       var pane = this.props.panes[this.state.selectedPane];
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tabs"
@@ -2404,6 +2442,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tabs */ "./frontend/components/user_profile/tabs.jsx");
+/* harmony import */ var _index_campaigns_index_campaign_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../index_campaigns/index_campaign_item */ "./frontend/components/index_campaigns/index_campaign_item.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2425,6 +2464,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var UserProfile = /*#__PURE__*/function (_React$Component) {
   _inherits(UserProfile, _React$Component);
 
@@ -2435,35 +2475,60 @@ var UserProfile = /*#__PURE__*/function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UserProfile).call(this, props));
     _this.tabNum = 0;
-    _this.panes = [{
-      title: 'Profile',
-      content: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "profile-move"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "saver-image",
-        src: "profile_saver.png"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tab-counts"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "small-saver"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "saver-image-inner",
-        src: "profile_saver.png"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "About Me")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "10 Campaigns"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "20 Contributions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "55 Comments")))
-    }, {
-      title: 'Campaigns',
-      content: 'Second pane here'
-    }, {
-      title: 'Contributions',
-      content: 'Third pane here'
-    }]; // this.toggleTab = this.toggleTab.bind(this)
-
+    _this.panes;
     return _this;
   }
 
   _createClass(UserProfile, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchCampaigns();
+    }
+  }, {
     key: "render",
     value: function render() {
+      if (this.props.campaigns === []) return nil;
+      var panes = [{
+        title: 'Profile',
+        content: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "profile-move"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "D1"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "saver-image",
+          src: "profile_saver.png"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "tab-counts"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "small-saver"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "saver-image-inner",
+          src: "profile_saver.png"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "About Me")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "F1"
+        }, this.props.campaigns.length, " Campaigns"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "F1"
+        }, "20 Contributions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "F1"
+        }, "55 Comments")))
+      }, {
+        title: 'Campaigns',
+        content: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "Q1"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "Q2"
+        }, "Campaigns I'm On")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "list-of-items"
+        }, this.props.campaigns.map(function (campaign) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index_campaigns_index_campaign_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            key: campaign.id,
+            campaign: campaign
+          });
+        }))))
+      }, {
+        title: 'Contributions',
+        content: 'Third pane here'
+      }];
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-first"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2471,7 +2536,7 @@ var UserProfile = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-name"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.currentUser.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tabs__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        panes: this.panes
+        panes: panes
       })));
     }
   }]);
@@ -2494,17 +2559,29 @@ var UserProfile = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_profile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user_profile */ "./frontend/components/user_profile/user_profile.jsx");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+/* harmony import */ var _actions_campaign_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/campaign_action */ "./frontend/actions/campaign_action.js");
+
+
 
 
 
 var mSTP = function mSTP(state, ownProps) {
+  var userId = parseInt(ownProps.match.params.userId);
+  var camps = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__["selectCampaignsFromUser"])(state.entities.campaigns, userId);
   return {
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    campaigns: camps
   };
 };
 
 var mDTP = function mDTP(dispatch) {
-  return {};
+  return {
+    // getUser: id => dispatch(requestUser(id))
+    fetchCampaigns: function fetchCampaigns() {
+      return dispatch(Object(_actions_campaign_action__WEBPACK_IMPORTED_MODULE_3__["fetchCampaigns"])());
+    }
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_user_profile__WEBPACK_IMPORTED_MODULE_0__["default"]));
@@ -2745,6 +2822,30 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
   ui: _ui_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/selectors.js":
+/*!****************************************!*\
+  !*** ./frontend/reducers/selectors.js ***!
+  \****************************************/
+/*! exports provided: selectCampaignsFromUser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectCampaignsFromUser", function() { return selectCampaignsFromUser; });
+var selectCampaignsFromUser = function selectCampaignsFromUser(campaigns, userId) {
+  var result = [];
+
+  for (var id in campaigns) {
+    if (campaigns[id].owner_id === userId) {
+      result.push(campaigns[id]);
+    }
+  }
+
+  return result;
+};
 
 /***/ }),
 

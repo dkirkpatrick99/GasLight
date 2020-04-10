@@ -12,26 +12,40 @@ class NavBar extends React.Component{
             email: '',
             password: ''
         }
+        this.myInput =  <div className="nav-dropdown">
+                            <div>
+                                hello
+                            </div>
+                            <div>sup</div>
+                            <div>buenos tardes</div>
+                        </div>
         this.handleSubmit = this.handleSubmit.bind(this)
         this.update = this.update.bind(this)
+        this.toggleDrop = this.toggleDrop.bind(this)
+    }
+
+    componentDidMount() {
+        this.toggleDrop()
     }
 
     update(field) {
         return e => this.setState({
           [field]: e.currentTarget.value
         });
-      }
+    }
     
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
     }
-   
+    
+    
     render() {
+        
         if (!this.props.currentUser) {
             return (
-        <div>
+                <div>
             <header className="header">
             <nav className="header-nav">
                 <h1 className="header-logo">
@@ -72,8 +86,8 @@ class NavBar extends React.Component{
             </header>
         </div>
             ) 
-
-        } else {
+            
+        } else {            
             return (
                 <div>
                     <header className="header">
@@ -82,11 +96,9 @@ class NavBar extends React.Component{
                                 <ul className="left-header-items">
                                     <li className="logo">
                                         <NavLink to={'/'}>MoneyWise</NavLink>
-                                    </li>
-                                    <li className="nav-button">
+                                    </li> 
+                                    <li className="nav-button drop-button" onClick={this.toggleDrop()}>
                                         <NavLink to={'/'}>Explore <i className="fas fa-chevron-down"></i></NavLink>
-                                    <ul className="drop-down">
-                                    </ul>
                                     </li>
                                     <li className="nav-button">
                                         <NavLink to={'/'} href="#">What We Do</NavLink>
@@ -108,17 +120,53 @@ class NavBar extends React.Component{
                                         <a onClick={this.props.logout}>Sign Out</a>
                                     </li>
                                     <li className="nav-button current-user">
-                                        <a><i className="fas fa-robot"></i> &nbsp; {this.props.currentUser.username}
-                                        </a>                                 
+                                        <NavLink to={`/users/${this.props.currentUser.id}`}><i className="fas fa-robot"></i> &nbsp; {this.props.currentUser.username}
+                                        </NavLink>                                 
                                     </li>
                                 </ul>
                         </div>
                     </nav>
                 </header>
+
+                <div className="nav-dropdown">
+                    <div>
+                        hello
+                    </div>
+                    <div>sup</div>
+                    <div>buenos tardes</div>
+                </div>
             </div>
             )
         }
     }
+    
+    
+    toggleDrop() {
+        // this.myInput.setAttribute("class", "nav-dropdown");
+    
+        var y = document.querySelector(".nav-dropdown")
+        var x = document.getElementsByClassName("nav-dropdown")
+        // debugger
+        // if (x === null) {
+        //     x = this.myInput
+        //     debugger
+        // }
+        console.log("bummer")
+        // if(x === document.getElementsByClassName("nav-dropdown")) return null
+        // // document.querySelector('.nav-dropdown').style.display = "block"
+        // debugger
+        // if (x[0].style.display === "none") {
+        //       x[0].style.display = "block";
+        //       debugger
+        // } else {
+        //     x[0].style.display = "none";
+        // }
+    }
 }
 
+
 export default NavBar;
+
+// ref={input => {this.myInput = input;}}
+
+<div class="nav-dropdown"><div>hello</div><div>sup</div><div>buenos tardes</div></div>

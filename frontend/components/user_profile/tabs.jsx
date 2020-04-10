@@ -31,6 +31,8 @@ export default class ProfileTabs extends React.Component {
     this.state = {
       selectedPane: 0
     };
+
+    
     this.selectTab = this.selectTab.bind(this);
   }
 
@@ -39,6 +41,7 @@ export default class ProfileTabs extends React.Component {
   }
 
   render() {
+    if (this.props.panes === undefined) return nil
     const pane = this.props.panes[this.state.selectedPane];
 
     return (
