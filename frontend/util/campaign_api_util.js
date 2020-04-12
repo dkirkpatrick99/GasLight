@@ -10,6 +10,13 @@ export const fetchCampaigns = () => (
       url: `/api/campaigns/${campaignId}/`
     })
   );
+
+  export const searchCampaigns = string => (
+    $.ajax({
+      url: `/api/campaigns/search/${string}`,
+      method: 'GET',
+    })
+  );
   
   export const createCampaign = campaign => (
     $.ajax({

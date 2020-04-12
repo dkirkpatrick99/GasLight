@@ -57,3 +57,9 @@ export const deleteCampaign = campaignId => dispatch => (
   CampaignApiUtil.deleteCampaign(campaignId)
     .then(() => dispatch(removeCampaign(campaignId)))
 );
+
+export const searchCampaigns = string => dispatch => (
+  CampaignAPIUtil.searchCampaigns(string).then(campaigns => (
+    dispatch(receiveAllCampaigns(campaigns))
+  ))
+);
