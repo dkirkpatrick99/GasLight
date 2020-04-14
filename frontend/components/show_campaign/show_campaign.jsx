@@ -21,7 +21,7 @@ class ShowCampaign extends React.Component{
 
     toggleFollow(e) {
         status = document.querySelector('.over-lay')
-
+        //for rewards try rendering the update on submit then use id for rewards
     }
 
 

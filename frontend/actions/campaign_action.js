@@ -38,6 +38,7 @@ export const fetchCampaign = campaignId => dispatch => (
 );
 
 export const createCampaign = campaign => dispatch => {
+  debugger
   return CampaignApiUtil.createCampaign(campaign)
     .then(campaign => dispatch(receiveCampaign(campaign)))
 };

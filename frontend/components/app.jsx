@@ -33,8 +33,8 @@ const App = () => (
       <Route path="/campaigns/:campaignId" component={UserCampainContainer} /> */}
       <Route exact path="/users/:userId" component={UserProfileContainer} />
       <Route exact path="/campaigns" component={IndexCampaignContainer} />
-      <Route exact path="/campaigns/:campaignId" component={ShowCampaignContainer} />
       <Route exact path="/campaigns/new" component={CreateCampaignContainer} />
+      <Route exact path="/campaigns/:campaignId" component={ShowCampaignContainer} />
       <Route exact path="/campaigns/:campaignId/edit" component={EditCampaignContainer} />
       <Route exact path="/campaigns/:categoryId" component={CategoryContainer} />
       <Route exact path="/rewards/new" component={CreateRewardContainer} />

@@ -11,20 +11,52 @@ class CampaignForm extends React.Component{
             goal_amount: "",
             end_date: "",
             goal_status: false,
-            category_id: 3
+            category_id: 3,
+            photoFile: null,
+            photoURL: null
             
         },
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleFile = this.handleFile.bind(this);
+    };
 
     componentDidMount() {
-        this.props.fetchCampaigns()
+        this.props.fetchCampaigns();
     }
 
     handleSubmit(e) {
-        e.preventDefault()
-        const campaign = Object.assign({}, this.state);
-        this.props.createCampaign(campaign)
+        e.preventDefault();
+        // const campaign = Object.assign({}, this.state);
+        // this.props.createCampaign(campaign);
+        const formData = new FormData();
+        formData.append('campaign[title]', this.state.title);
+        formData.append('campaign[location]', this.state.location);
+        formData.append('campaign[short_description]', this.state.short_description);
+        formData.append('campaign[long_description]', this.state.long_description);
+        formData.append('campaign[goal_amount]', this.state.goal_amount);
+        formData.append('campaign[end_date]', this.state.end_date);
+        formData.append('campaign[goal_status]', this.state.goal_status);
+        formData.append('campaign[category_id]', this.state.category_id);
+        formData.append('campaign[photo]', this.state.photoFile);
+        debugger
+        $.ajax({
+            url: '/api/campaigns',
+            method: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false
+        })
+    }
+
+    handleFile(e) {
+        const file = e.currentTarget.files[0]
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+
+            this.setState({photoFile: file, photoURL: fileReader.result});
+        }
+        debugger
+        if(file){fileReader.readAsDataURL(file);}
     }
 
     update(field) {
@@ -32,6 +64,7 @@ class CampaignForm extends React.Component{
     }
 
     render() {
+        const preview = this.state.photoURL ? <img src={this.state.photoURL}/> : null
 
         return(
             <div>
@@ -49,6 +82,13 @@ class CampaignForm extends React.Component{
                             <label>Title
                                 <div className="inner-campaign-text">What is the title of your campaign?</div>
                                 <input type="text" value={this.state.title} onChange={this.update('title')} placeholder="My Campaign Title"/>
+                            </label>
+                            <label>Uploaad A Photo For This Campaign
+                                <input type="file" onChange={this.handleFile}/>
+                                <div>
+                                    <h3>Image Preview</h3>
+                                    <div>{preview}</div>
+                                </div>
                             </label>
                             <label>Location
                                 <div className="inner-campaign-text">Where is your campaign located?</div>

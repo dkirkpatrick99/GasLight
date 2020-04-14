@@ -158,6 +158,7 @@ var fetchCampaign = function fetchCampaign(campaignId) {
 };
 var createCampaign = function createCampaign(campaign) {
   return function (dispatch) {
+    debugger;
     return _util_campaign_api_util__WEBPACK_IMPORTED_MODULE_0__["createCampaign"](campaign).then(function (campaign) {
       return dispatch(receiveCampaign(campaign));
     });
@@ -887,12 +888,12 @@ var App = function App() {
     component: _index_campaigns_index_campaigns_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
-    path: "/campaigns/:campaignId",
-    component: _show_campaign_show_campaign_container__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    exact: true,
     path: "/campaigns/new",
     component: _campaign_form_create_campaign_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    exact: true,
+    path: "/campaigns/:campaignId",
+    component: _show_campaign_show_campaign_container__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/campaigns/:campaignId/edit",
@@ -965,8 +966,11 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
       goal_amount: "",
       end_date: "",
       goal_status: false,
-      category_id: 3
+      category_id: 3,
+      photoFile: null,
+      photoURL: null
     }, _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -978,22 +982,64 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault();
-      var campaign = Object.assign({}, this.state);
-      this.props.createCampaign(campaign);
+      e.preventDefault(); // const campaign = Object.assign({}, this.state);
+      // this.props.createCampaign(campaign);
+
+      var formData = new FormData();
+      formData.append('campaign[title]', this.state.title);
+      formData.append('campaign[location]', this.state.location);
+      formData.append('campaign[short_description]', this.state.short_description);
+      formData.append('campaign[long_description]', this.state.long_description);
+      formData.append('campaign[goal_amount]', this.state.goal_amount);
+      formData.append('campaign[end_date]', this.state.end_date);
+      formData.append('campaign[goal_status]', this.state.goal_status);
+      formData.append('campaign[category_id]', this.state.category_id);
+      formData.append('campaign[photo]', this.state.photoFile);
+      debugger;
+      $.ajax({
+        url: '/api/campaigns',
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false
+      });
+    }
+  }, {
+    key: "handleFile",
+    value: function handleFile(e) {
+      var _this2 = this;
+
+      var file = e.currentTarget.files[0];
+      var fileReader = new FileReader();
+
+      fileReader.onloadend = function () {
+        _this2.setState({
+          photoFile: file,
+          photoURL: fileReader.result
+        });
+      };
+
+      debugger;
+
+      if (file) {
+        fileReader.readAsDataURL(file);
+      }
     }
   }, {
     key: "update",
     value: function update(field) {
-      var _this2 = this;
+      var _this3 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
     key: "render",
     value: function render() {
+      var preview = this.state.photoURL ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.state.photoURL
+      }) : null;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "campaignform-image"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1016,7 +1062,10 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.title,
         onChange: this.update('title'),
         placeholder: "My Campaign Title"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Location", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Uploaad A Photo For This Campaign", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        onChange: this.handleFile
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Image Preview"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, preview))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Location", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "inner-campaign-text"
       }, "Where is your campaign located?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
@@ -2676,7 +2725,7 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "toggleFollow",
     value: function toggleFollow(e) {
-      status = document.querySelector('.over-lay');
+      status = document.querySelector('.over-lay'); //for rewards try rendering the update on submit then use id for rewards
     }
   }, {
     key: "render",

@@ -7,7 +7,7 @@ class Api::CampaignsController < ApplicationController
         @campaign = Campaign.new(campaign_params)
         @campaign.owner_id = current_user.id
         if @campaign.save
-            # render :show
+            render :show
         else
             render json: @campaign.errors.full_messages, status: 422
         end
@@ -41,6 +41,6 @@ class Api::CampaignsController < ApplicationController
     private
     def campaign_params
         params.require(:campaign).permit(:title, :location, :short_description, :long_description,
-            :goal_amount, :end_date, :goal_status, :owner_id, :category_id)
+            :goal_amount, :end_date, :goal_status, :owner_id, :category_id, :photo)
     end
 end
