@@ -10,12 +10,18 @@ class ShowCampaign extends React.Component{
     }
 
     componentDidMount() {
-        this.props.fetchCampaign(this.props.match.params.campaignId)
+        this.props.fetchCampaign(this.props.match.params.campaignId);
+        this.props.fetchCampaigns();
     }
 
 
     toggleOverlay(e) {
         document.querySelector('.over-lay').style.display = "none"
+    }
+
+    toggleFollow(e) {
+        status = document.querySelector('.over-lay')
+
     }
 
 
@@ -29,9 +35,31 @@ class ShowCampaign extends React.Component{
         } else {
           funds = 100;
         }
+        let owner = false
+        let thisCampaign = this.props.campaign
+        this.props.userCampaigns.forEach((camp) => {
+            if(camp.id === thisCampaign.id) {owner = true}
+        })
+        let ownerBar = null;
+        if(owner === true){
+            ownerBar =  <div className="owner-bar">
+                            <div>
+                                <div>Welcome To Your Campaign!</div>
+                            </div>
+                            <div>
+                                <NavLink to={`/campaigns/${this.props.campaign.id}/edit`}>Edit This Campaign</NavLink>
+                            </div>
 
+                        </div>
+        }  else {
+            ownerBar = null
+        }
+
+
+        
         return(
             <div>
+                <div>{ownerBar}</div>
                 <div className="short-container">
                     <div className="short-campaign-content">
                         <div className="campaign-video">

@@ -60,8 +60,8 @@ u6 =User.create!(
     games = Category.create!(title: "Games")
     
     camp = Hash.new()
-    camp[1] = Campaign.create!(
-        title: "MAD Gaze: Smartest watch with gesture controls",
+camp[1] = Campaign.create!(
+    title: "MAD Gaze: Smartest watch with gesture controls",
     location: "Hong Kong, Hong Kong",
     short_description: "Create Your Own Shortcuts, Access a Futuristic Life Using Wrist, Hand & Finger Gestures",
     long_description: "Smartwatches and mobile phones have powerful features that we rely on throughout our day but they can be inconvenient to use while on the go. 

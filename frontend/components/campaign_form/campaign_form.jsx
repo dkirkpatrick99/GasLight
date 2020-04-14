@@ -10,10 +10,15 @@ class CampaignForm extends React.Component{
             long_description: "",
             goal_amount: "",
             end_date: "",
-            goal_status: false
+            goal_status: false,
+            category_id: 3
             
         },
         this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    componentDidMount() {
+        this.props.fetchCampaigns()
     }
 
     handleSubmit(e) {
@@ -72,6 +77,9 @@ class CampaignForm extends React.Component{
                             <div className="submit-contain">
                                 <input className="campaign-submit" type="submit" value={this.props.formType}/>
                             </div>
+                        </div>
+                        <div className="reward-contain">
+                            {/* <RewardForm /> */}
                         </div>
                     </div>
                 </form>

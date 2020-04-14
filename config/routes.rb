@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :campaigns
     resources :contributions
     resources :categories, only: [:index]
+    resources :rewards
+    resources :follows
   end
 
   root "static_pages#root"

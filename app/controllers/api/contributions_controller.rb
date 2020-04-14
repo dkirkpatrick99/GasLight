@@ -15,6 +15,12 @@ class Api::ContributionsController < ApplicationController
           render json: @contribution.errors.full_messages, status: 401
         end
       end
+
+      def index
+        @contributions = Contribution.all
+        render :index
+      end
+
     
       private
       def contribution_params

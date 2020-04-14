@@ -1,8 +1,9 @@
-export const fetchContributions = () => (
-    $.ajax({
-      url: `api/contributions/`
+export const fetchContributions = () => {
+  return $.ajax({
+      url: `api/contributions/`,
+      method: 'GET'
     })
-  );
+  };
   
   
   export const createContribution = contribution => {

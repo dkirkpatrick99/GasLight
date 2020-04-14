@@ -14,6 +14,7 @@ class UserProfile extends React.Component {
 
     componentDidMount() {
       this.props.fetchCampaigns()
+      this.props.fetchContributions()
     }
 
 
@@ -32,8 +33,8 @@ class UserProfile extends React.Component {
                         <div>About Me</div>
                       </div>
                       <div className="F1">{this.props.campaigns.length} Campaigns</div>
-                      <div className="F1">20 Contributions</div>
-                      <div className="F1">55 Comments</div>
+                      <div className="F1">{this.props.contributions.length} Contributions</div>
+                      <div className="F1">55 Following</div>
                     </div>
                   </div>},
         {title: 'Campaigns', 

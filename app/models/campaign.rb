@@ -15,6 +15,10 @@ class Campaign < ApplicationRecord
         foreign_key: :campaign_id,
         class_name: :Contribution
 
+    has_many :followers,
+        foreign_key: :campaign_id,
+        class_name: :Follow
+
     has_one_attached :photo
 
     def add_contribution(amount)

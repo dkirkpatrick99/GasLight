@@ -12,21 +12,21 @@ class NavBar extends React.Component{
             email: '',
             password: ''
         }
-        this.myInput =  <div className="nav-dropdown">
-                            <div>
-                                hello
-                            </div>
-                            <div>sup</div>
-                            <div>buenos tardes</div>
-                        </div>
+        // this.myInput =  <div className="nav-dropdown">
+        //                     <div>
+        //                         hello
+        //                     </div>
+        //                     <div>sup</div>
+        //                     <div>buenos tardes</div>
+        //                 </div>
         this.handleSubmit = this.handleSubmit.bind(this)
         this.update = this.update.bind(this)
-        this.toggleDrop = this.toggleDrop.bind(this)
+        // this.toggleDrop = this.toggleDrop.bind(this)
     }
 
-    componentDidMount() {
-        this.toggleDrop()
-    }
+    // componentDidMount() {
+    //     this.toggleDrop()
+    // }
 
     update(field) {
         return e => this.setState({
@@ -97,7 +97,7 @@ class NavBar extends React.Component{
                                     <li className="logo">
                                         <NavLink to={'/'}>MoneyWise</NavLink>
                                     </li> 
-                                    <li className="nav-button drop-button" onClick={this.toggleDrop()}>
+                                    <li className="nav-button drop-button">
                                         <NavLink to={'/'}>Explore <i className="fas fa-chevron-down"></i></NavLink>
                                     </li>
                                     <li className="nav-button">
@@ -128,40 +128,40 @@ class NavBar extends React.Component{
                     </nav>
                 </header>
 
-                <div className="nav-dropdown">
+                {/* <div className="nav-dropdown">
                     <div>
                         hello
                     </div>
                     <div>sup</div>
                     <div>buenos tardes</div>
-                </div>
+                </div> */}
             </div>
             )
         }
     }
     
     
-    toggleDrop() {
-        // this.myInput.setAttribute("class", "nav-dropdown");
+    // toggleDrop() {
+    //     // this.myInput.setAttribute("class", "nav-dropdown");
     
-        var y = document.querySelector(".nav-dropdown")
-        var x = document.getElementsByClassName("nav-dropdown")
-        // debugger
-        // if (x === null) {
-        //     x = this.myInput
-        //     debugger
-        // }
-        console.log("bummer")
-        // if(x === document.getElementsByClassName("nav-dropdown")) return null
-        // // document.querySelector('.nav-dropdown').style.display = "block"
-        // debugger
-        // if (x[0].style.display === "none") {
-        //       x[0].style.display = "block";
-        //       debugger
-        // } else {
-        //     x[0].style.display = "none";
-        // }
-    }
+    //     var y = document.querySelector(".nav-dropdown")
+    //     var x = document.getElementsByClassName("nav-dropdown")
+    //     // debugger
+    //     // if (x === null) {
+    //     //     x = this.myInput
+    //     //     debugger
+    //     // }
+    //     console.log("bummer")
+    //     // if(x === document.getElementsByClassName("nav-dropdown")) return null
+    //     // // document.querySelector('.nav-dropdown').style.display = "block"
+    //     // debugger
+    //     // if (x[0].style.display === "none") {
+    //     //       x[0].style.display = "block";
+    //     //       debugger
+    //     // } else {
+    //     //     x[0].style.display = "none";
+    //     // }
+    // }
 }
 
 
@@ -169,4 +169,4 @@ export default NavBar;
 
 // ref={input => {this.myInput = input;}}
 
-<div class="nav-dropdown"><div>hello</div><div>sup</div><div>buenos tardes</div></div>
+{/* <div class="nav-dropdown"><div>hello</div><div>sup</div><div>buenos tardes</div></div> */}
