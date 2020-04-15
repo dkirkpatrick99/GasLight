@@ -199,3 +199,90 @@
 .camplongdisc {
     word-break: break-all;
 }
+
+.tab-header {
+    display: flex;
+    margin-bottom: 30px;
+    /* border-bottom: 1px solid gray; */
+    justify-content: center;
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.story-contain {
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.reward-contain{
+    display: flex;
+    justify-content: center;
+}
+
+.reward-stuff {
+    width: 40%;
+    font-family: 'Source Sans Pro', sans-serif;
+    
+}
+
+.rewarditem{
+    padding: 10px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.reward-itemname{
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+.reward-itemprice {
+    margin-bottom: 10px;
+}
+
+.reward-itemdesc {
+
+}
+
+.user-campbutton-contain{
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.user-camp-button{
+    margin-top: 7px;
+    margin-right: 25px;
+}
+
+.welcome-to{
+    margin-top: 7px;
+
+}
+
+.tabss {
+    margin-top: 15px;
+}
+
+.profile-tabs {
+    margin-right: 60px;
+    margin-bottom: 10px;
+    /* font-weight: 800; */
+    display: flex;
+    align-items: center;
+
+}
+
+.profile-tabs:hover {
+    color: #e51075;
+    cursor: pointer;
+}
+
+.active-tabb {
+    border-bottom: 2px solid;
+    color: #e51075;
+    /* border-bottom: 3px solid black; */
+    /* margin-bottom: 20px; */
+    font-size: 30px;
+}

@@ -2,12 +2,14 @@ import { connect } from "react-redux"
 import ShowCampaign from "./show_campaign"
 import { fetchCampaigns, fetchCampaign, deleteCampaign } from '../../actions/campaign_action';
 import {openModal} from '../../actions/modal_action'
-import { selectCampaignsFromUser, selectFollowId } from '../../reducers/selectors'
+import { selectCampaignsFromUser, selectFollowId, selectRewardsFromCampaignId } from '../../reducers/selectors'
 import { fetchFollows, createFollow, deleteFollow} from '../../actions/follow_actions'
+import { fetchRewards } from '../../actions/reward_actions'
 
 
 
 const mSTP = (state, ownProps) => {
+    const rewards = selectRewardsFromCampaignId(state.entities.rewards, parseInt(ownProps.match.params.campaignId))
     const userId = state.entities.users[state.session.id];
     let camps;
     let followId
@@ -20,7 +22,8 @@ const mSTP = (state, ownProps) => {
         userCampaigns: camps || [],
         currentUser: userId,
         userFollowId: followId || [],
-        allFollows: state.entities.follows
+        allFollows: state.entities.follows,
+        campRewards: rewards
     }
 }
 
@@ -31,7 +34,8 @@ const mDTP = dispatch => ({
     fetchCampaigns: () => dispatch(fetchCampaigns()),
     fetchFollows: () => dispatch(fetchFollows()),
     createFollow: follow => dispatch(createFollow(follow)),
-    deleteFollow: followId => dispatch(deleteFollow(followId))
+    deleteFollow: followId => dispatch(deleteFollow(followId)),
+    fetchRewards: () => dispatch(fetchRewards())
 
 });
 

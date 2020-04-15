@@ -102,7 +102,8 @@ class SessionForm extends React.Component {
       </form>
 
       <div className="form-switch">
-          <p>Already have an account? <a href="#">Log In</a></p>
+          {/* <p>Already have an account? <a href="#">Log In</a></p> */}
+          {this.props.otherForm}
       </div>
       </div>
   </div>

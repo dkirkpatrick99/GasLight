@@ -54,7 +54,7 @@ class NavBar extends React.Component{
                 <NavLink to={'/'}>MONEYWISE</NavLink>
                     </li>
                 <li className="nav-button">
-                    <a>Explore <i className="fas fa-chevron-down"></i></a>
+                    <NavLink to={'/'}>Git Repo <i className="fas fa-chevron-down"></i></NavLink>
                     <ul className="drop-down">
                     </ul>
                 </li>
@@ -69,7 +69,7 @@ class NavBar extends React.Component{
                 <div className="nav-right">
                 <ul className="right-header-items">
                     <li className="nav-button">
-                    <NavLink to={'/'}>For Entrepreneurs</NavLink>
+                    <NavLink to={'/categories/0'}>Explore</NavLink>
                     </li>
                     <li className="nav-button">
                     <a onClick={() => this.props.openModal('signup')}>Start a Campaign</a>
@@ -98,7 +98,7 @@ class NavBar extends React.Component{
                                         <NavLink to={'/'}>MoneyWise</NavLink>
                                     </li> 
                                     <li className="nav-button drop-button">
-                                        <NavLink to={'/'}>Explore <i className="fas fa-chevron-down"></i></NavLink>
+                                        <NavLink to={'/'}>Git Repo <i className="fas fa-chevron-down"></i></NavLink>
                                     </li>
                                     <li className="nav-button">
                                         <NavLink to={'/'} href="#">Dalton's Portfolio</NavLink>
@@ -111,7 +111,7 @@ class NavBar extends React.Component{
                             <div className="nav-right">
                                 <ul className="right-header-items">
                                     <li className="nav-button">
-                                        <NavLink to={'/'}>For Entrepreneurs</NavLink>
+                                        <NavLink to={'/categories/0'}>Explore</NavLink>
                                     </li>
                                     <li className="nav-button">
                                         <NavLink to={"/campaigns/new"} href="#">Start a Campaign</NavLink>

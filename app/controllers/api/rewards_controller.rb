@@ -17,6 +17,11 @@ class Api::RewardsController < ApplicationController
         render :show
     end
 
+    def index
+        @rewards = Reward.all
+        render :index
+    end
+
     def update
         @reward = Reward.find(params[:id])
         if @reward.update(reward_params)

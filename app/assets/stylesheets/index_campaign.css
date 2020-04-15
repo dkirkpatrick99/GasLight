@@ -13,36 +13,58 @@
     background-image: url(https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/f_auto/v1580147168/wk0yiaosxx6cdo5bcri4.png);
 }
 
+.catname-contain {
+    display: flex;
+    justify-content: center;
+}
+
+.cat-name {
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Lato', sans-serif;
+    margin-top: 40px;
+    border-bottom: 1px solid gray;
+
+}
+
 .allcontain {
     display: flex;
     justify-content: flex-end;
+    font-family: 'Lato', sans-serif;
+    padding-left: 4%;
     
 }
 
 .cat-contain {
     width: 10%;
-    margin-top: 50px;
-    margin-right: 30px;
+    margin-top: -30px;
+    margin-right: 40px;
 }
 
 .cat1{
     font-size: 25px;
     margin-bottom: 20px;
+    color: gray;
 }
 
 .cat-switch{
     /* display: flex; */
     /* justify-content: space-around; */
     /* width: 80%; */
-    font-size: 20px;
-    border: 1px solid gray;
+    font-size: 18px;
+    font-weight: 100;
+    /* border: 1px solid gray; */
 }
 
 .switch-tab {
     /* border: 1px solid gray; */
     /* text-align: center; */
-    padding: 20px;
+    padding: 10px;
+}
 
+.switch-tab:hover {
+    color: #e51075;
+    transform: scale(1.3);
 }
 
 .items-container {
@@ -50,11 +72,12 @@
     width: 80%;
     height: 100%;
     /* margin: auto; */
-    margin-top: 55px;
+    margin-top: 65px;
+    justify-content: flex-start;
 }
 
 .list-of-items {
-    justify-content: center;
+    /* justify-content: center; */
     display: flex;
     flex-wrap: wrap;
 }

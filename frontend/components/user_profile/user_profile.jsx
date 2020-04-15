@@ -1,6 +1,8 @@
 import React from 'react';
 import ProfileTabs from './tabs';
 import IndexCampaignItem from '../index_campaigns/index_campaign_item';
+import FollowItem from '../follow/follow_item';
+
 
 class UserProfile extends React.Component {
     constructor(props){
@@ -15,11 +17,13 @@ class UserProfile extends React.Component {
     componentDidMount() {
       this.props.fetchCampaigns()
       this.props.fetchContributions()
+      this.props.fetchFollows()
     }
 
 
     render() {
       if(this.props.campaigns === []) return nil
+      if(this.props.userFollows === []) return nil
 
       const panes = [
         {title: 'Profile', 
@@ -34,7 +38,7 @@ class UserProfile extends React.Component {
                       </div>
                       <div className="F1">{this.props.campaigns.length} Campaigns</div>
                       <div className="F1">{this.props.contributions.length} Contributions</div>
-                      <div className="F1">55 Following</div>
+                      <div className="F1">{this.props.userFollows.length} Following</div>
                     </div>
                   </div>},
         {title: 'Campaigns', 
@@ -50,7 +54,26 @@ class UserProfile extends React.Component {
                     </ul>
                   </div>
                 </div> },
-        {title: 'Contributions', content: 'Third pane here'}
+        {title: 'Contributions', 
+        content: <div>
+                  <div>
+                    <ul className="list-of-items">
+                          {
+                              this.props.contributions.map((cont) => <FollowItem key={cont.id} fetchCampaign={this.props.fetchCampaign} campaignId={cont.campaign_id}/>)
+                          }
+                    </ul>
+                  </div>
+                </div> },
+        {title: 'Following', 
+        content: <div>
+                  <div>
+                    <ul className="list-of-items">
+                        {
+                            this.props.userFollows.map((follow) => <FollowItem key={follow.id} fetchCampaign={this.props.fetchCampaign} campaignId={follow.campaign_id}/>)
+                        }
+                    </ul>
+                  </div>
+                </div> }
       ];
 
         return(

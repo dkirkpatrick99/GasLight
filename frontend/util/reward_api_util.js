@@ -5,3 +5,9 @@ export const createReward = reward => (
       data: {reward},
     })
   );
+
+  export const fetchRewards = () => (
+    $.ajax({
+      url: `api/rewards/`
+    })
+  );

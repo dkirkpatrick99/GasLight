@@ -15,6 +15,8 @@ class Greeting extends React.Component {
   }
 
   render() {
+    if(!this.props.campaigns.length){return null}
+    if(!this.props.categories.length){return null}
 
     const featured = {
       dots: false,
@@ -26,7 +28,6 @@ class Greeting extends React.Component {
       autoplaySpeed: 5000,
       cssEase: "cubic-bezier(0.600, -0.280, 0.735, 0.045)"
     };
-
     return(
       <div className="home-page">
     
@@ -78,37 +79,37 @@ class Greeting extends React.Component {
             <h3>Discover projects just for you and get great recommendations when you select your interests.</h3>
             <div className="icons">
                 <div className="inner-icon">
-              <NavLink to={"/campaigns"}>
+              <NavLink to={"/categories/0"}>
                   <i class="fas fa-home"></i>
               </NavLink>
                   <j>HOME</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/categories/3"}>
+              <NavLink to={`/categories/${this.props.categories[2].id}`}>
                   <i class="fas fa-mobile-alt"></i>
               </NavLink>
                   <j>ACCESSORIES</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/categories/1"}>
+              <NavLink to={`/categories/${this.props.categories[0].id}`}>
                   <i class="fas fa-hiking"></i>
               </NavLink>
                   <j>TRAVEL</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/categories/2"}>
+              <NavLink to={`/categories/${this.props.categories[1].id}`}>
                   <i class="fas fa-heartbeat"></i>
               </NavLink>
                   <j>FITNESS</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/categories/4"}>
+              <NavLink to={`/categories/${this.props.categories[3].id}`}>
                   <i class="fas fa-headphones"></i>
               </NavLink>
                   <j>AUDIO</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/categories/5"}>
+              <NavLink to={`/categories/${this.props.categories[4].id}`}>
                   <i class="fas fa-video"></i>
               </NavLink>
                   <j>FILM</j>
@@ -129,7 +130,7 @@ class Greeting extends React.Component {
         <div className="all-images">
           <div className="image-blocks">
                 <div className="block-to-flex">
-              <NavLink to={"/campaigns"}>
+              <NavLink to={`/categories/${this.props.categories[2].id}`}>
                 <div className="image-flex">
                   <div className="image1 squre"></div>
                   <div className="image-text">10 Cool & Clever Finds</div>
@@ -139,7 +140,7 @@ class Greeting extends React.Component {
                 </div>
               
               <div className="block-to-flex">
-                <NavLink to={"/campaigns"}>
+                <NavLink to={`/categories/${this.props.categories[2].id}`}>
                   <div className="image-flex">
                     <div className="image2 squre" ></div>
                     <div className="image-text">Team Favorites</div>
@@ -149,7 +150,7 @@ class Greeting extends React.Component {
               </div>
 
               <div className="block-to-flex">
-                <NavLink to={"/campaigns"}>
+                <NavLink to={`/categories/${this.props.categories[2].id}`}>
                   <div className="image-flex">
                     <div className="image3 squre"></div>
                     <div className="image-text">InDemand Superstars</div>
@@ -159,7 +160,7 @@ class Greeting extends React.Component {
               </div>
 
               <div className="block-to-flex">
-                <NavLink to={"/campaigns"}>
+                <NavLink to={`/categories/${this.props.categories[2].id}`}>
                   <div className="image-flex">
                     <div className="image4 squre"></div>
                     <div className="image-text">Production Ready</div>
@@ -170,44 +171,7 @@ class Greeting extends React.Component {
           </div>
         </div>
 
-        <footer className="foot">
-
-          {/* <div className="cat-list">
-            <ul className="cat">EXPLORE
-              <li>What We Do</li>
-              <li>Funding</li>
-              <li>GoFundMe</li>
-            </ul>
-
-            <ul className="cat">ABOUT
-              <li>About Us</li>
-              <li>Blog</li>
-              <li>Trust & Saftey</li>
-              <li>Help & Support</li>
-              <li>Press</li>
-              <li>Careers</li>
-              <li>Contact</li>
-            </ul>
-
-            <ul className="cat">ENTREPRENEURS
-              <li>How it Works</li>
-              <li>MoneyWise Vs KickStarter</li>
-              <li>Education Career</li>
-              <li>Experts Directory</li>
-              <li>Fees</li>
-              <li>Enterprise</li>
-              <li>China</li>
-            </ul>
-          </div> */}
-
-          <div className="bottom-footer">
-            {/* <div>Terms of Use</div>
-            <div>Pirvacy Policy</div>
-            <div>Cookie Policy</div>
-            <div>Do Not Sell My Personal Information</div> */}
-            <div>2020 MoneyWise, INC. All Rights Reserved </div>
-          </div>
-        </footer>
+    
         
       </div>
     )

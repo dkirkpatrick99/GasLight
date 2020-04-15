@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import ContributionModal from '../contribution/contribution_modal'
 import Modal from '../modal/modal';
 import { selectFollowId } from '../../reducers/selectors'
+import ShowTabs from './show_tabs'
+import RewardItem from '../rewards/reward_item'
 
 
 class ShowCampaign extends React.Component{
@@ -17,6 +19,7 @@ class ShowCampaign extends React.Component{
         this.props.fetchCampaign(this.props.match.params.campaignId);
         this.props.fetchCampaigns();
         this.props.fetchFollows()
+        this.props.fetchRewards()
     }
 
 
@@ -30,10 +33,8 @@ class ShowCampaign extends React.Component{
         let check = document.querySelector('.following')
 
         // status.classList.toggle('following');
-        debugger
         if (check) {
             console.log('checked')
-            debugger
             this.props.deleteFollow(this.followId)
             status.classList.toggle('following');
             this.setState(this.state)
@@ -53,6 +54,7 @@ class ShowCampaign extends React.Component{
     render() {
  
         if (!this.props.campaign) return null
+    
 
         
         let funds;
@@ -70,11 +72,15 @@ class ShowCampaign extends React.Component{
         if(owner === true){
             ownerBar =  <div className="owner-bar">
                             <div>
-                                <div>Welcome To Your Campaign!</div>
+                                <div className="welcome-to">Welcome To Your Campaign!</div>
                             </div>
-                            <div>
-                                <NavLink to={`/campaigns/${this.props.campaign.id}/edit`}>Edit This Campaign</NavLink>
-                                <NavLink to={`/rewards/${this.props.campaign.id}/new`}>Create Reward</NavLink>
+                            <div className="user-campbutton-contain">
+                                <div className="user-camp-button">
+                                    <NavLink to={`/campaigns/${this.props.campaign.id}/edit`}>Edit This Campaign</NavLink>
+                                </div>
+                                <div className="user-camp-button">
+                                    <NavLink to={`/rewards/${this.props.campaign.id}/new`}>Create Reward</NavLink>
+                                </div>
                             </div>
 
 
@@ -82,10 +88,38 @@ class ShowCampaign extends React.Component{
         }  else {
             ownerBar = null
         }
-        
-        this.followId = selectFollowId(this.props.allFollows, this.props.currentUser.id, this.props.campaign.id)
 
-        debugger
+        const panes = [
+            {title: 'Story', 
+            content:  <div className="story-contain">
+                        <div className="long-content">
+                            <div className="long-campaign-content">
+                                <div className="camplongdisc">
+                                    {this.props.campaign.long_description}
+                                </div>
+                            </div>
+                        </div>
+                      </div>},
+            {title: 'Rewards', 
+            content: <div className="reward-contain">
+                        <div className="reward-stuff">
+                            <ul className="list-of-rewards">
+                                {
+                                    this.props.campRewards.map((reward) => <RewardItem key={reward.id} reward={reward}/>)
+                                }
+                            </ul>
+                        </div>
+                    </div> },
+            {title: 'Followers',
+            content: <div>
+
+                    </div> }
+          
+          ];
+
+        if(this.props.currentUser){
+        this.followId = selectFollowId(this.props.allFollows, this.props.currentUser.id, this.props.campaign.id)
+        }
         return(
             <div>
                 <div>{ownerBar}</div>
@@ -139,14 +173,8 @@ class ShowCampaign extends React.Component{
                         </div>    
                     </div>
                 </div>
-
-                <div className="long-content">
-                    <div className="long-campaign-content">
-                        <h1>Story</h1>
-                        <div className="camplongdisc">
-                            {this.props.campaign.long_description}
-                        </div>
-                    </div>
+                <div>
+                    <ShowTabs panes={panes} />
                 </div>
                 <Modal campaignId={this.props.campaign.id}/>
             </div>

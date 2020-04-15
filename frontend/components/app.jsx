@@ -20,6 +20,7 @@ import EditCampaignContainer from './campaign_form/edit_campaign_container'
 import UserProfileContainer from './user_profile/user_profile_container'
 import CategoryContainer from './index_campaigns/categories_container'
 import CreateRewardContainer from './rewards/create_reward_container'
+import FooterAll from'./footer/footer'
 
 
 const App = () => (
@@ -31,15 +32,18 @@ const App = () => (
     <Switch>
       {/* <Route path="/campaigns" component={CampaignContainer} />
       <Route path="/campaigns/:campaignId" component={UserCampainContainer} /> */}
-      <Route exact path="/users/:userId" component={UserProfileContainer} />
+      <ProtectedRoute exact path="/campaigns/new" component={CreateCampaignContainer} />
       <Route exact path="/campaigns/:campaignId" component={ShowCampaignContainer} />
+      <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer} />
       <Route exact path="/categories/:categoryId" component={CategoryContainer} />
-      <Route exact path="/rewards/:campaignId/new" component={CreateRewardContainer} />
-      <Route exact path="/campaigns/:campaignId/edit" component={EditCampaignContainer} />
-      <Route exact path="/campaigns/new" component={CreateCampaignContainer} />
+      <ProtectedRoute exact path="/rewards/:campaignId/new" component={CreateRewardContainer} />
+      <ProtectedRoute exact path="/campaigns/:campaignId/edit" component={EditCampaignContainer} />
       <Route exact path="/campaigns" component={IndexCampaignContainer} />
       <Route path="/" component={GreetingContainer} />
     </Switch>
+    <div>
+      <FooterAll />
+    </div>
   </div>
   
 );
