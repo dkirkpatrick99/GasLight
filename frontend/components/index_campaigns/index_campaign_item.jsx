@@ -14,7 +14,7 @@ const IndexCampaignItem = (props) => {
     <li className="campaign-item">
         <NavLink to={`/campaigns/${props.campaign.id}`}>
             <div className="camp-item">
-                <img src={props.campaign.photoUrl} alt=""/>
+                <img className="campimage1" src={props.campaign.photoUrl} alt=""/>
                 <div className="lower-item">
                     <div className="heart-bar">
                         <span className="fund-text">FUNDING</span>
@@ -23,7 +23,7 @@ const IndexCampaignItem = (props) => {
                     <div className="camp-content">
                     <div className="space">
                         <h1>{props.campaign.title}</h1>
-                        <p>{props.campaign.short_description}</p>
+                        <div className="short-dis">{props.campaign.short_description}</div>
                    </div>
                    <div className="to-bottom">
                        <div class="deet-holder">

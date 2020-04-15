@@ -15,6 +15,7 @@
 
 .short-content {
     margin-left: 36px;
+    word-break: break-all;
 }
 
 .lower-short {
@@ -117,6 +118,7 @@
     display: flex;
     justify-content: center;
     margin-top: 36px;
+
 }
 
 .long-content h1 {
@@ -129,6 +131,7 @@
     width: 60%;
     font-size: 27px;
     display: block;
+
 }
 
 .button-container {
@@ -191,4 +194,8 @@
     height: 50px;
     font-size: 30px;
     color: white;
+}
+
+.camplongdisc {
+    word-break: break-all;
 }

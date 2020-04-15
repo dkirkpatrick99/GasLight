@@ -2,18 +2,25 @@ import { connect } from "react-redux"
 import ShowCampaign from "./show_campaign"
 import { fetchCampaigns, fetchCampaign, deleteCampaign } from '../../actions/campaign_action';
 import {openModal} from '../../actions/modal_action'
-import { selectCampaignsFromUser } from '../../reducers/selectors'
+import { selectCampaignsFromUser, selectFollowId } from '../../reducers/selectors'
 import { fetchFollows, createFollow, deleteFollow} from '../../actions/follow_actions'
 
 
 
 const mSTP = (state, ownProps) => {
     const userId = state.entities.users[state.session.id];
-    const camps = selectCampaignsFromUser(state.entities.campaigns, userId.id);
+    let camps;
+    let followId
+    if(userId) {
+        camps = selectCampaignsFromUser(state.entities.campaigns, userId.id) 
+        followId = selectFollowId(state.entities.follows, userId.id, parseInt(ownProps.match.params.campaignId))
+    }
     return {
         campaign: state.entities.campaigns[ownProps.match.params.campaignId],
-        userCampaigns: camps,
-        currentUser: state.entities.users[state.session.id]
+        userCampaigns: camps || [],
+        currentUser: userId,
+        userFollowId: followId || [],
+        allFollows: state.entities.follows
     }
 }
 

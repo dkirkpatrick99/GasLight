@@ -13,13 +13,44 @@
     background-image: url(https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/f_auto/v1580147168/wk0yiaosxx6cdo5bcri4.png);
 }
 
+.allcontain {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.cat-contain {
+    width: 10%;
+    margin-top: 50px;
+    margin-right: 30px;
+}
+
+.cat1{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.cat-switch{
+    /* display: flex; */
+    /* justify-content: space-around; */
+    /* width: 80%; */
+    font-size: 20px;
+    border: 1px solid gray;
+}
+
+.switch-tab {
+    /* border: 1px solid gray; */
+    /* text-align: center; */
+    padding: 20px;
+
+}
 
 .items-container {
     display: flex;
     width: 80%;
     height: 100%;
-    margin: auto;
-    margin-top: 45px;
+    /* margin: auto; */
+    margin-top: 55px;
 }
 
 .list-of-items {
@@ -34,6 +65,10 @@
     border: 1px solid darkgray;
     margin: 18px;
     background-color: snow;
+}
+
+.campimage1 {
+    height: 270px;
 }
 
 .heart-bar {
@@ -80,11 +115,14 @@
     color: black;
     margin-bottom: 9px;
     font-weight: 700;
+    word-break: break-all;
+
 }
 
-.camp-content p {
+.short-dis {
     color: black;
     font-size: 14px;
+    word-break: break-all;
 }
 
 .tile-bar{

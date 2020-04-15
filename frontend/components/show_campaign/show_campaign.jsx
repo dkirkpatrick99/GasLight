@@ -2,26 +2,51 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import ContributionModal from '../contribution/contribution_modal'
 import Modal from '../modal/modal';
+import { selectFollowId } from '../../reducers/selectors'
 
 
 class ShowCampaign extends React.Component{
     constructor(props){
         super(props)
+        this.toggleFollow = this.toggleFollow.bind(this)
+        this.followId;
+        this.state;
     }
 
     componentDidMount() {
         this.props.fetchCampaign(this.props.match.params.campaignId);
         this.props.fetchCampaigns();
+        this.props.fetchFollows()
     }
 
 
     toggleOverlay(e) {
         document.querySelector('.over-lay').style.display = "none"
+
     }
 
     toggleFollow(e) {
-        status = document.querySelector('.over-lay')
-        //for rewards try rendering the update on submit then use id for rewards
+        let status = document.querySelector('.follow-it')
+        let check = document.querySelector('.following')
+
+        // status.classList.toggle('following');
+        debugger
+        if (check) {
+            console.log('checked')
+            debugger
+            this.props.deleteFollow(this.followId)
+            status.classList.toggle('following');
+            this.setState(this.state)
+
+        } else {
+            // console.log('UNchecked')
+            this.props.createFollow({user_id: this.props.currentUser, campaign_id: this.props.campaign.id})
+                .then( payload => {
+                })
+            status.classList.toggle('following');
+            this.setState(this.state)
+        }
+
     }
 
 
@@ -29,11 +54,12 @@ class ShowCampaign extends React.Component{
  
         if (!this.props.campaign) return null
 
+        
         let funds;
         if (this.props.campaign.funding_percent < 100) {
-          funds = this.props.campaign.funding_percent;
+            funds = this.props.campaign.funding_percent;
         } else {
-          funds = 100;
+            funds = 100;
         }
         let owner = false
         let thisCampaign = this.props.campaign
@@ -48,15 +74,18 @@ class ShowCampaign extends React.Component{
                             </div>
                             <div>
                                 <NavLink to={`/campaigns/${this.props.campaign.id}/edit`}>Edit This Campaign</NavLink>
+                                <NavLink to={`/rewards/${this.props.campaign.id}/new`}>Create Reward</NavLink>
                             </div>
+
 
                         </div>
         }  else {
             ownerBar = null
         }
-
-
         
+        this.followId = selectFollowId(this.props.allFollows, this.props.currentUser.id, this.props.campaign.id)
+
+        debugger
         return(
             <div>
                 <div>{ownerBar}</div>
@@ -98,7 +127,7 @@ class ShowCampaign extends React.Component{
                                 <div className="follow-content">
                                     <div className="button-container">
                                         <button className="campaign-button back" onClick={() => this.props.openModal('contribution')}>BACK IT</button>
-                                        <button className="campaign-button follow-it"><i class="far fa-heart"></i> &nbsp;FOLLOW</button>
+                                        <button className="campaign-button follow-it" onClick={this.toggleFollow}><i class="far fa-heart"></i> &nbsp;FOLLOW</button>
                                     </div>
                                     <div className="social-icons">
                                         <i class="fab fa-instagram"></i>
@@ -113,10 +142,10 @@ class ShowCampaign extends React.Component{
 
                 <div className="long-content">
                     <div className="long-campaign-content">
-                    <h1>Story</h1>
-                        {
-                            this.props.campaign.long_description
-                        }
+                        <h1>Story</h1>
+                        <div className="camplongdisc">
+                            {this.props.campaign.long_description}
+                        </div>
                     </div>
                 </div>
                 <Modal campaignId={this.props.campaign.id}/>

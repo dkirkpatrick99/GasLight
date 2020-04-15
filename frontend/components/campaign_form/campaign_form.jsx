@@ -1,4 +1,6 @@
 import React from 'react'
+import Resizer from 'react-image-file-resizer';
+
 
 class CampaignForm extends React.Component{
     constructor(props) {
@@ -38,25 +40,52 @@ class CampaignForm extends React.Component{
         formData.append('campaign[goal_status]', this.state.goal_status);
         formData.append('campaign[category_id]', this.state.category_id);
         formData.append('campaign[photo]', this.state.photoFile);
-        debugger
         $.ajax({
             url: '/api/campaigns',
             method: 'POST',
             data: formData,
             contentType: false,
             processData: false
+        }).then( payload => {
+            this.props.history.push(`/campaigns/${Object.values(payload)[0].id}`);
         })
     }
 
     handleFile(e) {
         const file = e.currentTarget.files[0]
         const fileReader = new FileReader();
-        fileReader.onloadend = () => {
+        
+        // var fileInput = false
+        // if(event.target.files[0]) {
+            //     fileInput = true
+            // }
+            // if(file) {
+            //     let newImg;
+            //     Resizer.imageFileResizer(
+            //         file,
+            //         300,
+            //         300,
+            //         'JPEG',
+            //         100,
+            //         0,
+            //         uri => {
+            //             newImg = uri
+            //             console.log(uri)
+            //             debugger
+            //         },
+            //         'base64'
+            //         );
+            //     }
 
-            this.setState({photoFile: file, photoURL: fileReader.result});
-        }
-        debugger
-        if(file){fileReader.readAsDataURL(file);}
+            fileReader.onloadend = () => {
+                this.setState({photoFile: file, photoURL: fileReader.result});
+            }
+            if(file){fileReader.readAsDataURL(file);}
+
+            // fileReader.onloadend = () => {
+            //     this.setState({photoFile: file, photoURL: fileReader.result});
+            // }
+            // if(file){fileReader.readAsDataURL(file);}
     }
 
     update(field) {
@@ -81,7 +110,7 @@ class CampaignForm extends React.Component{
                         <div className="create-content">
                             <label>Title
                                 <div className="inner-campaign-text">What is the title of your campaign?</div>
-                                <input type="text" value={this.state.title} onChange={this.update('title')} placeholder="My Campaign Title"/>
+                                <input type="text" maxlength="40" value={this.state.title} onChange={this.update('title')} placeholder="My Campaign Title"/>
                             </label>
                             <label>Uploaad A Photo For This Campaign
                                 <input type="file" onChange={this.handleFile}/>
@@ -96,7 +125,7 @@ class CampaignForm extends React.Component{
                             </label>
                             <label>Short Description
                                 <div className="inner-campaign-text"> Give a breif description of your product</div>
-                                <textarea name="" id="" cols="30" rows="5" value={this.state.short_description} onChange={this.update('short_description')} placeholder="Your Short Campaign Description Goes Here"></textarea>
+                                <textarea name="" id="" cols="30" rows="2" maxlength="80" value={this.state.short_description} onChange={this.update('short_description')} placeholder="Your Short Campaign Description Goes Here"></textarea>
                             </label>
                             <label>Long Description
                                 <div className="inner-campaign-text">Provide a detailed description of your product</div>
@@ -117,9 +146,6 @@ class CampaignForm extends React.Component{
                             <div className="submit-contain">
                                 <input className="campaign-submit" type="submit" value={this.props.formType}/>
                             </div>
-                        </div>
-                        <div className="reward-contain">
-                            {/* <RewardForm /> */}
                         </div>
                     </div>
                 </form>

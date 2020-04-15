@@ -59,7 +59,7 @@ class NavBar extends React.Component{
                     </ul>
                 </li>
                     <li className="nav-button">
-                <NavLink to={'/'}>What We Do</NavLink>
+                <NavLink to={'/'}>Dalton's Portfolio</NavLink>
                     </li>
                     <li className="nav-button">
                     <i class="fas fa-search"></i>
@@ -101,7 +101,7 @@ class NavBar extends React.Component{
                                         <NavLink to={'/'}>Explore <i className="fas fa-chevron-down"></i></NavLink>
                                     </li>
                                     <li className="nav-button">
-                                        <NavLink to={'/'} href="#">What We Do</NavLink>
+                                        <NavLink to={'/'} href="#">Dalton's Portfolio</NavLink>
                                     </li>
                                     <li className="nav-button">
                                         <i className="fas fa-search"></i>

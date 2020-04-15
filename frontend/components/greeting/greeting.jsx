@@ -84,31 +84,31 @@ class Greeting extends React.Component {
                   <j>HOME</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/campaigns/3"}>
+              <NavLink to={"/categories/3"}>
                   <i class="fas fa-mobile-alt"></i>
               </NavLink>
                   <j>ACCESSORIES</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/campaigns/1"}>
+              <NavLink to={"/categories/1"}>
                   <i class="fas fa-hiking"></i>
               </NavLink>
                   <j>TRAVEL</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/campaigns/2"}>
+              <NavLink to={"/categories/2"}>
                   <i class="fas fa-heartbeat"></i>
               </NavLink>
                   <j>FITNESS</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/campaigns/4"}>
+              <NavLink to={"/categories/4"}>
                   <i class="fas fa-headphones"></i>
               </NavLink>
                   <j>AUDIO</j>
                 </div>
                 <div className="inner-icon">
-              <NavLink to={"/campaigns/5"}>
+              <NavLink to={"/categories/5"}>
                   <i class="fas fa-video"></i>
               </NavLink>
                   <j>FILM</j>

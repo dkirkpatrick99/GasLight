@@ -13,3 +13,19 @@ export const selectContributionsFromUser = (contributions, userId) => {
   }
   return result;
 }
+
+export const selectUserFollows = (follows, userId) => {
+  let result = [];
+  for (let id in follows) {
+    if (follows[id].user_id === userId) {result.push(follows[id])}
+  }
+  return result;
+}
+
+export const selectFollowId = (follows, userId, campId) => {
+  let result = [];
+  for (let id in follows) {
+    if (follows[id].user_id === userId && follows[id].campaign_id === campId) {result.push(follows[id])}
+  }
+  return result;
+}
