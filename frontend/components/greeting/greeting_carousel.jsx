@@ -10,6 +10,7 @@ class GreetingCarousel extends React.Component {
 
   componentDidMount() {
       this.props.fetchCampaigns()
+      this.props.fetchFollows()
   }
 
 
@@ -17,9 +18,7 @@ class GreetingCarousel extends React.Component {
       if (!this.props.campaigns) return null
     const images = this.props.campaigns.map(campaign => 
       <div>
-        <IndexCampaignItem
-            campaign={campaign}
-        />
+        <IndexCampaignItem allFollows={this.props.allFollows} currentUser={this.props.currentUser} campaign={campaign}/>
       </div>
     );
     const settings = {

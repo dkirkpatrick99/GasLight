@@ -16,7 +16,9 @@ const mSTP = (state, ownProps) => {
     currentUser: state.entities.users[state.session.id],
     campaigns: camps,
     contributions: conts,
-    userFollows: follows
+    userFollows: follows,
+    allFollows: state.entities.follows,
+
             })
 }
 

@@ -45,3 +45,11 @@ export const selectRewardsFromCampaignId = (rewards, campId) => {
   }
   return result;
 }
+
+// export const userFollowingBoolean = (follows, follow) => {
+//   let result = [];
+//   for ( let id in rewards ) {
+//     if ( rewards[id].campaign_id === campId ) { result.push(rewards[id]) }
+//   }
+//   return result;
+// }

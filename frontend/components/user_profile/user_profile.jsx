@@ -24,7 +24,6 @@ class UserProfile extends React.Component {
     render() {
       if(this.props.campaigns === []) return nil
       if(this.props.userFollows === []) return nil
-
       const panes = [
         {title: 'Profile', 
         content:  <div className="profile-move">
@@ -49,7 +48,7 @@ class UserProfile extends React.Component {
                   <div>
                     <ul className="list-of-items">
                       {
-                          this.props.campaigns.map((campaign) => <IndexCampaignItem key={campaign.id} campaign={campaign}/>)
+                          this.props.campaigns.map((campaign) => <IndexCampaignItem key={campaign.id} currentUser={this.props.currentUser} allFollows={this.props.allFollows} campaign={campaign}/>)
                       }
                     </ul>
                   </div>
@@ -59,7 +58,7 @@ class UserProfile extends React.Component {
                   <div>
                     <ul className="list-of-items">
                           {
-                              this.props.contributions.map((cont) => <FollowItem key={cont.id} fetchCampaign={this.props.fetchCampaign} campaignId={cont.campaign_id}/>)
+                              this.props.contributions.map((cont) => <FollowItem key={cont.id} currentUser={this.props.currentUser} allFollows={this.props.allFollows} fetchCampaign={this.props.fetchCampaign} campaignId={cont.campaign_id}/>)
                           }
                     </ul>
                   </div>
@@ -69,7 +68,7 @@ class UserProfile extends React.Component {
                   <div>
                     <ul className="list-of-items">
                         {
-                            this.props.userFollows.map((follow) => <FollowItem key={follow.id} fetchCampaign={this.props.fetchCampaign} campaignId={follow.campaign_id}/>)
+                            this.props.userFollows.map((follow) => <FollowItem key={follow.id}  currentUser={this.props.currentUser} allFollows={this.props.allFollows}fetchCampaign={this.props.fetchCampaign} campaignId={follow.campaign_id}/>)
                         }
                     </ul>
                   </div>

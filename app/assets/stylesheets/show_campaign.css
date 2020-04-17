@@ -286,3 +286,7 @@
     /* margin-bottom: 20px; */
     font-size: 30px;
 }
+
+.following {
+    color: red;
+}

@@ -1,13 +1,23 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import { selectFollowId } from '../../reducers/selectors'
+
 
 const IndexCampaignItem = (props) => {
-
+    let follow = [];
+    if(props.currentUser) {
+        follow = selectFollowId(props.allFollows, props.currentUser.id, props.campaign.id)
+    }
     let funds;
     if (props.campaign.funding_percent < 100) {
       funds = props.campaign.funding_percent;
     } else {
       funds = 100;
+    }
+
+    let followHeart = <i class="far fa-heart"></i>
+    if(follow.length){
+        followHeart = <i class="fas fa-heart following"></i>
     }
 
     return (
@@ -18,7 +28,7 @@ const IndexCampaignItem = (props) => {
                 <div className="lower-item">
                     <div className="heart-bar">
                         <span className="fund-text">FUNDING</span>
-                        <div className="heart"><i class="far fa-heart"></i></div>
+                        <div className="heart">{followHeart}</div>
                     </div>
                     <div className="camp-content">
                     <div className="space">

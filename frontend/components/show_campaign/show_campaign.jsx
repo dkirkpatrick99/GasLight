@@ -11,7 +11,7 @@ class ShowCampaign extends React.Component{
     constructor(props){
         super(props)
         this.toggleFollow = this.toggleFollow.bind(this)
-        this.followId;
+        // this.followId;
         this.state;
     }
 
@@ -32,19 +32,16 @@ class ShowCampaign extends React.Component{
         let status = document.querySelector('.follow-it')
         let check = document.querySelector('.following')
 
-        // status.classList.toggle('following');
-        if (check) {
-            console.log('checked')
-            this.props.deleteFollow(this.followId)
-            status.classList.toggle('following');
+
+        if (this.props.userFollowId.length) {
+            this.props.deleteFollow(this.props.userFollowId[0].id)
             this.setState(this.state)
 
         } else {
-            // console.log('UNchecked')
             this.props.createFollow({user_id: this.props.currentUser, campaign_id: this.props.campaign.id})
                 .then( payload => {
+                    this.props.fetchFollows()
                 })
-            status.classList.toggle('following');
             this.setState(this.state)
         }
 
@@ -117,9 +114,12 @@ class ShowCampaign extends React.Component{
           
           ];
 
-        if(this.props.currentUser){
-        this.followId = selectFollowId(this.props.allFollows, this.props.currentUser.id, this.props.campaign.id)
+        let followButton = <button className="campaign-button follow-it" onClick={this.toggleFollow}><i class="far fa-heart"></i> &nbsp;FOLLOW</button>
+
+        if(this.props.userFollowId.length){
+            followButton = <button className="campaign-button follow-it" onClick={this.toggleFollow}><i class="fas fa-heart following"></i> &nbsp;FOLLOW</button>
         }
+
         return(
             <div>
                 <div>{ownerBar}</div>
@@ -161,7 +161,7 @@ class ShowCampaign extends React.Component{
                                 <div className="follow-content">
                                     <div className="button-container">
                                         <button className="campaign-button back" onClick={() => this.props.openModal('contribution')}>BACK IT</button>
-                                        <button className="campaign-button follow-it" onClick={this.toggleFollow}><i class="far fa-heart"></i> &nbsp;FOLLOW</button>
+                                        {followButton}
                                     </div>
                                     <div className="social-icons">
                                         <i class="fab fa-instagram"></i>

@@ -10,6 +10,7 @@ class IndexCategory extends React.Component{
     componentDidMount() {
         this.props.fetchCampaigns()
         this.props.requestCategories()
+        this.props.fetchFollows()
     }
 
 
@@ -41,7 +42,6 @@ class IndexCategory extends React.Component{
             })
         }
 
-        // this.props.campaigns = camps
             return(
                 <div>
                     <div className="header-element">
@@ -111,7 +111,7 @@ class IndexCategory extends React.Component{
                         <div className="items-container">
                             <ul className="list-of-items">
                                 {
-                                    camps.map((campaign) => <IndexCampaignItem key={campaign.id} campaign={campaign}/>)
+                                    camps.map((campaign) => <IndexCampaignItem key={campaign.id} allFollows={this.props.allFollows} currentUser={this.props.currentUser} campaign={campaign}/>)
                                 }
                                 
                             </ul>

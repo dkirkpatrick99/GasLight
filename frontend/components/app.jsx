@@ -32,13 +32,12 @@ const App = () => (
     <Switch>
       {/* <Route path="/campaigns" component={CampaignContainer} />
       <Route path="/campaigns/:campaignId" component={UserCampainContainer} /> */}
+      <Route exact path="/categories/:categoryId" component={CategoryContainer} />
       <ProtectedRoute exact path="/campaigns/new" component={CreateCampaignContainer} />
       <Route exact path="/campaigns/:campaignId" component={ShowCampaignContainer} />
       <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer} />
-      <Route exact path="/categories/:categoryId" component={CategoryContainer} />
       <ProtectedRoute exact path="/rewards/:campaignId/new" component={CreateRewardContainer} />
       <ProtectedRoute exact path="/campaigns/:campaignId/edit" component={EditCampaignContainer} />
-      <Route exact path="/campaigns" component={IndexCampaignContainer} />
       <Route path="/" component={GreetingContainer} />
     </Switch>
     <div>
@@ -46,6 +45,8 @@ const App = () => (
     </div>
   </div>
   
-);
-
-export default App;
+  );
+  
+  export default App;
+  
+  // <Route exact path="/campaigns" component={IndexCampaignContainer} />

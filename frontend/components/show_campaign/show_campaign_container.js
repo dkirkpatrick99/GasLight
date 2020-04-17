@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => {
     const rewards = selectRewardsFromCampaignId(state.entities.rewards, parseInt(ownProps.match.params.campaignId))
     const userId = state.entities.users[state.session.id];
     let camps;
-    let followId
+    let followId;
     if(userId) {
         camps = selectCampaignsFromUser(state.entities.campaigns, userId.id) 
         followId = selectFollowId(state.entities.follows, userId.id, parseInt(ownProps.match.params.campaignId))
