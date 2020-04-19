@@ -74,6 +74,15 @@ class Greeting extends React.Component {
           </div>
         </Slider>
       </div>
+      
+      <div className="content-carousel">
+          <div className="popular-projects">
+            <h3>Popular Projects</h3>
+            <div>
+              <GreetingCarouselContainer /> 
+            </div>
+          </div>
+        </div>
 
         <div className="search-icons">
           <div className="icon-container">
@@ -121,14 +130,7 @@ class Greeting extends React.Component {
           </div>
         </div>
 
-        <div className="content-carousel">
-          <div className="popular-projects">
-            <h3>Popular Projects</h3>
-            <div>
-              <GreetingCarouselContainer /> 
-            </div>
-          </div>
-        </div>
+   
 
         <div className="all-images">
           <div className="image-blocks">

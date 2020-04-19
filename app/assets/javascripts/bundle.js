@@ -1781,6 +1781,10 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       }, "SEE CAMPAIGN ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "fas fa-angle-right"
       })))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "content-carousel"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "popular-projects"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Popular Projects"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_carousel_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-icons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "icon-container"
@@ -1825,10 +1829,6 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "fas fa-video"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("j", null, "FILM"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "content-carousel"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "popular-projects"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Popular Projects"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_carousel_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "all-images"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "image-blocks"
