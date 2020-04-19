@@ -40,7 +40,7 @@
     background-repeat: no-repeat;
     position: absolute;
     width: 100%;
-    height: 590px;
+    height: 480px;
     /* top: 0; */
     transition: ease-in-out;
     /* box-sizing: border-box; */
@@ -272,7 +272,7 @@
 
 .search-icons {
     position: relative;
-    bottom: -25px;
+    bottom: 65px;
     display: flex;
     justify-content: center;
 }
