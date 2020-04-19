@@ -41,6 +41,7 @@ class Greeting extends React.Component {
               <div className="featured-image featured-image1"></div>
                 <div className="slide-content">
                   <div className="move-content">
+                    <div className="featured-tag">FEATURED</div>
                     <div className="slide-title">Drop x THX Panda Headphones</div>
                     <div className="slide-desc">The World’s highest fidelity wireless headphones.</div>
                     <div className="click-to-see">SEE CAMPAIGN <i class="fas fa-angle-right"></i></div>
@@ -53,6 +54,7 @@ class Greeting extends React.Component {
               <div className="featured-image featured-image2"></div>
                 <div className="slide-content">
                   <div className="move-content">
+                    <div className="featured-tag">FEATURED</div>
                     <div className="slide-title">CIGA Design Z-Series Mechanical Titanium Watch</div>
                     <div className="slide-desc">Designed to highlight real men’s love of complexity with outstanding design and superb performance</div>
                     <div className="click-to-see">SEE CAMPAIGN <i class="fas fa-angle-right"></i></div>
@@ -65,6 +67,7 @@ class Greeting extends React.Component {
               <div className="featured-image featured-image3"></div>
                 <div className="slide-content">
                   <div className="move-content">
+                    <div className="featured-tag">FEATURED</div>
                     <div className="slide-title">V-Tex: 12 Feature Nanotech Shoe for all Seasons</div>
                     <div className="slide-desc">A mix of a slipper & a boot in one 12 feature all-weather waterproof breathable nanotech knit shoe</div>
                     <div className="click-to-see">SEE CAMPAIGN <i class="fas fa-angle-right"></i></div>
@@ -74,7 +77,7 @@ class Greeting extends React.Component {
           </div>
         </Slider>
       </div>
-      
+
       <div className="content-carousel">
           <div className="popular-projects">
             <h3>Popular Projects</h3>

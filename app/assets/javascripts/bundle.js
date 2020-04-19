@@ -1735,6 +1735,8 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "move-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "featured-tag"
+      }, "FEATURED"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slide-title"
       }, "Drop x THX Panda Headphones"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slide-desc"
@@ -1754,6 +1756,8 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "move-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "featured-tag"
+      }, "FEATURED"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slide-title"
       }, "CIGA Design Z-Series Mechanical Titanium Watch"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slide-desc"
@@ -1773,6 +1777,8 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "move-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "featured-tag"
+      }, "FEATURED"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slide-title"
       }, "V-Tex: 12 Feature Nanotech Shoe for all Seasons"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slide-desc"
