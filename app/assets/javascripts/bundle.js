@@ -158,7 +158,6 @@ var fetchCampaign = function fetchCampaign(campaignId) {
 };
 var createCampaign = function createCampaign(campaign) {
   return function (dispatch) {
-    debugger;
     return _util_campaign_api_util__WEBPACK_IMPORTED_MODULE_0__["createCampaign"](campaign).then(function (campaign) {
       return dispatch(receiveCampaign(campaign));
     });
@@ -971,18 +970,8 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, CampaignForm);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(CampaignForm).call(this, props));
-    _this.state = {
-      title: "",
-      location: "",
-      short_description: "",
-      long_description: "",
-      goal_amount: "",
-      end_date: "",
-      goal_status: false,
-      category_id: 3,
-      photoFile: null,
-      photoURL: null
-    }, _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.state = _this.props.campaign;
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -991,33 +980,77 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchCampaigns();
+      window.scrollTo(0, 0);
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       var _this2 = this;
 
+      var props = this.props;
       e.preventDefault(); // const campaign = Object.assign({}, this.state);
       // this.props.createCampaign(campaign);
 
-      var formData = new FormData();
-      formData.append('campaign[title]', this.state.title);
-      formData.append('campaign[location]', this.state.location);
-      formData.append('campaign[short_description]', this.state.short_description);
-      formData.append('campaign[long_description]', this.state.long_description);
-      formData.append('campaign[goal_amount]', this.state.goal_amount);
-      formData.append('campaign[end_date]', this.state.end_date);
-      formData.append('campaign[goal_status]', this.state.goal_status);
-      formData.append('campaign[category_id]', this.state.category_id);
-      formData.append('campaign[photo]', this.state.photoFile);
-      $.ajax({
-        url: '/api/campaigns',
-        method: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false
-      }).then(function (payload) {
-        _this2.props.history.push("/campaigns/".concat(Object.values(payload)[0].id));
+      if (this.props.formType === 'Create Campaign') {
+        var formData = new FormData();
+        formData.append('campaign[title]', this.state.title);
+        formData.append('campaign[location]', this.state.location);
+        formData.append('campaign[short_description]', this.state.short_description);
+        formData.append('campaign[long_description]', this.state.long_description);
+        formData.append('campaign[goal_amount]', this.state.goal_amount);
+        formData.append('campaign[end_date]', this.state.end_date);
+        formData.append('campaign[goal_status]', this.state.goal_status);
+        formData.append('campaign[category_id]', this.state.category_id);
+        formData.append('campaign[photo]', this.state.photoFile);
+        $.ajax({
+          url: '/api/campaigns',
+          method: 'POST',
+          data: formData,
+          contentType: false,
+          processData: false
+        }).then(function (payload) {
+          _this2.props.history.push("/campaigns/".concat(Object.values(payload)[0].id));
+        });
+      } else if (this.props.formType === 'Edit Campaign') {
+        var _formData = new FormData();
+
+        _formData.append('campaign[title]', this.state.title);
+
+        _formData.append('campaign[location]', this.state.location);
+
+        _formData.append('campaign[short_description]', this.state.short_description);
+
+        _formData.append('campaign[long_description]', this.state.long_description);
+
+        _formData.append('campaign[goal_amount]', this.state.goal_amount);
+
+        _formData.append('campaign[end_date]', this.state.end_date);
+
+        _formData.append('campaign[goal_status]', this.state.goal_status);
+
+        _formData.append('campaign[category_id]', this.state.category_id);
+
+        _formData.append('campaign[photo]', this.state.photoFile);
+
+        $.ajax({
+          url: "/api/campaigns/".concat(this.props.campaign.id),
+          method: 'PATCH',
+          data: _formData,
+          contentType: false,
+          processData: false
+        }).then(function (payload) {
+          document.querySelector('.camp-show-all').style.display = "block";
+          document.querySelector('.toggle-edit').style.display = "none"; // this.props.history.push(`/campaigns/${this.props.campaign.id}`);
+        });
+      }
+    }
+  }, {
+    key: "photoUrlSet",
+    value: function photoUrlSet() {
+      this.setState({
+        campaign: {
+          photoURL: this.props.campaign.photoURL
+        }
       });
     }
   }, {
@@ -1026,27 +1059,7 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       var file = e.currentTarget.files[0];
-      var fileReader = new FileReader(); // var fileInput = false
-      // if(event.target.files[0]) {
-      //     fileInput = true
-      // }
-      // if(file) {
-      //     let newImg;
-      //     Resizer.imageFileResizer(
-      //         file,
-      //         300,
-      //         300,
-      //         'JPEG',
-      //         100,
-      //         0,
-      //         uri => {
-      //             newImg = uri
-      //             console.log(uri)
-      //             debugger
-      //         },
-      //         'base64'
-      //         );
-      //     }
+      var fileReader = new FileReader();
 
       fileReader.onloadend = function () {
         _this3.setState({
@@ -1057,11 +1070,7 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
 
       if (file) {
         fileReader.readAsDataURL(file);
-      } // fileReader.onloadend = () => {
-      //     this.setState({photoFile: file, photoURL: fileReader.result});
-      // }
-      // if(file){fileReader.readAsDataURL(file);}
-
+      }
     }
   }, {
     key: "update",
@@ -1075,7 +1084,9 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      if (!Object.values(this.props.allCampaigns).length) return null;
       var preview = this.state.photoURL ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "image-prev",
         src: this.state.photoURL
       }) : null;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1146,12 +1157,6 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.end_date,
         onChange: this.update('end_date'),
         placeholder: "30"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Goal Status", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "inner-campaign-text"
-      }, "Has your goal been met?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        value: this.state.goal_status,
-        onChange: this.update('goal_status')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "submit-contain"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1189,7 +1194,20 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state) {
   return {
     formType: 'Create Campaign',
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    allCampaigns: state.entities.campaigns,
+    campaign: {
+      title: "",
+      location: "",
+      short_description: "",
+      long_description: "",
+      goal_amount: "",
+      end_date: "",
+      goal_status: false,
+      category_id: 3,
+      photoFile: null,
+      photoURL: null
+    }
   };
 };
 
@@ -1226,8 +1244,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state, ownProps) {
   return {
-    campaign: state.campaigns[ownProps.match.params.campaignId],
-    formType: 'Edit Campaign'
+    // campaign: state.entities.campaigns[ownProps.match.params.campaignId],
+    formType: 'Edit Campaign',
+    allCampaigns: state.entities.campaigns
   };
 };
 
@@ -1235,6 +1254,9 @@ var mDTP = function mDTP(dispatch) {
   return {
     updateCampaign: function updateCampaign(campaign) {
       return dispatch(Object(_actions_campaign_action__WEBPACK_IMPORTED_MODULE_1__["updateCampaign"])(campaign));
+    },
+    fetchCampaigns: function fetchCampaigns() {
+      return dispatch(Object(_actions_campaign_action__WEBPACK_IMPORTED_MODULE_1__["fetchCampaigns"])());
     }
   };
 };
@@ -1674,6 +1696,7 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchCampaigns();
       this.props.requestCategories();
+      window.scrollTo(0, 0);
     }
   }, {
     key: "render",
@@ -2118,6 +2141,7 @@ var IndexCategory = /*#__PURE__*/function (_React$Component) {
       this.props.fetchCampaigns();
       this.props.requestCategories();
       this.props.fetchFollows();
+      window.scrollTo(0, 0);
     }
   }, {
     key: "render",
@@ -2616,19 +2640,19 @@ var RewardForm = /*#__PURE__*/function (_React$Component) {
         className: "create-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Price", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "inner-campaign-text"
-      }, "Set an amount that you want to collect from backers who claim this perk. This amount should represent how much you want to receive for all the items included in this perk."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Set an amount that you want to collect from backers who claim this reward. This amount should represent how much you want to receive for all the items included in this reward."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.min_contribution,
         onChange: this.update('min_contribution')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Title", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "inner-campaign-text"
-      }, "The title for your perk is what will appear on your campaign page and throughout Indiegogo. Create a title that best describes the contents of what this perk is offering."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "The title for your reward is what will appear on your campaign page and throughout Indiegogo. Create a title that best describes the contents of what this reward is offering."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.name,
         onChange: this.update('name')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "inner-campaign-text"
-      }, "Describe the details of this perk. Be creative, this is your opportunity to educate backers on what they will be receiving after they claim this perk."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, "Describe the details of this reward. Be creative, this is your opportunity to educate backers on what they will be receiving after they claim this reward."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         name: "",
         id: "",
         cols: "30",
@@ -2640,7 +2664,7 @@ var RewardForm = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "campaign-submit",
         type: "submit",
-        value: "Create Perk"
+        value: "Create Reward"
       })))));
     }
   }]);
@@ -3013,6 +3037,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
 /* harmony import */ var _show_tabs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./show_tabs */ "./frontend/components/show_campaign/show_tabs.jsx");
 /* harmony import */ var _rewards_reward_item__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../rewards/reward_item */ "./frontend/components/rewards/reward_item.jsx");
+/* harmony import */ var _campaign_form_edit_campaign_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../campaign_form/edit_campaign_container */ "./frontend/components/campaign_form/edit_campaign_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3030,6 +3055,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -3061,6 +3087,7 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
       this.props.fetchCampaigns();
       this.props.fetchFollows();
       this.props.fetchRewards();
+      window.scrollTo(0, 0);
     }
   }, {
     key: "toggleOverlay",
@@ -3086,6 +3113,19 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
           _this2.props.fetchFollows();
         });
         this.setState(this.state);
+      }
+    }
+  }, {
+    key: "toggleEdit",
+    value: function toggleEdit(action) {
+      var show = document.querySelector('.camp-show-all');
+      var editForm = document.querySelector('.toggle-edit');
+
+      if (!show) {
+        return null;
+      } else {
+        show.style.display = "none";
+        editForm.style.display = "block";
       }
     }
   }, {
@@ -3120,8 +3160,8 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
           className: "user-campbutton-contain"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-camp-button"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          to: "/campaigns/".concat(this.props.campaign.id, "/edit")
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          onClick: this.toggleEdit
         }, "Edit This Campaign")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-camp-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -3176,7 +3216,9 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
         }), " \xA0FOLLOW");
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, ownerBar), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "camp-show-all"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, ownerBar), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "short-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "short-campaign-content"
@@ -3252,9 +3294,13 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
         "class": "fas fa-link"
       }))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_show_tabs__WEBPACK_IMPORTED_MODULE_5__["default"], {
         panes: panes
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
         campaignId: this.props.campaign.id
-      }));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "toggle-edit"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_campaign_form_edit_campaign_container__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        campaign: this.props.campaign
+      })));
     }
   }]);
 
@@ -3628,6 +3674,7 @@ var UserProfile = /*#__PURE__*/function (_React$Component) {
       this.props.fetchCampaigns();
       this.props.fetchContributions();
       this.props.fetchFollows();
+      window.scrollTo(0, 0);
     }
   }, {
     key: "render",

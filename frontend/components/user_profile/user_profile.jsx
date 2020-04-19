@@ -18,6 +18,8 @@ class UserProfile extends React.Component {
       this.props.fetchCampaigns()
       this.props.fetchContributions()
       this.props.fetchFollows()
+      window.scrollTo(0,0);
+
     }
 
 

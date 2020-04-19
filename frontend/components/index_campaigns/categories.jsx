@@ -11,6 +11,8 @@ class IndexCategory extends React.Component{
         this.props.fetchCampaigns()
         this.props.requestCategories()
         this.props.fetchFollows()
+        window.scrollTo(0,0);
+
     }
 
 

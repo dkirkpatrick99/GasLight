@@ -12,6 +12,8 @@ class Greeting extends React.Component {
   componentDidMount() {
     this.props.fetchCampaigns()
     this.props.requestCategories()
+    window.scrollTo(0,0);
+
   }
 
   render() {
@@ -31,6 +33,7 @@ class Greeting extends React.Component {
     return(
       <div className="home-page">
     
+      
       <div className="featured-carousel">
         <Slider {...featured}>
           <div className="home-slide">

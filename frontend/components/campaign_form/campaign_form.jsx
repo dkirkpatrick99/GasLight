@@ -5,87 +5,82 @@ import Resizer from 'react-image-file-resizer';
 class CampaignForm extends React.Component{
     constructor(props) {
         super(props)
-        this.state = {
-            title: "",
-            location: "",
-            short_description: "",
-            long_description: "",
-            goal_amount: "",
-            end_date: "",
-            goal_status: false,
-            category_id: 3,
-            photoFile: null,
-            photoURL: null
-            
-        },
+        this.state = this.props.campaign
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
+
     };
 
     componentDidMount() {
         this.props.fetchCampaigns();
+        window.scrollTo(0,0);
+
     }
 
     handleSubmit(e) {
+        const props = this.props
         e.preventDefault();
         // const campaign = Object.assign({}, this.state);
         // this.props.createCampaign(campaign);
-        const formData = new FormData();
-        formData.append('campaign[title]', this.state.title);
-        formData.append('campaign[location]', this.state.location);
-        formData.append('campaign[short_description]', this.state.short_description);
-        formData.append('campaign[long_description]', this.state.long_description);
-        formData.append('campaign[goal_amount]', this.state.goal_amount);
-        formData.append('campaign[end_date]', this.state.end_date);
-        formData.append('campaign[goal_status]', this.state.goal_status);
-        formData.append('campaign[category_id]', this.state.category_id);
-        formData.append('campaign[photo]', this.state.photoFile);
-        $.ajax({
-            url: '/api/campaigns',
-            method: 'POST',
-            data: formData,
-            contentType: false,
-            processData: false
-        }).then( payload => {
-            this.props.history.push(`/campaigns/${Object.values(payload)[0].id}`);
-        })
+        if (this.props.formType === 'Create Campaign') {
+            const formData = new FormData();
+            formData.append('campaign[title]', this.state.title);
+            formData.append('campaign[location]', this.state.location);
+            formData.append('campaign[short_description]', this.state.short_description);
+            formData.append('campaign[long_description]', this.state.long_description);
+            formData.append('campaign[goal_amount]', this.state.goal_amount);
+            formData.append('campaign[end_date]', this.state.end_date);
+            formData.append('campaign[goal_status]', this.state.goal_status);
+            formData.append('campaign[category_id]', this.state.category_id);
+            formData.append('campaign[photo]', this.state.photoFile);
+            $.ajax({
+                url: '/api/campaigns',
+                method: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false
+            }).then( payload => {
+                this.props.history.push(`/campaigns/${Object.values(payload)[0].id}`);
+            })
+        } else if (this.props.formType === 'Edit Campaign') {
+            const formData = new FormData();
+            formData.append('campaign[title]', this.state.title);
+            formData.append('campaign[location]', this.state.location);
+            formData.append('campaign[short_description]', this.state.short_description);
+            formData.append('campaign[long_description]', this.state.long_description);
+            formData.append('campaign[goal_amount]', this.state.goal_amount);
+            formData.append('campaign[end_date]', this.state.end_date);
+            formData.append('campaign[goal_status]', this.state.goal_status);
+            formData.append('campaign[category_id]', this.state.category_id);
+            formData.append('campaign[photo]', this.state.photoFile);
+            $.ajax({
+                url: `/api/campaigns/${this.props.campaign.id}`,
+                method: 'PATCH',
+                data: formData,
+                contentType: false,
+                processData: false
+            }).then( payload => {
+                
+                document.querySelector('.camp-show-all').style.display = "block"
+                document.querySelector('.toggle-edit').style.display = "none"
+                // this.props.history.push(`/campaigns/${this.props.campaign.id}`);
+            })
+        }
+    }
+
+    photoUrlSet() {
+        this.setState({campaign: {photoURL: this.props.campaign.photoURL}})
     }
 
     handleFile(e) {
         const file = e.currentTarget.files[0]
         const fileReader = new FileReader();
         
-        // var fileInput = false
-        // if(event.target.files[0]) {
-            //     fileInput = true
-            // }
-            // if(file) {
-            //     let newImg;
-            //     Resizer.imageFileResizer(
-            //         file,
-            //         300,
-            //         300,
-            //         'JPEG',
-            //         100,
-            //         0,
-            //         uri => {
-            //             newImg = uri
-            //             console.log(uri)
-            //             debugger
-            //         },
-            //         'base64'
-            //         );
-            //     }
 
             fileReader.onloadend = () => {
                 this.setState({photoFile: file, photoURL: fileReader.result});
             }
             if(file){fileReader.readAsDataURL(file);}
-
-            // fileReader.onloadend = () => {
-            //     this.setState({photoFile: file, photoURL: fileReader.result});
-            // }
-            // if(file){fileReader.readAsDataURL(file);}
     }
 
     update(field) {
@@ -93,8 +88,10 @@ class CampaignForm extends React.Component{
     }
 
     render() {
-        const preview = this.state.photoURL ? <img src={this.state.photoURL}/> : null
-
+        if(!Object.values(this.props.allCampaigns).length) return null
+        
+        let preview = this.state.photoURL ? <img className="image-prev" src={this.state.photoURL}/> : null
+        
         return(
             <div>
                 <div className="campaignform-image">
@@ -139,10 +136,10 @@ class CampaignForm extends React.Component{
                                 <div className="inner-campaign-text">How much time will you allow for this campaign?</div>
                                 <input type="text" value={this.state.end_date} onChange={this.update('end_date')} placeholder="30"/>
                             </label>
-                            <label>Goal Status
+                            {/* <label>Goal Status
                                 <div className="inner-campaign-text">Has your goal been met?</div>
                                 <input type="text" value={this.state.goal_status} onChange={this.update('goal_status')}/>
-                            </label>
+                            </label> */}
                             <div className="submit-contain">
                                 <input className="campaign-submit" type="submit" value={this.props.formType}/>
                             </div>

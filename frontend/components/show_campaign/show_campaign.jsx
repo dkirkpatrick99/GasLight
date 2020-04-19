@@ -5,6 +5,7 @@ import Modal from '../modal/modal';
 import { selectFollowId } from '../../reducers/selectors'
 import ShowTabs from './show_tabs'
 import RewardItem from '../rewards/reward_item'
+import EditCampaignContainer from '../campaign_form/edit_campaign_container'
 
 
 class ShowCampaign extends React.Component{
@@ -20,6 +21,8 @@ class ShowCampaign extends React.Component{
         this.props.fetchCampaigns();
         this.props.fetchFollows()
         this.props.fetchRewards()
+        window.scrollTo(0,0);
+
     }
 
 
@@ -43,6 +46,18 @@ class ShowCampaign extends React.Component{
                     this.props.fetchFollows()
                 })
             this.setState(this.state)
+        }
+
+    }
+
+    toggleEdit(action) {
+        let show = document.querySelector('.camp-show-all')
+        let editForm = document.querySelector('.toggle-edit')
+        if(!show){
+            return null
+        } else {
+            show.style.display = "none"
+            editForm.style.display = "block"
         }
 
     }
@@ -73,7 +88,7 @@ class ShowCampaign extends React.Component{
                             </div>
                             <div className="user-campbutton-contain">
                                 <div className="user-camp-button">
-                                    <NavLink to={`/campaigns/${this.props.campaign.id}/edit`}>Edit This Campaign</NavLink>
+                                    <div onClick={this.toggleEdit}>Edit This Campaign</div>
                                 </div>
                                 <div className="user-camp-button">
                                     <NavLink to={`/rewards/${this.props.campaign.id}/new`}>Create Reward</NavLink>
@@ -122,61 +137,66 @@ class ShowCampaign extends React.Component{
 
         return(
             <div>
-                <div>{ownerBar}</div>
-                <div className="short-container">
-                    <div className="short-campaign-content">
-                        <div className="campaign-video">
-                            <div className="over-lay" onClick={this.toggleOverlay}>
-                                <img src={this.props.campaign.photoUrl} alt=""/>
-                                <i class="fas fa-play-circle"></i>
-                            </div>
-                            <iframe className="camp-video" width="720" height="495" 
-                                src="https://www.youtube.com/embed/Rm7gVae7vUY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                            </iframe>
-                        </div>    
-                        <div className="short-content">
-                            <div className="campaign-stage">INDEMAND</div>
-                            <div className="campaign-showtitle">{this.props.campaign.title}</div>
-                            <div className="campaign-showshort">{this.props.campaign.short_description}</div>
-                            <div className="lower-short">
-                                <div className="campaign-showimage">
-                                    <img src={this.props.campaign.photoUrl}/>
-                                    <div className="campaign-showlocation">{this.props.campaign.location}</div>
+                <div className="camp-show-all">
+                    <div>{ownerBar}</div>
+                    <div className="short-container">
+                        <div className="short-campaign-content">
+                            <div className="campaign-video">
+                                <div className="over-lay" onClick={this.toggleOverlay}>
+                                    <img src={this.props.campaign.photoUrl} alt=""/>
+                                    <i class="fas fa-play-circle"></i>
                                 </div>
-                                <div className="bar-container">
-                                    {/* <div>{this.props.owner.company_name}</div> */}
-                                    <div className="funding-details">
-                                        <div className="percent1">
-                                            {`$${this.props.campaign.current_sum}`}
+                                <iframe className="camp-video" width="720" height="495" 
+                                    src="https://www.youtube.com/embed/Rm7gVae7vUY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                </iframe>
+                            </div>    
+                            <div className="short-content">
+                                <div className="campaign-stage">INDEMAND</div>
+                                <div className="campaign-showtitle">{this.props.campaign.title}</div>
+                                <div className="campaign-showshort">{this.props.campaign.short_description}</div>
+                                <div className="lower-short">
+                                    <div className="campaign-showimage">
+                                        <img src={this.props.campaign.photoUrl}/>
+                                        <div className="campaign-showlocation">{this.props.campaign.location}</div>
+                                    </div>
+                                    <div className="bar-container">
+                                        {/* <div>{this.props.owner.company_name}</div> */}
+                                        <div className="funding-details">
+                                            <div className="percent1">
+                                                {`$${this.props.campaign.current_sum}`}
+                                            </div>
+                                        </div>
+                                        <div className="tile-bar1">
+                                            <div className="tile-bar-done1" style={{width: `${funds}%`}}></div>
+                                        </div>
+                                        <div className="bar-text">
+                                            <span>{`${this.props.campaign.funding_percent}% of`}{` $${this.props.campaign.goal_in_dollars} FIXED GOAL`}</span>
+                                            <div className="days-left1"><span><i class="fas fa-clock"></i> &nbsp; {this.props.campaign.end_date}</span> days left</div>
                                         </div>
                                     </div>
-                                    <div className="tile-bar1">
-                                        <div className="tile-bar-done1" style={{width: `${funds}%`}}></div>
-                                    </div>
-                                    <div className="bar-text">
-                                        <span>{`${this.props.campaign.funding_percent}% of`}{` $${this.props.campaign.goal_in_dollars} FIXED GOAL`}</span>
-                                        <div className="days-left1"><span><i class="fas fa-clock"></i> &nbsp; {this.props.campaign.end_date}</span> days left</div>
-                                    </div>
-                                </div>
-                                <div className="follow-content">
-                                    <div className="button-container">
-                                        <button className="campaign-button back" onClick={() => this.props.openModal('contribution')}>BACK IT</button>
-                                        {followButton}
-                                    </div>
-                                    <div className="social-icons">
-                                        <i class="fab fa-instagram"></i>
-                                        <i class="fab fa-twitter"></i>
-                                        <i class="fas fa-link"></i>
+                                    <div className="follow-content">
+                                        <div className="button-container">
+                                            <button className="campaign-button back" onClick={() => this.props.openModal('contribution')}>BACK IT</button>
+                                            {followButton}
+                                        </div>
+                                        <div className="social-icons">
+                                            <i class="fab fa-instagram"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fas fa-link"></i>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>    
+                            </div>    
+                        </div>
+                    </div>
+                    <div>
+                        <ShowTabs panes={panes} />
                     </div>
                 </div>
-                <div>
-                    <ShowTabs panes={panes} />
-                </div>
                 <Modal campaignId={this.props.campaign.id}/>
+                <div className="toggle-edit">
+                    <EditCampaignContainer campaign={this.props.campaign} />
+                </div>
             </div>
         )
     }

@@ -38,7 +38,6 @@ export const fetchCampaign = campaignId => dispatch => (
 );
 
 export const createCampaign = campaign => dispatch => {
-  debugger
   return CampaignApiUtil.createCampaign(campaign)
     .then(campaign => dispatch(receiveCampaign(campaign)))
 };
@@ -49,10 +48,10 @@ export const createCampaign = campaign => dispatch => {
 //         err => dispatch(receiveErrors(err.responseJSON)))
 //     );
 
-export const updateCampaign = campaign => dispatch => (
-  CampaignApiUtil.updateCampaign(campaign)
+export const updateCampaign = campaign => dispatch => {
+  return CampaignApiUtil.updateCampaign(campaign)
     .then(campaign => dispatch(receiveCampaign(campaign)))
-);
+};
 
 export const deleteCampaign = campaignId => dispatch => (
   CampaignApiUtil.deleteCampaign(campaignId)

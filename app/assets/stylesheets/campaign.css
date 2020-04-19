@@ -92,3 +92,8 @@ form > h1 {
     display: flex;
     justify-content: center;
 }
+
+.image-prev {
+    height: 20%;
+    width: 20%;
+}

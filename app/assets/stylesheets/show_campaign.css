@@ -256,6 +256,11 @@
     margin-right: 25px;
 }
 
+.user-camp-button:hover {
+    color: #e51075;
+    cursor: pointer;
+}
+
 .welcome-to{
     margin-top: 7px;
 
@@ -289,4 +294,8 @@
 
 .following {
     color: red;
+}
+
+.toggle-edit {
+    display: none;
 }
