@@ -84,7 +84,7 @@
  }
 
  .move-content {
-    margin-right: 250px;
+    margin-right: 200px;
     /* margin-top: 50px; */
     /* top: 100px; */
     height: 370px;
@@ -127,16 +127,21 @@
  }
 
  .featured-carousel .slick-prev {
-     left: 1290px !important;
-     bottom: -90px !important;
-     margin: auto;
+     left: 100px !important;
+     bottom: -394px !important;
+     /* margin: auto; */
      z-index: 5;
+    /* position: relative; */
+    margin-top: 100px;
  }
 
  .featured-carousel .slick-next {
-     right: 465px !important;
+     right: 130px !important;
      margin: auto !important;
-     bottom: -90px !important;
+     bottom: 61px !important;
+     position: absolute;
+     z-index: 5;
+
  }
 
 .featured-carousel .slick-prev:before, .featured-carousel .slick-next:before {
@@ -267,7 +272,7 @@
 .popular-projects h3 {
     margin-left: 18px;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 26px;
  }
 
 .slick-prev:before, .slick-next:before {
