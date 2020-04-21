@@ -1706,7 +1706,7 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       }
 
       var featured = {
-        dots: false,
+        dots: true,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,

@@ -21,7 +21,7 @@ class Greeting extends React.Component {
     if(!this.props.categories.length){return null}
 
     const featured = {
-      dots: false,
+      dots: true,
       infinite: true,
       slidesToShow: 1,
       slidesToScroll: 1,

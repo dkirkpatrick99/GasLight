@@ -148,6 +148,22 @@
     font-size: 54px !important;
     z-index: 5 !important;
     color: white !important;
+    display: none !important;
+ }
+
+ .slick-dots li button::before {
+     font-size: 30px !important;
+     color: white !important;
+ }
+
+ .slick-dots {
+     bottom: 120px !important; 
+     color: white !important;
+
+ }
+
+ .slick-dots li {
+    margin: 0 30px !important;
  }
 
 
