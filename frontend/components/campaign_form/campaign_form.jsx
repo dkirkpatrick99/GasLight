@@ -1,5 +1,6 @@
 import React from 'react'
 import Resizer from 'react-image-file-resizer';
+import { withRouter } from 'react-router-dom';
 
 
 class CampaignForm extends React.Component{
@@ -59,12 +60,10 @@ class CampaignForm extends React.Component{
                 data: formData,
                 contentType: false,
                 processData: false
-            }).then( payload => {
-                
-                document.querySelector('.camp-show-all').style.display = "block"
-                document.querySelector('.toggle-edit').style.display = "none"
-                // this.props.history.push(`/campaigns/${this.props.campaign.id}`);
+            }).then((payload) => {
+                window.location.reload()
             })
+       
         }
     }
 
@@ -151,4 +150,4 @@ class CampaignForm extends React.Component{
     }
 }
 
-export default CampaignForm;
+export default withRouter(CampaignForm);

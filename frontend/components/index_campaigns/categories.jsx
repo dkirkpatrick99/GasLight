@@ -113,7 +113,8 @@ class IndexCategory extends React.Component{
                         <div className="items-container">
                             <ul className="list-of-items">
                                 {
-                                    camps.map((campaign) => <IndexCampaignItem key={campaign.id} allFollows={this.props.allFollows} currentUser={this.props.currentUser} campaign={campaign}/>)
+                                    camps.map((campaign) => <IndexCampaignItem key={campaign.id} allFollows={this.props.allFollows} 
+                                        currentUser={this.props.currentUser} createFollow={this.props.createFollow} deleteFollow={this.props.deleteFollow} campaign={campaign}/>)
                                 }
                                 
                             </ul>

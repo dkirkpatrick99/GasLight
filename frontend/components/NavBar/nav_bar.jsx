@@ -54,16 +54,16 @@ class NavBar extends React.Component{
                 <NavLink to={'/'}>MONEYWISE</NavLink>
                     </li>
                 <li className="nav-button">
-                    <NavLink to={'/'}>Git Repo <i className="fas fa-chevron-down"></i></NavLink>
+                    <NavLink to={'https://github.com/dkirkpatrick99/MoneyWise.git'}>Git Repo <i className="fas fa-chevron-down"></i></NavLink>
                     <ul className="drop-down">
                     </ul>
                 </li>
                     <li className="nav-button">
-                <NavLink to={'/'}>Dalton's Portfolio</NavLink>
+                <NavLink to={'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/'}>Dalton's Portfolio</NavLink>
                     </li>
-                    <li className="nav-button">
+                    {/* <li className="nav-button">
                     <i class="fas fa-search"></i>
-                    </li>
+                    </li> */}
                 </ul>
                 </h1>
                 <div className="nav-right">
@@ -98,14 +98,14 @@ class NavBar extends React.Component{
                                         <NavLink to={'/'}>MoneyWise</NavLink>
                                     </li> 
                                     <li className="nav-button drop-button">
-                                        <NavLink to={'/'}>Git Repo <i className="fas fa-chevron-down"></i></NavLink>
+                                        <NavLink to={'https://github.com/dkirkpatrick99/MoneyWise.git'}>Git Repo <i className="fas fa-chevron-down"></i></NavLink>
                                     </li>
                                     <li className="nav-button">
-                                        <NavLink to={'/'} href="#">Dalton's Portfolio</NavLink>
+                                        <NavLink to={'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/'} href="#">Dalton's Portfolio</NavLink>
                                     </li>
-                                    <li className="nav-button">
+                                    {/* <li className="nav-button">
                                         <i className="fas fa-search"></i>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </h1>
                             <div className="nav-right">

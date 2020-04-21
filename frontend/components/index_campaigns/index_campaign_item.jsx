@@ -4,6 +4,26 @@ import { selectFollowId } from '../../reducers/selectors'
 
 
 const IndexCampaignItem = (props) => {
+
+    // function toggleFollow() {
+    //     let status = document.querySelector('.follow-it')
+    //     let check = document.querySelector('.following')
+
+    //     if (this.props.userFollowId.length) {
+    //         this.props.deleteFollow(this.props.userFollowId[0].id)
+    //         this.setState(this.state)
+
+    //     } else {
+    //         this.props.createFollow({user_id: this.props.currentUser, campaign_id: this.props.campaign.id})
+    //             .then( payload => {
+    //                 this.props.fetchFollows()
+    //             })
+    //         this.setState(this.state)
+    //     }
+
+    // }
+
+
     let follow = [];
     if(props.currentUser) {
         follow = selectFollowId(props.allFollows, props.currentUser.id, props.campaign.id)
@@ -19,7 +39,6 @@ const IndexCampaignItem = (props) => {
     if(follow.length){
         followHeart = <i class="fas fa-heart following"></i>
     }
-
     return (
     <li className="campaign-item">
         <NavLink to={`/campaigns/${props.campaign.id}`}>
@@ -39,7 +58,7 @@ const IndexCampaignItem = (props) => {
                        <div class="deet-holder">
                     <div className="funding-details">
                         <div className="percent">
-                            <div className="goal-amt">{`$${props.campaign.goal_in_dollars} goal`}</div>
+                            <div className="goal-amt">{`$${props.campaign.current_sum} USD raised`}</div>
                             <div>{`${props.campaign.funding_percent}% `}</div>
                         </div>
                     </div>

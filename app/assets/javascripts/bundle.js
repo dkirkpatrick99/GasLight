@@ -678,7 +678,7 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         }, "MONEYWISE")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          to: '/'
+          to: 'https://github.com/dkirkpatrick99/MoneyWise.git'
         }, "Git Repo ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-chevron-down"
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -686,12 +686,8 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          to: '/'
-        }, "Dalton's Portfolio")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "nav-button"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "fas fa-search"
-        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          to: 'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/'
+        }, "Dalton's Portfolio")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-right"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "right-header-items"
@@ -734,19 +730,15 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         }, "MoneyWise")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-button drop-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          to: '/'
+          to: 'https://github.com/dkirkpatrick99/MoneyWise.git'
         }, "Git Repo ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-chevron-down"
         }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          to: '/',
+          to: 'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/',
           href: "#"
-        }, "Dalton's Portfolio")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "nav-button"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-search"
-        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "Dalton's Portfolio")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-right"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "right-header-items"
@@ -894,7 +886,8 @@ var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NavBar_nav_bar_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_9__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/categories/:categoryId",
-    component: _index_campaigns_categories_container__WEBPACK_IMPORTED_MODULE_13__["default"]
+    component: _index_campaigns_categories_container__WEBPACK_IMPORTED_MODULE_13__["default"],
+    replace: true
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_8__["ProtectedRoute"], {
     exact: true,
     path: "/campaigns/new",
@@ -902,7 +895,8 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/campaigns/:campaignId",
-    component: _show_campaign_show_campaign_container__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _show_campaign_show_campaign_container__WEBPACK_IMPORTED_MODULE_4__["default"],
+    replace: true
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_8__["ProtectedRoute"], {
     exact: true,
     path: "/users/:userId",
@@ -914,7 +908,8 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_8__["ProtectedRoute"], {
     exact: true,
     path: "/campaigns/:campaignId/edit",
-    component: _campaign_form_edit_campaign_container__WEBPACK_IMPORTED_MODULE_11__["default"]
+    component: _campaign_form_edit_campaign_container__WEBPACK_IMPORTED_MODULE_11__["default"],
+    replace: true
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/",
     component: _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"]
@@ -938,6 +933,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_image_file_resizer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-image-file-resizer */ "./node_modules/react-image-file-resizer/build/index.js");
 /* harmony import */ var react_image_file_resizer__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_image_file_resizer__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -957,6 +953,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1039,8 +1036,7 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
           contentType: false,
           processData: false
         }).then(function (payload) {
-          document.querySelector('.camp-show-all').style.display = "block";
-          document.querySelector('.toggle-edit').style.display = "none"; // this.props.history.push(`/campaigns/${this.props.campaign.id}`);
+          window.location.reload();
         });
       }
     }
@@ -1170,7 +1166,7 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
   return CampaignForm;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (CampaignForm);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(CampaignForm));
 
 /***/ }),
 
@@ -2244,6 +2240,8 @@ var IndexCategory = /*#__PURE__*/function (_React$Component) {
           key: campaign.id,
           allFollows: _this.props.allFollows,
           currentUser: _this.props.currentUser,
+          createFollow: _this.props.createFollow,
+          deleteFollow: _this.props.deleteFollow,
           campaign: campaign
         });
       })))));
@@ -2271,6 +2269,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_campaign_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/campaign_action */ "./frontend/actions/campaign_action.js");
 /* harmony import */ var _actions_category_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/category_action */ "./frontend/actions/category_action.js");
 /* harmony import */ var _actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/follow_actions */ "./frontend/actions/follow_actions.js");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+
 
 
 
@@ -2279,12 +2279,21 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state, ownProps) {
   var userId = state.entities.users[state.session.id];
+  var camps;
+  var followId;
+
+  if (userId) {
+    camps = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_5__["selectCampaignsFromUser"])(state.entities.campaigns, userId.id);
+    followId = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_5__["selectFollowId"])(state.entities.follows, userId.id, parseInt(ownProps.match.params.campaignId));
+  }
+
   return {
     campaigns: Object.values(state.entities.campaigns),
     categories: Object.values(state.entities.categories),
     categoryId: ownProps.match.params.categoryId,
     allFollows: state.entities.follows,
-    currentUser: userId
+    currentUser: userId,
+    userFollowId: followId || []
   };
 };
 
@@ -2298,6 +2307,12 @@ var mDTP = function mDTP(dispatch) {
     },
     fetchFollows: function fetchFollows() {
       return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["fetchFollows"])());
+    },
+    createFollow: function createFollow(follow) {
+      return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["createFollow"])(follow));
+    },
+    deleteFollow: function deleteFollow(followId) {
+      return dispatch(Object(_actions_follow_actions__WEBPACK_IMPORTED_MODULE_4__["deleteFollow"])(followId));
     }
   };
 };
@@ -2324,6 +2339,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var IndexCampaignItem = function IndexCampaignItem(props) {
+  // function toggleFollow() {
+  //     let status = document.querySelector('.follow-it')
+  //     let check = document.querySelector('.following')
+  //     if (this.props.userFollowId.length) {
+  //         this.props.deleteFollow(this.props.userFollowId[0].id)
+  //         this.setState(this.state)
+  //     } else {
+  //         this.props.createFollow({user_id: this.props.currentUser, campaign_id: this.props.campaign.id})
+  //             .then( payload => {
+  //                 this.props.fetchFollows()
+  //             })
+  //         this.setState(this.state)
+  //     }
+  // }
   var follow = [];
 
   if (props.currentUser) {
@@ -2382,7 +2411,7 @@ var IndexCampaignItem = function IndexCampaignItem(props) {
     className: "percent"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "goal-amt"
-  }, "$".concat(props.campaign.goal_in_dollars, " goal")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "".concat(props.campaign.funding_percent, "% ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "$".concat(props.campaign.current_sum, " USD raised")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "".concat(props.campaign.funding_percent, "% ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "tile-bar"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "tile-bar-done",

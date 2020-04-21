@@ -32,12 +32,12 @@ const App = () => (
     <Switch>
       {/* <Route path="/campaigns" component={CampaignContainer} />
       <Route path="/campaigns/:campaignId" component={UserCampainContainer} /> */}
-      <Route exact path="/categories/:categoryId" component={CategoryContainer} />
+      <Route exact path="/categories/:categoryId" component={CategoryContainer} replace/>
       <ProtectedRoute exact path="/campaigns/new" component={CreateCampaignContainer} />
-      <Route exact path="/campaigns/:campaignId" component={ShowCampaignContainer} />
+      <Route exact path="/campaigns/:campaignId" component={ShowCampaignContainer} replace />
       <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer} />
       <ProtectedRoute exact path="/rewards/:campaignId/new" component={CreateRewardContainer} />
-      <ProtectedRoute exact path="/campaigns/:campaignId/edit" component={EditCampaignContainer} />
+      <ProtectedRoute exact path="/campaigns/:campaignId/edit" component={EditCampaignContainer} replace/>
       <Route path="/" component={GreetingContainer} />
     </Switch>
     <div>
