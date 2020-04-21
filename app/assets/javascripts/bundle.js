@@ -677,16 +677,16 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
           to: '/'
         }, "MONEYWISE")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-button"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          to: 'https://github.com/dkirkpatrick99/MoneyWise.git'
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: 'https://github.com/dkirkpatrick99/MoneyWise.git'
         }, "Git Repo ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-chevron-down"
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "drop-down"
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-button"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          to: 'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/'
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: 'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/'
         }, "Dalton's Portfolio")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-right"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -729,15 +729,14 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
           to: '/'
         }, "MoneyWise")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-button drop-button"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          to: 'https://github.com/dkirkpatrick99/MoneyWise.git'
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: 'https://github.com/dkirkpatrick99/MoneyWise.git'
         }, "Git Repo ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-chevron-down"
         }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-button"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          to: 'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/',
-          href: "#"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: 'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/'
         }, "Dalton's Portfolio")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-right"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
