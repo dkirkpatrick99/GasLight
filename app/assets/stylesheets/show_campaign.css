@@ -15,7 +15,7 @@
 
 .short-content {
     margin-left: 36px;
-    word-break: break-all;
+    /* word-break: break-all; */
 }
 
 .lower-short {
@@ -197,7 +197,7 @@
 }
 
 .camplongdisc {
-    word-break: break-all;
+    /* word-break: break-all; */
 }
 
 .tab-header {
