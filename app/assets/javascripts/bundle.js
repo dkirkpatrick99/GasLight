@@ -3108,8 +3108,7 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ShowCampaign);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ShowCampaign).call(this, props));
-    _this.toggleFollow = _this.toggleFollow.bind(_assertThisInitialized(_this)); // this.followId;
-
+    _this.toggleFollow = _this.toggleFollow.bind(_assertThisInitialized(_this));
     _this.state;
     return _this;
   }
@@ -3132,9 +3131,6 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
     key: "toggleFollow",
     value: function toggleFollow(e) {
       var _this2 = this;
-
-      var status = document.querySelector('.follow-it');
-      var check = document.querySelector('.following');
 
       if (this.props.userFollowId.length) {
         this.props.deleteFollow(this.props.userFollowId[0].id);

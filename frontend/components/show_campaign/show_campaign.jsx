@@ -12,7 +12,6 @@ class ShowCampaign extends React.Component{
     constructor(props){
         super(props)
         this.toggleFollow = this.toggleFollow.bind(this)
-        // this.followId;
         this.state;
     }
 
@@ -32,10 +31,7 @@ class ShowCampaign extends React.Component{
     }
 
     toggleFollow(e) {
-        let status = document.querySelector('.follow-it')
-        let check = document.querySelector('.following')
-
-
+        
         if (this.props.userFollowId.length) {
             this.props.deleteFollow(this.props.userFollowId[0].id)
             this.setState(this.state)
