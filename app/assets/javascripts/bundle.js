@@ -1260,6 +1260,158 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/contribution/contribution_item.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/contribution/contribution_item.jsx ***!
+  \****************************************************************/
+/*! exports provided: ContributionItem, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContributionItem", function() { return ContributionItem; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var ContributionItem = /*#__PURE__*/function (_React$Component) {
+  _inherits(ContributionItem, _React$Component);
+
+  function ContributionItem(props) {
+    var _this;
+
+    _classCallCheck(this, ContributionItem);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ContributionItem).call(this, props));
+    _this.state = 0;
+    return _this;
+  }
+
+  _createClass(ContributionItem, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.props.fetchCampaign(this.props.campaignId).then(function (payload) {
+        _this2.setState(Object.values(payload)[1]);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (this.state === 0) return null;
+      var follow = [];
+
+      if (this.props.currentUser) {
+        follow = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_3__["selectFollowId"])(this.props.allFollows, this.props.currentUser.id, this.props.campaignId);
+      }
+
+      var funds;
+
+      if (this.state.funding_percent < 100) {
+        funds = this.state.funding_percent;
+      } else {
+        funds = 100;
+      }
+
+      var followHeart = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "far fa-heart"
+      });
+
+      if (follow.length) {
+        followHeart = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          "class": "fas fa-heart following"
+        });
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "campaign-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        to: "/campaigns/".concat(this.state[this.props.campaignId].id)
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "camp-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "campimage1",
+        src: this.state[this.props.campaignId].photoUrl,
+        alt: ""
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "lower-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "heart-bar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "fund-text"
+      }, "FUNDING"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "heart"
+      }, followHeart)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "camp-content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "space"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "short-dis"
+      }, this.state[this.props.campaignId].short_description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "to-bottom"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "deet-holder"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "funding-details"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "percent"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "goal-amt"
+      }, "$".concat(this.state[this.props.campaignId].goal_in_dollars, " goal")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "".concat(this.state.funding_percent, "% ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tile-bar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tile-bar-done",
+        style: {
+          width: "".concat(funds, "%")
+        }
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "days-left"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-clock"
+      }), " \xA0 ", this.state[this.props.campaignId].end_date), " days left"))))))));
+    }
+  }]);
+
+  return ContributionItem;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+var mSTP = function mSTP(state, ownProps) {
+  return {};
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {// fetchCampaign: campaignId => dispatch(fetchCampaign(campaignId))
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mSTP, mDTP)(ContributionItem));
+
+/***/ }),
+
 /***/ "./frontend/components/contribution/contribution_modal.jsx":
 /*!*****************************************************************!*\
   !*** ./frontend/components/contribution/contribution_modal.jsx ***!
@@ -3661,6 +3813,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tabs */ "./frontend/components/user_profile/tabs.jsx");
 /* harmony import */ var _index_campaigns_index_campaign_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../index_campaigns/index_campaign_item */ "./frontend/components/index_campaigns/index_campaign_item.jsx");
 /* harmony import */ var _follow_follow_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../follow/follow_item */ "./frontend/components/follow/follow_item.jsx");
+/* harmony import */ var _contribution_contribution_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../contribution/contribution_item */ "./frontend/components/contribution/contribution_item.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3678,6 +3831,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -3757,7 +3911,7 @@ var UserProfile = /*#__PURE__*/function (_React$Component) {
         content: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "list-of-items"
         }, this.props.contributions.map(function (cont) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_follow_follow_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_contribution_contribution_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
             key: cont.id,
             currentUser: _this2.props.currentUser,
             allFollows: _this2.props.allFollows,

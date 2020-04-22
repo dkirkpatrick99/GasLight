@@ -2,6 +2,7 @@ import React from 'react';
 import ProfileTabs from './tabs';
 import IndexCampaignItem from '../index_campaigns/index_campaign_item';
 import FollowItem from '../follow/follow_item';
+import ContributionItem from '../contribution/contribution_item';
 
 
 class UserProfile extends React.Component {
@@ -60,7 +61,7 @@ class UserProfile extends React.Component {
                   <div>
                     <ul className="list-of-items">
                           {
-                              this.props.contributions.map((cont) => <FollowItem key={cont.id} currentUser={this.props.currentUser} allFollows={this.props.allFollows} fetchCampaign={this.props.fetchCampaign} campaignId={cont.campaign_id}/>)
+                              this.props.contributions.map((cont) => <ContributionItem key={cont.id} currentUser={this.props.currentUser} allFollows={this.props.allFollows} fetchCampaign={this.props.fetchCampaign} campaignId={cont.campaign_id}/>)
                           }
                     </ul>
                   </div>
