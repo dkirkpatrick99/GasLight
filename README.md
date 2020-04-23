@@ -20,19 +20,20 @@ The users table stores all profile and user data with password digests and sessi
 ### Campaigns
 Create a campaign and a view page will show all the information to users. It will keep track of including contributions, timeline, follows and how much your campaign needs to meet its goal! 
 
-toggleFollow(e) {  
-    if (this.props.userFollowId.length) {
-        this.props.deleteFollow(this.props.userFollowId[0].id)
-        this.setState(this.state)
+    toggleFollow(e) {  
+        
+        if (this.props.userFollowId.length) {
+            this.props.deleteFollow(this.props.userFollowId[0].id)
+            this.setState(this.state)
 
-    } else {
-        this.props.createFollow({user_id: this.props.currentUser, campaign_id: this.props.campaign.id})
-            .then( payload => {
-                this.props.fetchFollows()
-            })
-        this.setState(this.state)
+        } else {
+            this.props.createFollow({user_id: this.props.currentUser, campaign_id: this.props.campaign.id})
+                .then( payload => {
+                    this.props.fetchFollows()
+                })
+            this.setState(this.state)
+        }
     }
-}
 
 All campaign information is stored in one table in the database. A user foreign key associates the campaign to its creator.
 
