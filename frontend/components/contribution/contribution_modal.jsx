@@ -21,13 +21,6 @@ class ContributionModal extends React.Component {
         let userId = this.props.currentUser.id;
         e.preventDefault();
         let amount = parseInt(this.state.amount);
-        // if (amount.includes(",")) {
-        //   amount = amount.split(",").join("");
-        // } 
-        // if (amount.includes(".")) {
-        //   const periodIdx = amount.indexOf(".");
-        //   amount = amount.slice(0,periodIdx);
-        // }
         let cont = {
           amount: amount,
           user_id: userId,

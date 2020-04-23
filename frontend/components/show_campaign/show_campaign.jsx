@@ -43,7 +43,6 @@ class ShowCampaign extends React.Component{
                 })
             this.setState(this.state)
         }
-
     }
 
     toggleEdit(action) {
