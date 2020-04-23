@@ -39,17 +39,17 @@ All campaign information is stored in one table in the database. A user foreign 
 ### Contributions
 User will be able to make contributions and receive rewards from a campaign based on their contributions. Contributions act as a joins table connecting a campaign to the users that decide to contribute to that campaign. Posting a contribution will dynamically add to the current funded amount of that campaign.
 
-handleSubmit(e) {
-    let campId = this.props.campId;
-    let userId = this.props.currentUser.id;
-    e.preventDefault();
-    let amount = parseInt(this.state.amount);
-    let cont = {
-        amount: amount,
-        user_id: userId,
-        campaign_id: campId
-    };
-    this.props.createContribution(cont)
-        .then(() => this.props.fetchCampaign(campId))
-        .then(() => this.props.closeModal());
-}  
+    handleSubmit(e) {
+        let campId = this.props.campId;
+        let userId = this.props.currentUser.id;
+        e.preventDefault();
+        let amount = parseInt(this.state.amount);
+        let cont = {
+            amount: amount,
+            user_id: userId,
+            campaign_id: campId
+        };
+        this.props.createContribution(cont)
+            .then(() => this.props.fetchCampaign(campId))
+            .then(() => this.props.closeModal());
+    }  
