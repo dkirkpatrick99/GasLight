@@ -8,7 +8,11 @@ MoneyWise is a website to crowdfund great projects and causes. With this website
 You can create a campaign of your own or contribute to ones that you believe in.
 
 ### Features and Implementation
-MoneyWise is a full-stack web application inspired by Indiegogo. It uses Ruby on Rails 2.3.1, PostgreSQL database, and React 5.5.1 with a Redux framework on the frontend.
+MoneyWise is a full-stack web application inspired by Indiegogo. 
+- Ruby on Rails 2.3.1 
+- PostgreSQL database
+- React 5.5.1
+- Redux framework on the frontend.
 
 ### Users and Profiles
 The users table stores all profile and user data with password digests and session tokens to keep you logged in.
