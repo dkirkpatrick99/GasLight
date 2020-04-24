@@ -1481,14 +1481,7 @@ var ContributionModal = /*#__PURE__*/function (_React$Component) {
       var campId = this.props.campId;
       var userId = this.props.currentUser.id;
       e.preventDefault();
-      var amount = parseInt(this.state.amount); // if (amount.includes(",")) {
-      //   amount = amount.split(",").join("");
-      // } 
-      // if (amount.includes(".")) {
-      //   const periodIdx = amount.indexOf(".");
-      //   amount = amount.slice(0,periodIdx);
-      // }
-
+      var amount = parseInt(this.state.amount);
       var cont = {
         amount: amount,
         user_id: userId,
@@ -4639,7 +4632,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer_js__WEBPACK_IMPORTED_MODULE_3__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_2___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer_js__WEBPACK_IMPORTED_MODULE_3__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"]));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);

@@ -18,8 +18,10 @@ MoneyWise is a full-stack web application inspired by Indiegogo.
 The users table stores all profile and user data with password digests and session tokens to keep you logged in.
 
 ### Campaigns
-Create a campaign and a view page will show all the information to users. It will keep track of including contributions, timeline, follows and how much your campaign needs to meet its goal! 
+![alt text](/public/show.png)
 
+Create a campaign and a view page will show all the information to users. It will keep track of including contributions, timeline, follows and how much your campaign needs to meet its goal! 
+````js
     toggleFollow(e) {  
         
         if (this.props.userFollowId.length) {
@@ -34,12 +36,16 @@ Create a campaign and a view page will show all the information to users. It wil
             this.setState(this.state)
         }
     }
+````
+
 
 All campaign information is stored in one table in the database. A user foreign key associates the campaign to its creator.
 
 ### Contributions
-User will be able to make contributions and receive rewards from a campaign based on their contributions. Contributions act as a joins table connecting a campaign to the users that decide to contribute to that campaign. Posting a contribution will dynamically add to the current funded amount of that campaign.
+![alt text](/public/cont.png)
 
+User will be able to make contributions and receive rewards from a campaign based on their contributions. Contributions act as a joins table connecting a campaign to the users that decide to contribute to that campaign. Posting a contribution will dynamically add to the current funded amount of that campaign.
+````js
     handleSubmit(e) {
         let campId = this.props.campId;
         let userId = this.props.currentUser.id;
@@ -54,3 +60,4 @@ User will be able to make contributions and receive rewards from a campaign base
             .then(() => this.props.fetchCampaign(campId))
             .then(() => this.props.closeModal());
     }  
+````
