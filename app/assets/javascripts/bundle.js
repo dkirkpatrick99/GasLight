@@ -3391,6 +3391,17 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
         }), " \xA0FOLLOW");
       }
 
+      if (!this.props.currentUser) {
+        followButton = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "campaign-button follow-it",
+          onClick: function onClick() {
+            return _this3.props.openModal('signup');
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          "class": "far fa-heart"
+        }), " \xA0FOLLOW");
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "camp-show-all"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, ownerBar), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

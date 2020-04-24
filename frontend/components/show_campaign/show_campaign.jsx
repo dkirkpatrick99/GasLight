@@ -130,6 +130,10 @@ class ShowCampaign extends React.Component{
             followButton = <button className="campaign-button follow-it" onClick={this.toggleFollow}><i class="fas fa-heart following"></i> &nbsp;FOLLOW</button>
         }
 
+        if (!this.props.currentUser){
+            followButton = <button className="campaign-button follow-it" onClick={() => this.props.openModal('signup')}><i class="far fa-heart"></i> &nbsp;FOLLOW</button>
+        }
+
         return(
             <div>
                 <div className="camp-show-all">
