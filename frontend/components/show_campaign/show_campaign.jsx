@@ -146,7 +146,7 @@ class ShowCampaign extends React.Component{
                                     <i class="fas fa-play-circle"></i>
                                 </div>
                                 <iframe className="camp-video" width="720" height="495" 
-                                    src="https://www.youtube.com/embed/Rm7gVae7vUY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                    src={this.props.campaign.video_url} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                                 </iframe>
                             </div>    
                             <div className="short-content">

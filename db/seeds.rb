@@ -73,7 +73,8 @@ camp[1] = Campaign.create!(
     goal_status: false,
     owner_id: u1.id,
     current_sum: 96592,
-    category_id: accessories.id
+    category_id: accessories.id,
+    video_url: "https://www.youtube.com/embed/v-jeQVknhag"
 )
 camp[2] = Campaign.create!(
     title: "PrinCube: The World's Smallest Mobile Color Printer",
@@ -92,7 +93,8 @@ camp[2] = Campaign.create!(
     goal_status: false,
     owner_id: u2.id,
     current_sum: 945032,
-    category_id: accessories.id
+    category_id: accessories.id,
+    video_url: "https://www.youtube.com/embed/Rm7gVae7vUY"
 )
 camp[3] = Campaign.create!(
     title: "Graff Golf: The World’s First Smart Golf Ball",
@@ -106,7 +108,8 @@ camp[3] = Campaign.create!(
     goal_status: false,
     owner_id: u3.id,
     current_sum: 5731,
-    category_id: fitness.id
+    category_id: fitness.id,
+    video_url: "https://www.youtube.com/embed/6CXsmJ9ytZM"
 )
 camp[4] = Campaign.create!(
     title: "Flash: World's Most Powerful 170W USB-C Powerbank",
@@ -121,7 +124,8 @@ camp[4] = Campaign.create!(
     goal_status: false,
     owner_id: u4.id,
     current_sum: 33775,
-    category_id: accessories.id
+    category_id: accessories.id,
+    video_url: "https://www.youtube.com/embed/NMYyrd8ZfeM"
 )
 camp[5] = Campaign.create!(
     title: "Pecaminosa: A Pixel Noir Game",
@@ -135,7 +139,8 @@ camp[5] = Campaign.create!(
     goal_status: false,
     owner_id: u5.id,
     current_sum: 2900,
-    category_id: games.id
+    category_id: games.id,
+    video_url: "https://www.youtube.com/embed/dQab1_TFSgM"
 )
 camp[6] = Campaign.create!(
     title: "V-Tex: 12 Feature Nanotech Shoe for all Seasons",
@@ -150,7 +155,8 @@ camp[6] = Campaign.create!(
     goal_status: false,
     owner_id: u6.id,
     current_sum: 205100,
-    category_id: fitness.id
+    category_id: fitness.id,
+    video_url: "https://www.youtube.com/embed/GaJBjDZ5ekI"
 )
 camp[7] = Campaign.create!(
     title: "Drop x THX Panda Headphones",
@@ -165,7 +171,8 @@ camp[7] = Campaign.create!(
     goal_status: false,
     owner_id: u2.id,
     current_sum: 200550,
-    category_id: audio.id
+    category_id: audio.id,
+    video_url: "https://www.youtube.com/embed/xmWDYPiwMss"
 )
 camp[8] = Campaign.create!(
     title: "CIGA Design Z-Series Mechanical Titanium Watch",
@@ -180,7 +187,8 @@ camp[8] = Campaign.create!(
     goal_status: false,
     owner_id: u4.id,
     current_sum: 1455700,
-    category_id: accessories.id
+    category_id: accessories.id,
+    video_url: "https://www.youtube.com/embed/xL9DsD6sT0o"
 )
 camp[9] = Campaign.create!(
     title: "Forsaken: A Short Film",
@@ -197,7 +205,8 @@ camp[9] = Campaign.create!(
     goal_status: false,
     owner_id: u5.id,
     current_sum: 2700,
-    category_id: film.id
+    category_id: film.id,
+    video_url: "https://www.youtube.com/embed/cyCKA-q7l7M"
 )
 
 camp.keys.each do |num|

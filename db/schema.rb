@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_003656) do
+ActiveRecord::Schema.define(version: 2020_04_26_020245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_003656) do
     t.datetime "updated_at", null: false
     t.float "current_sum", default: 0.0
     t.integer "category_id", null: false
+    t.string "video_url", default: "https://www.youtube.com/embed/V-VbZR0U0Og"
     t.index ["end_date"], name: "index_campaigns_on_end_date"
     t.index ["title"], name: "index_campaigns_on_title"
   end

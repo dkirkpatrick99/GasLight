@@ -3422,7 +3422,7 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
         className: "camp-video",
         width: "720",
         height: "495",
-        src: "https://www.youtube.com/embed/Rm7gVae7vUY",
+        src: this.props.campaign.video_url,
         frameborder: "0",
         allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
         allowfullscreen: true
