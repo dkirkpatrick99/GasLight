@@ -27,7 +27,7 @@ class Greeting extends React.Component {
       slidesToScroll: 1,
       autoplay: true,
       speed: 1000,
-      autoplaySpeed: 5000,
+      autoplaySpeed: 4000,
       cssEase: "cubic-bezier(0.600, -0.280, 0.735, 0.045)"
     };
     return(
@@ -37,7 +37,7 @@ class Greeting extends React.Component {
       <div className="featured-carousel">
         <Slider {...featured}>
           <div className="home-slide">
-            <NavLink to={'/campaigns/7'} className="featured-product">
+            <NavLink to={`/campaigns/${this.props.campaigns[6].id}`} className="featured-product">
               <div className="featured-image featured-image1"></div>
                 <div className="slide-content">
                   <div className="move-content">
@@ -50,7 +50,7 @@ class Greeting extends React.Component {
             </NavLink>
           </div>
           <div className="home-slide">
-            <NavLink to={'/campaigns/8'} className="featured-product">
+            <NavLink to={`/campaigns/${this.props.campaigns[7].id}`} className="featured-product">
               <div className="featured-image featured-image2"></div>
                 <div className="slide-content">
                   <div className="move-content">
@@ -63,7 +63,7 @@ class Greeting extends React.Component {
             </NavLink>
           </div>
           <div className="home-slide">
-            <NavLink to={'/campaigns/6'} className="featured-product">
+            <NavLink to={`/campaigns/${this.props.campaigns[5].id}`} className="featured-product">
               <div className="featured-image featured-image3"></div>
                 <div className="slide-content">
                   <div className="move-content">

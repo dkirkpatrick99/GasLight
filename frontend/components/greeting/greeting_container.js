@@ -5,10 +5,12 @@ import Greeting from './greeting';
 import { requestCategories } from '../../actions/category_action';
 import { fetchCampaigns } from '../../actions/campaign_action'
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+  return {
     campaigns: Object.values(state.entities.campaigns),
     categories: Object.values(state.entities.categories)
-});
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
   fetchCampaigns: () => dispatch(fetchCampaigns()),

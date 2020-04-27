@@ -1856,7 +1856,7 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
         slidesToScroll: 1,
         autoplay: true,
         speed: 1000,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 4000,
         cssEase: "cubic-bezier(0.600, -0.280, 0.735, 0.045)"
       };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1866,7 +1866,7 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_slick__WEBPACK_IMPORTED_MODULE_3___default.a, featured, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "home-slide"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        to: '/campaigns/7',
+        to: "/campaigns/".concat(this.props.campaigns[6].id),
         className: "featured-product"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "featured-image featured-image1"
@@ -1887,7 +1887,7 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "home-slide"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        to: '/campaigns/8',
+        to: "/campaigns/".concat(this.props.campaigns[7].id),
         className: "featured-product"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "featured-image featured-image2"
@@ -1908,7 +1908,7 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "home-slide"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        to: '/campaigns/6',
+        to: "/campaigns/".concat(this.props.campaigns[5].id),
         className: "featured-product"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "featured-image featured-image3"
