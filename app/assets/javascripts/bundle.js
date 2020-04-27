@@ -511,7 +511,7 @@ var deleteReward = function deleteReward(rewardId) {
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_SESSION_ERRORS, receiveCurrentUser, logoutCurrentUser, receiveErrors, signup, login, logout */
+/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_SESSION_ERRORS, RECEIVE_ALL_USERS, receiveCurrentUser, logoutCurrentUser, receiveErrors, signup, login, logout, fetchUsers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -519,17 +519,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_USER", function() { return RECEIVE_CURRENT_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_CURRENT_USER", function() { return LOGOUT_CURRENT_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION_ERRORS", function() { return RECEIVE_SESSION_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_USERS", function() { return RECEIVE_ALL_USERS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveCurrentUser", function() { return receiveCurrentUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logoutCurrentUser", function() { return logoutCurrentUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveErrors", function() { return receiveErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signup", function() { return signup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUsers", function() { return fetchUsers; });
 /* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
 
 var RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 var LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+var RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
+
+var receiveAllUsers = function receiveAllUsers(users) {
+  return {
+    type: RECEIVE_ALL_USERS,
+    users: users
+  };
+};
+
 var receiveCurrentUser = function receiveCurrentUser(currentUser) {
   return {
     type: RECEIVE_CURRENT_USER,
@@ -569,6 +580,13 @@ var logout = function logout() {
   return function (dispatch) {
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["logout"]().then(function (user) {
       return dispatch(logoutCurrentUser());
+    });
+  };
+};
+var fetchUsers = function fetchUsers() {
+  return function (dispatch) {
+    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchUsers"]().then(function (users) {
+      return dispatch(receiveAllUsers(users));
     });
   };
 };
@@ -2951,7 +2969,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     demoLogin: function demoLogin() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])({
-        username: "jasmine",
         email: "jasmine@gmail.com",
         password: "abcdef3"
       }));
@@ -3107,11 +3124,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
           onClick: this.props.closeModal
         }, "+"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome Back!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Sign In To Get Started")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           onSubmit: this.handleSubmit
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "text",
-          placeholder: "Bill_Gates01",
-          onChange: this.update('username')
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Email", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Email", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           placeholder: "Billy_G$@gmail.com",
           onChange: this.update('email')
@@ -3265,6 +3278,7 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
       this.props.fetchCampaigns();
       this.props.fetchFollows();
       this.props.fetchRewards();
+      this.props.fetchUsers();
       window.scrollTo(0, 0);
     }
   }, {
@@ -3381,6 +3395,12 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "far fa-heart"
       }), " \xA0FOLLOW");
+      var backitButton = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "campaign-button back",
+        onClick: function onClick() {
+          return _this3.props.openModal('contribution');
+        }
+      }, "BACK IT");
 
       if (this.props.userFollowId.length) {
         followButton = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -3400,6 +3420,12 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           "class": "far fa-heart"
         }), " \xA0FOLLOW");
+        backitButton = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "campaign-button back",
+          onClick: function onClick() {
+            return _this3.props.openModal('signup');
+          }
+        }, "BACK IT");
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3465,12 +3491,7 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
         className: "follow-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "button-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "campaign-button back",
-        onClick: function onClick() {
-          return _this3.props.openModal('contribution');
-        }
-      }, "BACK IT"), followButton), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, backitButton, followButton), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "social-icons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "fab fa-instagram"
@@ -3513,6 +3534,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
 /* harmony import */ var _actions_follow_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/follow_actions */ "./frontend/actions/follow_actions.js");
 /* harmony import */ var _actions_reward_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/reward_actions */ "./frontend/actions/reward_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 
@@ -3532,13 +3555,15 @@ var mSTP = function mSTP(state, ownProps) {
     followId = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__["selectFollowId"])(state.entities.follows, userId.id, parseInt(ownProps.match.params.campaignId));
   }
 
+  debugger;
   return {
     campaign: state.entities.campaigns[ownProps.match.params.campaignId],
     userCampaigns: camps || [],
     currentUser: userId,
     userFollowId: followId || [],
     allFollows: state.entities.follows,
-    campRewards: rewards
+    campRewards: rewards,
+    allUsers: Object.values(state.entities.users)
   };
 };
 
@@ -3567,6 +3592,9 @@ var mDTP = function mDTP(dispatch) {
     },
     fetchRewards: function fetchRewards() {
       return dispatch(Object(_actions_reward_actions__WEBPACK_IMPORTED_MODULE_6__["fetchRewards"])());
+    },
+    fetchUsers: function fetchUsers() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_7__["fetchUsers"])());
     }
   };
 };
@@ -3862,6 +3890,7 @@ var UserProfile = /*#__PURE__*/function (_React$Component) {
       this.props.fetchCampaigns();
       this.props.fetchContributions();
       this.props.fetchFollows();
+      this.props.fetchUsers();
       window.scrollTo(0, 0);
     }
   }, {
@@ -3869,18 +3898,24 @@ var UserProfile = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      if (!this.props.currentUser) return null;
       if (this.props.campaigns === []) return nil;
-      if (this.props.userFollows === []) return nil;
+      if (this.props.userFollows === []) return nil; // let saverImage = <img className="saver-image" src="profile_saver.png"/>
+
+      var saverImage = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "saver-image",
+        src: this.props.currentUser.photoUrl
+      }); // debugger
+      //       if(this.props.currentUser.photoUrl) {
+      //       }
+
       var panes = [{
         title: 'Profile',
         content: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "profile-move"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "D1"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          className: "saver-image",
-          src: "profile_saver.png"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, saverImage), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "tab-counts"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "small-saver"
@@ -3971,6 +4006,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_campaign_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/campaign_action */ "./frontend/actions/campaign_action.js");
 /* harmony import */ var _actions_contribution_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/contribution_actions */ "./frontend/actions/contribution_actions.js");
 /* harmony import */ var _actions_follow_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/follow_actions */ "./frontend/actions/follow_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 
@@ -3985,7 +4022,8 @@ var mSTP = function mSTP(state, ownProps) {
   var follows = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__["selectUserFollows"])(state.entities.follows, userId); // const campFollows = selectCampaignsFromFollows(state.entities.campaigns, follows)
 
   return {
-    currentUser: state.entities.users[state.session.id],
+    // currentUser: state.entities.users[state.session.id],
+    currentUser: state.entities.users[ownProps.match.params.userId],
     campaigns: camps,
     contributions: conts,
     userFollows: follows,
@@ -4006,6 +4044,9 @@ var mDTP = function mDTP(dispatch) {
     },
     fetchCampaign: function fetchCampaign(campaignId) {
       return dispatch(Object(_actions_campaign_action__WEBPACK_IMPORTED_MODULE_3__["fetchCampaign"])(campaignId));
+    },
+    fetchUsers: function fetchUsers() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_6__["fetchUsers"])());
     }
   };
 };
@@ -4604,6 +4645,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var usersReducer = function usersReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
@@ -4612,6 +4654,9 @@ var usersReducer = function usersReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return Object.assign({}, state, _defineProperty({}, action.currentUser.id, action.currentUser));
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_USERS"]:
+      return Object.assign({}, state, action.users);
 
     default:
       return state;
@@ -4891,7 +4936,7 @@ var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withR
 /*!*******************************************!*\
   !*** ./frontend/util/session_api_util.js ***!
   \*******************************************/
-/*! exports provided: login, signup, logout */
+/*! exports provided: login, signup, logout, fetchUsers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4899,6 +4944,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signup", function() { return signup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUsers", function() { return fetchUsers; });
 var login = function login(user) {
   return $.ajax({
     method: 'POST',
@@ -4921,6 +4967,12 @@ var logout = function logout() {
   return $.ajax({
     method: 'DELETE',
     url: '/api/session'
+  });
+};
+var fetchUsers = function fetchUsers() {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/users"
   });
 };
 

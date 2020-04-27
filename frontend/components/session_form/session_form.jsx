@@ -84,9 +84,9 @@ class SessionForm extends React.Component {
       </div>
       <form onSubmit={this.handleSubmit}>
 
-          <label>Username 
+          {/* <label>Username 
               <input type="text" placeholder="Bill_Gates01" onChange={this.update('username')}/>
-          </label>
+          </label> */}
 
           <label>Email
               <input type="text" placeholder="Billy_G$@gmail.com" onChange={this.update('email')}/>

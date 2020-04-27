@@ -5,6 +5,7 @@ import {openModal} from '../../actions/modal_action'
 import { selectCampaignsFromUser, selectFollowId, selectRewardsFromCampaignId } from '../../reducers/selectors'
 import { fetchFollows, createFollow, deleteFollow} from '../../actions/follow_actions'
 import { fetchRewards } from '../../actions/reward_actions'
+import { fetchUsers } from '../../actions/session_actions'
 
 
 
@@ -17,13 +18,15 @@ const mSTP = (state, ownProps) => {
         camps = selectCampaignsFromUser(state.entities.campaigns, userId.id) 
         followId = selectFollowId(state.entities.follows, userId.id, parseInt(ownProps.match.params.campaignId))
     }
+    debugger
     return {
         campaign: state.entities.campaigns[ownProps.match.params.campaignId],
         userCampaigns: camps || [],
         currentUser: userId,
         userFollowId: followId || [],
         allFollows: state.entities.follows,
-        campRewards: rewards
+        campRewards: rewards,
+        allUsers: Object.values(state.entities.users)
     }
 }
 
@@ -35,7 +38,8 @@ const mDTP = dispatch => ({
     fetchFollows: () => dispatch(fetchFollows()),
     createFollow: follow => dispatch(createFollow(follow)),
     deleteFollow: followId => dispatch(deleteFollow(followId)),
-    fetchRewards: () => dispatch(fetchRewards())
+    fetchRewards: () => dispatch(fetchRewards()),
+    fetchUsers: () => dispatch(fetchUsers())
 
 });
 

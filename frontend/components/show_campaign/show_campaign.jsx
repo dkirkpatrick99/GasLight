@@ -20,6 +20,7 @@ class ShowCampaign extends React.Component{
         this.props.fetchCampaigns();
         this.props.fetchFollows()
         this.props.fetchRewards()
+        this.props.fetchUsers()
         window.scrollTo(0,0);
 
     }
@@ -125,6 +126,8 @@ class ShowCampaign extends React.Component{
           ];
 
         let followButton = <button className="campaign-button follow-it" onClick={this.toggleFollow}><i class="far fa-heart"></i> &nbsp;FOLLOW</button>
+        let backitButton = <button className="campaign-button back" onClick={() => this.props.openModal('contribution')}>BACK IT</button>
+
 
         if(this.props.userFollowId.length){
             followButton = <button className="campaign-button follow-it" onClick={this.toggleFollow}><i class="fas fa-heart following"></i> &nbsp;FOLLOW</button>
@@ -132,6 +135,8 @@ class ShowCampaign extends React.Component{
 
         if (!this.props.currentUser){
             followButton = <button className="campaign-button follow-it" onClick={() => this.props.openModal('signup')}><i class="far fa-heart"></i> &nbsp;FOLLOW</button>
+            backitButton = <button className="campaign-button back" onClick={() => this.props.openModal('signup')}>BACK IT</button>
+
         }
 
         return(
@@ -175,7 +180,7 @@ class ShowCampaign extends React.Component{
                                     </div>
                                     <div className="follow-content">
                                         <div className="button-container">
-                                            <button className="campaign-button back" onClick={() => this.props.openModal('contribution')}>BACK IT</button>
+                                            {backitButton}
                                             {followButton}
                                         </div>
                                         <div className="social-icons">

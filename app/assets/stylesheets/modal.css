@@ -13,7 +13,7 @@
 
 .signup-content {
     width: 450px;
-    height: 756px;
+    height: 707px;
     background-color: whitesmoke;
     border-radius: 4px;
     /* padding: 15px; */
@@ -43,7 +43,7 @@
 .signup-content label {
     display: block;
     margin-left: 58px;
-    margin-bottom: 45px;
+    margin-bottom: 29px;
     width: 50%;
     font-size: 18px;
    }
@@ -73,6 +73,11 @@
     height: 40px;
     width: 319px;
     padding-left: 9px;
+}
+
+.signup-submit:hover {
+    background-color: #800b41;
+
 }
 
 .form-switch {

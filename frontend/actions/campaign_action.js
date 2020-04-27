@@ -29,7 +29,6 @@ export const campaignError = error => ({
 export const fetchCampaigns = () => dispatch => {
   return CampaignApiUtil.fetchCampaigns()
     .then(campaigns => dispatch(receiveAllCampaigns(campaigns)))
-  
 };
 
 export const fetchCampaign = campaignId => dispatch => (

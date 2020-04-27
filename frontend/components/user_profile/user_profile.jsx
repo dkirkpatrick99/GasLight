@@ -19,19 +19,27 @@ class UserProfile extends React.Component {
       this.props.fetchCampaigns()
       this.props.fetchContributions()
       this.props.fetchFollows()
+      this.props.fetchUsers()
       window.scrollTo(0,0);
 
     }
 
 
     render() {
+      if(!this.props.currentUser) return null
       if(this.props.campaigns === []) return nil
       if(this.props.userFollows === []) return nil
+      // let saverImage = <img className="saver-image" src="profile_saver.png"/>
+      let saverImage = <img className="saver-image" src={this.props.currentUser.photoUrl}/>
+// debugger
+//       if(this.props.currentUser.photoUrl) {
+
+//       }
       const panes = [
         {title: 'Profile', 
         content:  <div className="profile-move">
                     <div className="D1">
-                      <img className="saver-image" src="profile_saver.png"/>
+                      {saverImage}
                     </div>
                     <div className="tab-counts">
                       <div className="small-saver">
@@ -77,7 +85,6 @@ class UserProfile extends React.Component {
                   </div>
                 </div> }
       ];
-
         return(
             <div className="profile-first">
               <div className="main-contain">

@@ -12,40 +12,42 @@ Campaign.delete_all
 User.delete_all
 Category.destroy_all
 
+users = Hash.new()
 
-u1 = User.create!(
-    username: "alex",
+users[10] = User.create!(
+    username: "Alex",
     email: "alex@gmail.com",
     company_name: "MAD Gaze",
     password: "abcdef1"
 )
-u2 = User.create!(
-    username: "gracie",
+
+users[11] = User.create!(
+    username: "Gracie",
     email: "gracie@gmail.com",
     company_name: "PrinCube",
     password: "abcdef2"
 
 )
-u3 = User.create!(
-    username: "jasmine",
+users[12] = User.create!(
+    username: "Jasmine",
     email: "jasmine@gmail.com",
     company_name: "Graff Golf",
     password: "abcdef3"
 )
-u4 = User.create!(
-    username: "johnny",
+users[13] = User.create!(
+    username: "Johnny",
     email: "johnny@gmail.com",
     company_name: "Flash",
     password: "abcdef4"
 )
-u5 = User.create!(
-    username: "alberto",
+users[14] = User.create!(
+    username: "Alberto",
     email: "alberto@gmail.com",
     company_name: 'Pecaminosa',
     password: "abcdef5"
 )
-u6 =User.create!(
-    username: "lyn",
+users[15] =User.create!(
+    username: "Lyn",
     email: "lyn@gmail.com",
     company_name: "V-Tex",
     password: "abcdef6"
@@ -71,7 +73,7 @@ camp[1] = Campaign.create!(
     goal_amount: 10000,
     end_date: 45,
     goal_status: false,
-    owner_id: u1.id,
+    owner_id: users[10].id,
     current_sum: 96592,
     category_id: accessories.id,
     video_url: "https://www.youtube.com/embed/v-jeQVknhag"
@@ -91,7 +93,7 @@ camp[2] = Campaign.create!(
     goal_amount: 500000,
     end_date: 90,
     goal_status: false,
-    owner_id: u2.id,
+    owner_id: users[11].id,
     current_sum: 945032,
     category_id: accessories.id,
     video_url: "https://www.youtube.com/embed/Rm7gVae7vUY"
@@ -106,7 +108,7 @@ camp[3] = Campaign.create!(
     goal_amount: 20000,
     end_date: 7,
     goal_status: false,
-    owner_id: u3.id,
+    owner_id: users[12].id,
     current_sum: 5731,
     category_id: fitness.id,
     video_url: "https://www.youtube.com/embed/6CXsmJ9ytZM"
@@ -122,7 +124,7 @@ camp[4] = Campaign.create!(
     goal_amount: 55000,
     end_date: 23,
     goal_status: false,
-    owner_id: u4.id,
+    owner_id: users[13].id,
     current_sum: 33775,
     category_id: accessories.id,
     video_url: "https://www.youtube.com/embed/NMYyrd8ZfeM"
@@ -137,7 +139,7 @@ camp[5] = Campaign.create!(
     goal_amount: 11000,
     end_date: 105,
     goal_status: false,
-    owner_id: u5.id,
+    owner_id: users[14].id,
     current_sum: 2900,
     category_id: games.id,
     video_url: "https://www.youtube.com/embed/dQab1_TFSgM"
@@ -153,7 +155,7 @@ camp[6] = Campaign.create!(
     goal_amount: 300000,
     end_date: 2,
     goal_status: false,
-    owner_id: u6.id,
+    owner_id: users[15].id,
     current_sum: 205100,
     category_id: fitness.id,
     video_url: "https://www.youtube.com/embed/GaJBjDZ5ekI"
@@ -169,7 +171,7 @@ camp[7] = Campaign.create!(
     goal_amount: 70000,
     end_date: 39,
     goal_status: false,
-    owner_id: u2.id,
+    owner_id: users[11].id,
     current_sum: 200550,
     category_id: audio.id,
     video_url: "https://www.youtube.com/embed/xmWDYPiwMss"
@@ -185,7 +187,7 @@ camp[8] = Campaign.create!(
     goal_amount: 100000,
     end_date: 12,
     goal_status: false,
-    owner_id: u4.id,
+    owner_id: users[13].id,
     current_sum: 1455700,
     category_id: accessories.id,
     video_url: "https://www.youtube.com/embed/xL9DsD6sT0o"
@@ -203,7 +205,7 @@ camp[9] = Campaign.create!(
     goal_amount: 5000,
     end_date: 1,
     goal_status: false,
-    owner_id: u5.id,
+    owner_id: users[14].id,
     current_sum: 2700,
     category_id: film.id,
     video_url: "https://www.youtube.com/embed/cyCKA-q7l7M"
@@ -213,6 +215,14 @@ camp.keys.each do |num|
     file = open("https://moneywise-dev.s3-us-west-1.amazonaws.com/#{num}.jpg")
     camp[num].photo.attach(io: file, filename: "#{num}.jpg")
 end
+
+users.keys.each do |num|
+    file = open("https://moneywise-dev.s3-us-west-1.amazonaws.com/#{num}.jpg")
+    users[num].photo.attach(io: file, filename: "#{num}.jpg")
+end
+
+
+
 # camp10 = Campaign.create!(
 #     title: "",
 #     location: "",
