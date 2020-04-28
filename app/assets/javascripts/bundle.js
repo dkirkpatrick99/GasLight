@@ -3230,6 +3230,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _show_tabs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./show_tabs */ "./frontend/components/show_campaign/show_tabs.jsx");
 /* harmony import */ var _rewards_reward_item__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../rewards/reward_item */ "./frontend/components/rewards/reward_item.jsx");
 /* harmony import */ var _campaign_form_edit_campaign_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../campaign_form/edit_campaign_container */ "./frontend/components/campaign_form/edit_campaign_container.js");
+/* harmony import */ var _user_profile_profile_item__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../user_profile/profile_item */ "./frontend/components/user_profile/profile_item.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3247,6 +3248,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -3322,7 +3324,8 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      if (!this.props.campaign) return null;
+      if (!this.props.campaign) return null; // if (!this.props.allUsers) return null
+
       var funds;
 
       if (this.props.campaign.funding_percent < 100) {
@@ -3386,8 +3389,16 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
           });
         }))))
       }, {
-        title: 'Followers',
-        content: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null)
+        title: "Followers (".concat(this.props.campaignFollows.length, ")"),
+        content: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "followitem-contain"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "follow-stuff1"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.campaignFollows.map(function (follow) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_profile_profile_item__WEBPACK_IMPORTED_MODULE_8__["default"], {
+            follower: _this3.props.allUsers[follow.user_id]
+          });
+        }))))
       }];
       var followButton = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "campaign-button follow-it",
@@ -3547,6 +3558,7 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   var rewards = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__["selectRewardsFromCampaignId"])(state.entities.rewards, parseInt(ownProps.match.params.campaignId));
   var userId = state.entities.users[state.session.id];
+  var campFollows = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__["selectCampaignFollows"])(state.entities.follows, parseInt(ownProps.match.params.campaignId));
   var camps;
   var followId;
 
@@ -3555,7 +3567,6 @@ var mSTP = function mSTP(state, ownProps) {
     followId = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_4__["selectFollowId"])(state.entities.follows, userId.id, parseInt(ownProps.match.params.campaignId));
   }
 
-  debugger;
   return {
     campaign: state.entities.campaigns[ownProps.match.params.campaignId],
     userCampaigns: camps || [],
@@ -3563,7 +3574,8 @@ var mSTP = function mSTP(state, ownProps) {
     userFollowId: followId || [],
     allFollows: state.entities.follows,
     campRewards: rewards,
-    allUsers: Object.values(state.entities.users)
+    allUsers: Object.values(state.entities.users),
+    campaignFollows: campFollows
   };
 };
 
@@ -3714,6 +3726,42 @@ var ShowTabs = /*#__PURE__*/function (_React$Component2) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 
+
+/***/ }),
+
+/***/ "./frontend/components/user_profile/profile_item.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/user_profile/profile_item.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var ProfileItem = function ProfileItem(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "followitem1"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+    to: "/users/".concat(props.follower.id)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "followitem-content-contain"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-pic1"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: props.follower.photo_url,
+    alt: ""
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-username1"
+  }, props.follower.username))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ProfileItem);
 
 /***/ }),
 
@@ -3900,14 +3948,18 @@ var UserProfile = /*#__PURE__*/function (_React$Component) {
 
       if (!this.props.currentUser) return null;
       if (this.props.campaigns === []) return nil;
-      if (this.props.userFollows === []) return nil; // let saverImage = <img className="saver-image" src="profile_saver.png"/>
-
+      if (this.props.userFollows === []) return nil;
       var saverImage = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "saver-image",
-        src: this.props.currentUser.photoUrl
-      }); // debugger
-      //       if(this.props.currentUser.photoUrl) {
-      //       }
+        src: "profile_saver.png"
+      });
+
+      if (this.props.currentUser.photo_url) {
+        saverImage = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "saver-image",
+          src: this.props.currentUser.photo_url
+        });
+      }
 
       var panes = [{
         title: 'Profile',
@@ -4462,7 +4514,7 @@ var SearchReducer = function SearchReducer() {
 /*!****************************************!*\
   !*** ./frontend/reducers/selectors.js ***!
   \****************************************/
-/*! exports provided: selectCampaignsFromUser, selectContributionsFromUser, selectUserFollows, selectFollowId, selectRewardsFromCampaignId */
+/*! exports provided: selectCampaignsFromUser, selectContributionsFromUser, selectUserFollows, selectFollowId, selectRewardsFromCampaignId, selectCampaignFollows */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4472,6 +4524,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectUserFollows", function() { return selectUserFollows; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectFollowId", function() { return selectFollowId; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectRewardsFromCampaignId", function() { return selectRewardsFromCampaignId; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectCampaignFollows", function() { return selectCampaignFollows; });
 var selectCampaignsFromUser = function selectCampaignsFromUser(campaigns, userId) {
   var result = [];
 
@@ -4540,6 +4593,18 @@ var selectRewardsFromCampaignId = function selectRewardsFromCampaignId(rewards, 
 //   }
 //   return result;
 // }
+
+var selectCampaignFollows = function selectCampaignFollows(follows, campId) {
+  var result = [];
+
+  for (var id in follows) {
+    if (follows[id].campaign_id === campId) {
+      result.push(follows[id]);
+    }
+  }
+
+  return result;
+};
 
 /***/ }),
 

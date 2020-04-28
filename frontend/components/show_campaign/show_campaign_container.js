@@ -2,7 +2,7 @@ import { connect } from "react-redux"
 import ShowCampaign from "./show_campaign"
 import { fetchCampaigns, fetchCampaign, deleteCampaign } from '../../actions/campaign_action';
 import {openModal} from '../../actions/modal_action'
-import { selectCampaignsFromUser, selectFollowId, selectRewardsFromCampaignId } from '../../reducers/selectors'
+import { selectCampaignsFromUser, selectFollowId, selectRewardsFromCampaignId, selectCampaignFollows } from '../../reducers/selectors'
 import { fetchFollows, createFollow, deleteFollow} from '../../actions/follow_actions'
 import { fetchRewards } from '../../actions/reward_actions'
 import { fetchUsers } from '../../actions/session_actions'
@@ -12,13 +12,13 @@ import { fetchUsers } from '../../actions/session_actions'
 const mSTP = (state, ownProps) => {
     const rewards = selectRewardsFromCampaignId(state.entities.rewards, parseInt(ownProps.match.params.campaignId))
     const userId = state.entities.users[state.session.id];
+    const campFollows = selectCampaignFollows(state.entities.follows, parseInt(ownProps.match.params.campaignId))
     let camps;
     let followId;
     if(userId) {
         camps = selectCampaignsFromUser(state.entities.campaigns, userId.id) 
         followId = selectFollowId(state.entities.follows, userId.id, parseInt(ownProps.match.params.campaignId))
     }
-    debugger
     return {
         campaign: state.entities.campaigns[ownProps.match.params.campaignId],
         userCampaigns: camps || [],
@@ -26,7 +26,8 @@ const mSTP = (state, ownProps) => {
         userFollowId: followId || [],
         allFollows: state.entities.follows,
         campRewards: rewards,
-        allUsers: Object.values(state.entities.users)
+        allUsers: Object.values(state.entities.users),
+        campaignFollows: campFollows
     }
 }
 

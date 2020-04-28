@@ -6,7 +6,7 @@ import { selectFollowId } from '../../reducers/selectors'
 import ShowTabs from './show_tabs'
 import RewardItem from '../rewards/reward_item'
 import EditCampaignContainer from '../campaign_form/edit_campaign_container'
-
+import ProfileItem from '../user_profile/profile_item'
 
 class ShowCampaign extends React.Component{
     constructor(props){
@@ -62,7 +62,8 @@ class ShowCampaign extends React.Component{
     render() {
  
         if (!this.props.campaign) return null
-    
+        // if (!this.props.allUsers) return null
+
 
         
         let funds;
@@ -118,9 +119,15 @@ class ShowCampaign extends React.Component{
                             </ul>
                         </div>
                     </div> },
-            {title: 'Followers',
-            content: <div>
-
+            {title: `Followers (${this.props.campaignFollows.length})`,
+            content: <div className="followitem-contain">
+                        <div className="follow-stuff1">
+                            <ul>
+                                {
+                                    this.props.campaignFollows.map((follow) => <ProfileItem follower={this.props.allUsers[follow.user_id]} />)
+                                }
+                            </ul>
+                        </div>
                     </div> }
           
           ];

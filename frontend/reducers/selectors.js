@@ -53,3 +53,11 @@ export const selectRewardsFromCampaignId = (rewards, campId) => {
 //   }
 //   return result;
 // }
+
+export const selectCampaignFollows = (follows, campId) => {
+  let result = [];
+  for (let id in follows) {
+    if (follows[id].campaign_id === campId) {result.push(follows[id])}
+  }
+  return result;
+}

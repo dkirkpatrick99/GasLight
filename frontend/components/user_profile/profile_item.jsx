@@ -5,12 +5,16 @@ const ProfileItem = (props) => {
 
 
     return (
-    <li className="rewarditem">
-        <div className="item-content-contain">
-            <div className="reward-itemname">{props.reward.name}</div>
-            <div className="reward-itemprice">Price: ${props.reward.min_contribution}</div>
-            <div className="reward-itemdesc">{props.reward.description}</div>
+
+    <li className="followitem1">
+        <NavLink to={`/users/${props.follower.id}`} >
+        <div className="followitem-content-contain">
+            <div className="profile-pic1">
+                <img src={props.follower.photo_url} alt=""/>
+            </div>
+            <div className="profile-username1">{props.follower.username}</div>
         </div>
+        </NavLink>
     </li>
     )
 }

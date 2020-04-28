@@ -18,39 +18,45 @@ users[10] = User.create!(
     username: "Alex",
     email: "alex@gmail.com",
     company_name: "MAD Gaze",
-    password: "abcdef1"
+    password: "abcdef1",
+    photo_url: "10.jpg"
 )
 
 users[11] = User.create!(
     username: "Gracie",
     email: "gracie@gmail.com",
     company_name: "PrinCube",
-    password: "abcdef2"
+    password: "abcdef2",
+    photo_url: "11.jpg"
 
 )
 users[12] = User.create!(
     username: "Jasmine",
     email: "jasmine@gmail.com",
     company_name: "Graff Golf",
-    password: "abcdef3"
+    password: "abcdef3",
+    photo_url: "12.jpg"
 )
 users[13] = User.create!(
     username: "Johnny",
     email: "johnny@gmail.com",
     company_name: "Flash",
-    password: "abcdef4"
+    password: "abcdef4",
+    photo_url: "13.jpg"
 )
 users[14] = User.create!(
     username: "Alberto",
     email: "alberto@gmail.com",
     company_name: 'Pecaminosa',
-    password: "abcdef5"
+    password: "abcdef5",
+    photo_url: "14.jpg"
 )
 users[15] =User.create!(
     username: "Lyn",
     email: "lyn@gmail.com",
     company_name: "V-Tex",
-    password: "abcdef6"
+    password: "abcdef6",
+    photo_url: "15.jpg"
     )
     
     
@@ -67,7 +73,7 @@ camp[1] = Campaign.create!(
     location: "Hong Kong, Hong Kong",
     short_description: "Create Your Own Shortcuts, Access a Futuristic Life Using Wrist, Hand & Finger Gestures",
     long_description: "Smartwatches and mobile phones have powerful features that we rely on throughout our day but they can be inconvenient to use while on the go. 
-    The MAD Gaze Watch lets users conveniently control their digital lives with simple hand, wrist, and finger gestures to trigger apps, photos, music, and many other smart features.
+    The MAD Gaze Watch lets users conveniently control their digital lives with simple hand, wrist, and finger gestures to trigger apps, photos, music, and many other smart features. 
     MAD Gaze Watch is powered by advanced hand gesture controls that can be fully customized for any watch function. For instance, tapping a surface, snapping different fingers, turning your wrist, or simply tapping the back of your hand can trigger different actions such as taking pictures, answering and declining phone calls, playing music, controlling volume, setting timers, sharing locations. 
     MAD Gaze Watch also works as an accurate gesture control device for playing games in AR and VR using advanced motion sensing. Using your arm and wrist makes for more natural gameplay and lets you level up fast!",
     goal_amount: 10000,
@@ -216,10 +222,10 @@ camp.keys.each do |num|
     camp[num].photo.attach(io: file, filename: "#{num}.jpg")
 end
 
-users.keys.each do |num|
-    file = open("https://moneywise-dev.s3-us-west-1.amazonaws.com/#{num}.jpg")
-    users[num].photo.attach(io: file, filename: "#{num}.jpg")
-end
+# users.keys.each do |num|
+#     file = open("https://moneywise-dev.s3-us-west-1.amazonaws.com/#{num}.jpg")
+#     users[num].photo.attach(io: file, filename: "#{num}.jpg")
+# end
 
 
 

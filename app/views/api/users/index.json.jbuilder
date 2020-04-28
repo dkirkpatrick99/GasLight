@@ -1,6 +1,5 @@
 @users.each do |user|
   json.set! user.id do
-        json.extract! user, :id, :username, :email
-        json.photoUrl url_for(user.photo)
+        json.extract! user, :id, :username, :email, :photo_url
   end
 end

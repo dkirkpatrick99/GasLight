@@ -29,12 +29,11 @@ class UserProfile extends React.Component {
       if(!this.props.currentUser) return null
       if(this.props.campaigns === []) return nil
       if(this.props.userFollows === []) return nil
-      // let saverImage = <img className="saver-image" src="profile_saver.png"/>
-      let saverImage = <img className="saver-image" src={this.props.currentUser.photoUrl}/>
-// debugger
-//       if(this.props.currentUser.photoUrl) {
+      let saverImage = <img className="saver-image" src="profile_saver.png"/>
+      if(this.props.currentUser.photo_url) {
+        saverImage = <img className="saver-image" src={this.props.currentUser.photo_url}/>
 
-//       }
+      }
       const panes = [
         {title: 'Profile', 
         content:  <div className="profile-move">
