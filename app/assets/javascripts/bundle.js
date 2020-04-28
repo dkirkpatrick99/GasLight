@@ -3982,7 +3982,7 @@ var UserProfile = /*#__PURE__*/function (_React$Component) {
           className: "F1"
         }, this.props.userFollows.length, " Following")))
       }, {
-        title: 'Campaigns',
+        title: "Campaigns (".concat(this.props.campaigns.length, ")"),
         content: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "Q1"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3998,7 +3998,7 @@ var UserProfile = /*#__PURE__*/function (_React$Component) {
           });
         }))))
       }, {
-        title: 'Contributions',
+        title: "Contributions (".concat(this.props.contributions.length, ")"),
         content: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "list-of-items"
         }, this.props.contributions.map(function (cont) {
@@ -4011,7 +4011,7 @@ var UserProfile = /*#__PURE__*/function (_React$Component) {
           });
         }))))
       }, {
-        title: 'Following',
+        title: "Following (".concat(this.props.userFollows.length, ")"),
         content: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "list-of-items"
         }, this.props.userFollows.map(function (follow) {

@@ -50,7 +50,7 @@ class UserProfile extends React.Component {
                       <div className="F1">{this.props.userFollows.length} Following</div>
                     </div>
                   </div>},
-        {title: 'Campaigns', 
+        {title: `Campaigns (${this.props.campaigns.length})`, 
         content: <div>
                   <div className="Q1">
                     <div className="Q2">Campaigns I'm On</div>
@@ -63,7 +63,7 @@ class UserProfile extends React.Component {
                     </ul>
                   </div>
                 </div> },
-        {title: 'Contributions', 
+        {title: `Contributions (${this.props.contributions.length})`, 
         content: <div>
                   <div>
                     <ul className="list-of-items">
@@ -73,7 +73,7 @@ class UserProfile extends React.Component {
                     </ul>
                   </div>
                 </div> },
-        {title: 'Following', 
+        {title: `Following (${this.props.userFollows.length})`, 
         content: <div>
                   <div>
                     <ul className="list-of-items">
