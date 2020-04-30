@@ -42,6 +42,7 @@ export class ContributionItem extends React.Component {
         }
         return (
         <li className="campaign-item">
+            <div className="amount-header">${this.props.contribution.amount} contributed to:</div>
             <NavLink to={`/campaigns/${this.state[this.props.campaignId].id}`}>
                 <div className="camp-item">
                     <img className="campimage1" src={this.state[this.props.campaignId].photoUrl} alt=""/>

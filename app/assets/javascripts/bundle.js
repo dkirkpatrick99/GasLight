@@ -1367,7 +1367,9 @@ var ContributionItem = /*#__PURE__*/function (_React$Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "campaign-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "amount-header"
+      }, "$", this.props.contribution.amount, " contributed to:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
         to: "/campaigns/".concat(this.state[this.props.campaignId].id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "camp-item"
@@ -4008,6 +4010,7 @@ var UserProfile = /*#__PURE__*/function (_React$Component) {
             currentUser: _this2.props.currentUser,
             allFollows: _this2.props.allFollows,
             fetchCampaign: _this2.props.fetchCampaign,
+            contribution: cont,
             campaignId: cont.campaign_id
           });
         }))))

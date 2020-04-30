@@ -188,6 +188,10 @@
     /* box-shadow: 5px; */
 }
 
+.amount-header {
+    text-align: center;
+}
+
 .slick-prev:before,
 .slick-next:before
 {
