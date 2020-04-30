@@ -7,7 +7,7 @@ const ProfileItem = (props) => {
     return (
 
     <li className="followitem1">
-        <NavLink to={`/users/${props.follower.id}`} >
+        <NavLink to={`/users/3`} >
         <div className="followitem-content-contain">
             <div className="profile-pic1">
                 <img src={props.follower.photo_url} alt=""/>

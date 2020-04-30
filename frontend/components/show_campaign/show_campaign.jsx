@@ -124,7 +124,7 @@ class ShowCampaign extends React.Component{
                         <div className="follow-stuff1">
                             <ul>
                                 {
-                                    this.props.campaignFollows.map((follow) => <ProfileItem follower={this.props.allUsers[follow.user_id]} />)
+                                    this.props.campaignFollows.map((follow) => <ProfileItem follow={follow} follower={this.props.allUsers[follow.user_id]} />)
                                 }
                             </ul>
                         </div>

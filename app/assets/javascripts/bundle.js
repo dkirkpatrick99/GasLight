@@ -3396,6 +3396,7 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
           className: "follow-stuff1"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.campaignFollows.map(function (follow) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_profile_profile_item__WEBPACK_IMPORTED_MODULE_8__["default"], {
+            follow: follow,
             follower: _this3.props.allUsers[follow.user_id]
           });
         }))))
@@ -3748,7 +3749,7 @@ var ProfileItem = function ProfileItem(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "followitem1"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/users/".concat(props.follower.id)
+    to: "/users/3"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "followitem-content-contain"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
