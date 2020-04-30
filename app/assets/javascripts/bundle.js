@@ -3378,7 +3378,7 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
           className: "camplongdisc"
         }, this.props.campaign.long_description))))
       }, {
-        title: 'Rewards',
+        title: "Rewards (".concat(this.props.campRewards.length, ")"),
         content: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "reward-contain"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

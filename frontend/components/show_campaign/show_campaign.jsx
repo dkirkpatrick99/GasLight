@@ -108,7 +108,7 @@ class ShowCampaign extends React.Component{
                             </div>
                         </div>
                       </div>},
-            {title: 'Rewards', 
+            {title: `Rewards (${this.props.campRewards.length})`, 
             content: <div className="reward-contain">
                         <div className="reward-stuff">
                             <ul className="list-of-rewards">
