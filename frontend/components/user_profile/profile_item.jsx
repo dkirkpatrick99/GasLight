@@ -2,7 +2,7 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 
 const ProfileItem = (props) => {
-
+console.log(props.follower)
 
     return (
 
@@ -10,9 +10,9 @@ const ProfileItem = (props) => {
         <NavLink to={`/users/3`} >
         <div className="followitem-content-contain">
             <div className="profile-pic1">
-                <img src={props.follower.photo_url} alt=""/>
+                {/* <img src={props.follower.photo_url} alt=""/> */}
             </div>
-            <div className="profile-username1">{props.follower.username}</div>
+            {/* <div className="profile-username1">{props.follower.username}</div> */}
         </div>
         </NavLink>
     </li>

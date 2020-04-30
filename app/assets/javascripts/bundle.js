@@ -3277,10 +3277,10 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchCampaign(this.props.match.params.campaignId);
+      this.props.fetchUsers();
       this.props.fetchCampaigns();
       this.props.fetchFollows();
       this.props.fetchRewards();
-      this.props.fetchUsers();
       window.scrollTo(0, 0);
     }
   }, {
@@ -3746,6 +3746,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ProfileItem = function ProfileItem(props) {
+  console.log(props.follower);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "followitem1"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -3754,12 +3755,7 @@ var ProfileItem = function ProfileItem(props) {
     className: "followitem-content-contain"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-pic1"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: props.follower.photo_url,
-    alt: ""
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "profile-username1"
-  }, props.follower.username))));
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ProfileItem);

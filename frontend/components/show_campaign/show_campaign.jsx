@@ -17,10 +17,10 @@ class ShowCampaign extends React.Component{
 
     componentDidMount() {
         this.props.fetchCampaign(this.props.match.params.campaignId);
+        this.props.fetchUsers()
         this.props.fetchCampaigns();
         this.props.fetchFollows()
         this.props.fetchRewards()
-        this.props.fetchUsers()
         window.scrollTo(0,0);
 
     }
