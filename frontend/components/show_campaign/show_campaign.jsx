@@ -62,8 +62,9 @@ class ShowCampaign extends React.Component{
     render() {
  
         if (!this.props.campaign) return null
-        // if (!this.props.allUsers) return null
-
+        if (!this.props.allUsers) return null
+        console.log(this.props.campaignFollows)
+        console.log(this.props.campaign)
 
         
         let funds;
