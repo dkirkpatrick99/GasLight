@@ -26,7 +26,7 @@ const mSTP = (state, ownProps) => {
         userFollowId: followId || [],
         allFollows: state.entities.follows,
         campRewards: rewards,
-        allUsers: Object.values(state.entities.users),
+        allUsers: state.entities.users,
         campaignFollows: campFollows
     }
 }

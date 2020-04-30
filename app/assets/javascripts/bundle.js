@@ -3578,7 +3578,7 @@ var mSTP = function mSTP(state, ownProps) {
     userFollowId: followId || [],
     allFollows: state.entities.follows,
     campRewards: rewards,
-    allUsers: Object.values(state.entities.users),
+    allUsers: state.entities.users,
     campaignFollows: campFollows
   };
 };
@@ -3749,17 +3749,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ProfileItem = function ProfileItem(props) {
-  console.log(props.follower);
-  console.log(props.follow);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "followitem1"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/users/3"
+    to: "/users/".concat(props.follower.id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "followitem-content-contain"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "profile-pic1"
-  }))));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: props.follower.photo_url,
+    alt: ""
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-username1"
+  }, props.follower.username))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ProfileItem);
