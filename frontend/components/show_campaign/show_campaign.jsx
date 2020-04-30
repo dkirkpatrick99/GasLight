@@ -173,7 +173,7 @@ class ShowCampaign extends React.Component{
                                         {/* <div>{this.props.owner.company_name}</div> */}
                                         <div className="funding-details">
                                             <div className="percent1">
-                                                {`$${this.props.campaign.current_sum}`}
+                                                {`$${this.props.campaign.sum_in_dollars}`}
                                             </div>
                                         </div>
                                         <div className="tile-bar1">

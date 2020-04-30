@@ -1349,8 +1349,8 @@ var ContributionItem = /*#__PURE__*/function (_React$Component) {
 
       var funds;
 
-      if (this.state.funding_percent < 100) {
-        funds = this.state.funding_percent;
+      if (this.state[this.props.campaignId].funding_percent < 100) {
+        funds = this.state[this.props.campaignId].funding_percent;
       } else {
         funds = 100;
       }
@@ -1365,6 +1365,7 @@ var ContributionItem = /*#__PURE__*/function (_React$Component) {
         });
       }
 
+      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "campaign-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1401,7 +1402,7 @@ var ContributionItem = /*#__PURE__*/function (_React$Component) {
         className: "percent"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "goal-amt"
-      }, "$".concat(this.state[this.props.campaignId].goal_in_dollars, " goal")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "".concat(this.state.funding_percent, "% ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "$".concat(this.state[this.props.campaignId].goal_in_dollars, " goal")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "".concat(this.state[this.props.campaignId].funding_percent, "% ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tile-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tile-bar-done",
@@ -1665,8 +1666,8 @@ var FollowItem = /*#__PURE__*/function (_React$Component) {
 
       var funds;
 
-      if (this.state.funding_percent < 100) {
-        funds = this.state.funding_percent;
+      if (this.state[this.props.campaignId].funding_percent < 100) {
+        funds = this.state[this.props.campaignId].funding_percent;
       } else {
         funds = 100;
       }
@@ -1715,7 +1716,7 @@ var FollowItem = /*#__PURE__*/function (_React$Component) {
         className: "percent"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "goal-amt"
-      }, "$".concat(this.state[this.props.campaignId].goal_in_dollars, " goal")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "".concat(this.state.funding_percent, "% ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "$".concat(this.state[this.props.campaignId].goal_in_dollars, " goal")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "".concat(this.state[this.props.campaignId].funding_percent, "% ")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tile-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tile-bar-done",
@@ -3488,7 +3489,7 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
         className: "funding-details"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "percent1"
-      }, "$".concat(this.props.campaign.current_sum))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "$".concat(this.props.campaign.sum_in_dollars))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tile-bar1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tile-bar-done1",

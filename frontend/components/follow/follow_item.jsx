@@ -30,8 +30,8 @@ export class FollowItem extends React.Component {
         }
 
         let funds;
-        if (this.state.funding_percent < 100) {
-            funds = this.state.funding_percent;
+        if (this.state[this.props.campaignId].funding_percent < 100) {
+            funds = this.state[this.props.campaignId].funding_percent;
         } else {
             funds = 100;
         }
@@ -60,7 +60,7 @@ export class FollowItem extends React.Component {
                         <div className="funding-details">
                             <div className="percent">
                                 <div className="goal-amt">{`$${this.state[this.props.campaignId].goal_in_dollars} goal`}</div>
-                                <div>{`${this.state.funding_percent}% `}</div>
+                                <div>{`${this.state[this.props.campaignId].funding_percent}% `}</div>
                             </div>
                         </div>
                         <div className="tile-bar">
