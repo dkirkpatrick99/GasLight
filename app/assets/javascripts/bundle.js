@@ -3327,6 +3327,7 @@ var ShowCampaign = /*#__PURE__*/function (_React$Component) {
       if (!this.props.campaign) return null;
       if (!this.props.allUsers) return null;
       console.log(this.props.campaignFollows);
+      console.log(this.props.allUsers);
       console.log(this.props.campaign);
       var funds;
 
@@ -3749,6 +3750,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ProfileItem = function ProfileItem(props) {
   console.log(props.follower);
+  console.log(props.follow);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "followitem1"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {

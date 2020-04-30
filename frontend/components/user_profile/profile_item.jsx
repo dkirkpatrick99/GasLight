@@ -3,6 +3,7 @@ import {NavLink} from 'react-router-dom'
 
 const ProfileItem = (props) => {
 console.log(props.follower)
+console.log(props.follow)
 
     return (
 
