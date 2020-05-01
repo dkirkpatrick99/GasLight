@@ -1390,7 +1390,7 @@ var ContributionItem = /*#__PURE__*/function (_React$Component) {
         className: "camp-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "space"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state[this.props.campaignId].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "short-dis"
       }, this.state[this.props.campaignId].short_description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "to-bottom"
@@ -1704,7 +1704,7 @@ var FollowItem = /*#__PURE__*/function (_React$Component) {
         className: "camp-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "space"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state[this.props.campaignId].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "short-dis"
       }, this.state[this.props.campaignId].short_description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "to-bottom"

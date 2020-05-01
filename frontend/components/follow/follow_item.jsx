@@ -52,7 +52,7 @@ export class FollowItem extends React.Component {
                         </div>
                         <div className="camp-content">
                         <div className="space">
-                            <h1>{this.state.title}</h1>
+                            <h1>{this.state[this.props.campaignId].title}</h1>
                             <div className="short-dis">{this.state[this.props.campaignId].short_description}</div>
                     </div>
                     <div className="to-bottom">
