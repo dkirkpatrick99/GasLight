@@ -106,13 +106,13 @@ class NavBar extends React.Component{
                     <li className="nav-button">
                         <a href={'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/'}>Dalton's Portfolio</a>
                     </li>
+                    <li onClick={this.toggleSearch} className="nav-button searchicon">
+                        <i class="fas fa-search"></i>
+                    </li>
                     <li className="search-input">
                         <input className="searchinp" onChange={this.displayMatches} type="text" placeholder="Search by Campaign Name"/>
                         <ul className="suggestions">
                         </ul>
-                    </li>
-                    <li onClick={this.toggleSearch} className="nav-button searchicon">
-                        <i class="fas fa-search"></i>
                     </li>
                 </ul>
                 </h1>
@@ -153,13 +153,13 @@ class NavBar extends React.Component{
                                     <li className="nav-button">
                                         <a href={'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/'}>Dalton's Portfolio</a>
                                     </li>
+                                    <li onClick={this.toggleSearch} className="nav-button searchicon">
+                                        <i class="fas fa-search"></i>
+                                    </li>
                                     <li className="search-input">
                                         <input className="searchinp" onChange={this.displayMatches} type="text" placeholder="Search by Campaign Name"/>
                                         <ul className="suggestions">
                                         </ul>
-                                    </li>
-                                    <li onClick={this.toggleSearch} className="nav-button searchicon">
-                                        <i class="fas fa-search"></i>
                                     </li>
                                 </ul>
                             </h1>
