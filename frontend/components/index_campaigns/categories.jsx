@@ -87,22 +87,22 @@ class IndexCategory extends React.Component{
                                     </NavLink>
                                 </div>
                                 <div className="switch-tab">
-                                    <NavLink to={`/categories/${this.props.categories[4].id}`}>
+                                    <NavLink to={`/categories/0`}>
                                         <div>Cool Finds!</div>
                                     </NavLink>
                                 </div>
                                 <div className="switch-tab">
-                                    <NavLink to={`/categories/${this.props.categories[4].id}`}>
+                                    <NavLink to={`/categories/0`}>
                                         <div>Team Favorites</div>
                                     </NavLink>
                                 </div>
                                 <div className="switch-tab">
-                                    <NavLink to={`/categories/${this.props.categories[4].id}`}>
+                                    <NavLink to={`/categories/0`}>
                                         <div>InDemand</div>
                                     </NavLink>
                                 </div>
                                 <div className="switch-tab">
-                                    <NavLink to={`/categories/${this.props.categories[4].id}`}>
+                                    <NavLink to={`/categories/0`}>
                                         <div>Production Ready</div>
                                     </NavLink>
                                 </div>

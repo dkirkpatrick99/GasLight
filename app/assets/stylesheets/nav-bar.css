@@ -1,3 +1,7 @@
+.navheader-contain {
+    z-index: 90;
+}
+
 .header {
     border: 1px solid #ccc;
  }

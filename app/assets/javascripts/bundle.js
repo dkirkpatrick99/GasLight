@@ -651,15 +651,59 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
     //                 </div>
 
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.update = _this.update.bind(_assertThisInitialized(_this)); // this.toggleDrop = this.toggleDrop.bind(this)
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.searchedCamps = []; // this.toggleDrop = this.toggleDrop.bind(this)
 
+    _this.findMatches = _this.findMatches.bind(_assertThisInitialized(_this));
+    _this.displayMatches = _this.displayMatches.bind(_assertThisInitialized(_this));
     return _this;
-  } // componentDidMount() {
-  //     this.toggleDrop()
-  // }
-
+  }
 
   _createClass(NavBar, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchCampaigns(); // this.toggleDrop()
+    }
+  }, {
+    key: "toggleSearch",
+    value: function toggleSearch(e) {
+      var searchIcon = document.querySelector('.searchicon');
+      var searchInput = document.querySelector('.search-input');
+
+      if (searchInput.style.display === "none") {
+        searchInput.style.display = "block";
+      } else {
+        searchInput.style.display = "none";
+      }
+    }
+  }, {
+    key: "findMatches",
+    value: function findMatches(wordToMatch, allCamps) {
+      return allCamps.filter(function (camp) {
+        var regex = new RegExp(wordToMatch, 'gi');
+        console.log(wordToMatch.length);
+
+        if (wordToMatch.length === 0) {
+          return null;
+        } else {
+          return camp.title.match(regex);
+        }
+      });
+    }
+  }, {
+    key: "displayMatches",
+    value: function displayMatches(e) {
+      var suggestions = document.querySelector('.suggestions');
+      var matchArray = this.findMatches(e.currentTarget.value, this.props.campaigns);
+      var html = matchArray.map(function (camp) {
+        var regex = new RegExp(e.currentTarget.value, 'gi');
+        var campName = camp.title.replace(regex, "<span class=\"hl\">".concat(e.currentTarget.value, "</span>")); // const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`)
+
+        return "\n          <li> \n            <a href=\"/#/campaigns/".concat(camp.id, "\">").concat(campName, "</a>\n          </li>\n        ");
+      }).join('');
+      suggestions.innerHTML = html;
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -681,7 +725,9 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       if (!this.props.currentUser) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "navheader-contain"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
           className: "header"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
           className: "header-nav"
@@ -705,7 +751,21 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
           className: "nav-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: 'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/'
-        }, "Dalton's Portfolio")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "Dalton's Portfolio")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "search-input"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "searchinp",
+          onChange: this.displayMatches,
+          type: "text",
+          placeholder: "Search by Campaign Name"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "suggestions"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          onClick: this.toggleSearch,
+          className: "nav-button searchicon"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          "class": "fas fa-search"
+        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-right"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "right-header-items"
@@ -755,7 +815,21 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
           className: "nav-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: 'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/'
-        }, "Dalton's Portfolio")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "Dalton's Portfolio")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "search-input"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "searchinp",
+          onChange: this.displayMatches,
+          type: "text",
+          placeholder: "Search by Campaign Name"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "suggestions"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          onClick: this.toggleSearch,
+          className: "nav-button searchicon"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          "class": "fas fa-search"
+        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-right"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "right-header-items"
@@ -827,6 +901,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nav_bar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./nav_bar */ "./frontend/components/NavBar/nav_bar.jsx");
 /* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_campaign_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/campaign_action */ "./frontend/actions/campaign_action.js");
+
 
 
 
@@ -834,9 +910,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(_ref) {
   var session = _ref.session,
-      users = _ref.entities.users;
+      _ref$entities = _ref.entities,
+      users = _ref$entities.users,
+      campaigns = _ref$entities.campaigns;
   return {
-    currentUser: users[session.id]
+    currentUser: users[session.id],
+    campaigns: Object.values(campaigns)
   };
 };
 
@@ -847,6 +926,9 @@ var mDTP = function mDTP(dispatch) {
     },
     openModal: function openModal(modal) {
       return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_2__["openModal"])(modal));
+    },
+    fetchCampaigns: function fetchCampaigns() {
+      return dispatch(Object(_actions_campaign_action__WEBPACK_IMPORTED_MODULE_4__["fetchCampaigns"])());
     }
   };
 };
@@ -2383,19 +2465,19 @@ var IndexCategory = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Film"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "switch-tab"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        to: "/categories/".concat(this.props.categories[4].id)
+        to: "/categories/0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Cool Finds!"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "switch-tab"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        to: "/categories/".concat(this.props.categories[4].id)
+        to: "/categories/0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Team Favorites"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "switch-tab"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        to: "/categories/".concat(this.props.categories[4].id)
+        to: "/categories/0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "InDemand"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "switch-tab"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        to: "/categories/".concat(this.props.categories[4].id)
+        to: "/categories/0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Production Ready"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "items-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
