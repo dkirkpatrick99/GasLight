@@ -25,7 +25,11 @@ class NavBar extends React.Component{
         // this.toggleDrop = this.toggleDrop.bind(this)
         this.findMatches = this.findMatches.bind(this);
         this.displayMatches = this.displayMatches.bind(this);
+        this.toggleSearch = this.toggleSearch.bind(this)
+        this.pressed = [];
+        this.secretCode = 'money'
     }
+
 
     componentDidMount() {
         this.props.fetchCampaigns()
@@ -35,6 +39,7 @@ class NavBar extends React.Component{
     toggleSearch(e) {
         const searchIcon = document.querySelector('.searchicon')
         const searchInput = document.querySelector('.search-input')
+
         if(searchInput.style.display === "none"){
             searchInput.style.display = "block"
         } else {
@@ -46,9 +51,10 @@ class NavBar extends React.Component{
     findMatches(wordToMatch, allCamps) {
       return allCamps.filter(camp => {
         const regex = new RegExp(wordToMatch, 'gi');
-        console.log(wordToMatch.length)
         if(wordToMatch.length === 0) {
             return null
+        } else if(wordToMatch === 'money') {
+            cornify_add();
         } else {
             return camp.title.match(regex)
         }

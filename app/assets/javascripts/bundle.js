@@ -656,6 +656,9 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
 
     _this.findMatches = _this.findMatches.bind(_assertThisInitialized(_this));
     _this.displayMatches = _this.displayMatches.bind(_assertThisInitialized(_this));
+    _this.toggleSearch = _this.toggleSearch.bind(_assertThisInitialized(_this));
+    _this.pressed = [];
+    _this.secretCode = 'money';
     return _this;
   }
 
@@ -681,10 +684,11 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
     value: function findMatches(wordToMatch, allCamps) {
       return allCamps.filter(function (camp) {
         var regex = new RegExp(wordToMatch, 'gi');
-        console.log(wordToMatch.length);
 
         if (wordToMatch.length === 0) {
           return null;
+        } else if (wordToMatch === 'money') {
+          cornify_add();
         } else {
           return camp.title.match(regex);
         }
@@ -752,6 +756,11 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: 'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/'
         }, "Dalton's Portfolio")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          onClick: this.toggleSearch,
+          className: "nav-button searchicon"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          "class": "fas fa-search"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "search-input"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           className: "searchinp",
@@ -760,11 +769,6 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
           placeholder: "Search by Campaign Name"
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "suggestions"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          onClick: this.toggleSearch,
-          className: "nav-button searchicon"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "fas fa-search"
         })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-right"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -816,6 +820,11 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: 'https://dkirkpatrick99.github.io/DaltonKirkpatrickPortfolio/'
         }, "Dalton's Portfolio")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          onClick: this.toggleSearch,
+          className: "nav-button searchicon"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          "class": "fas fa-search"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "search-input"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           className: "searchinp",
@@ -824,11 +833,6 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
           placeholder: "Search by Campaign Name"
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "suggestions"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          onClick: this.toggleSearch,
-          className: "nav-button searchicon"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "fas fa-search"
         })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-right"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
